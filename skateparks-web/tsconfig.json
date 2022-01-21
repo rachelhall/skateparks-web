@@ -30,16 +30,18 @@
       "paths": {
           "@skateparks/*": ["src/*"]
       }
+    ,
+  
   },
   "include": ["src/**/*"],
   "exclude": [
-      "src/graphql/**/*",
-      "src/**/*.test.tsx",
-      "src/**/*.stories.tsx",
-      "**.d.ts",
-      "src/**/*.spec.tsx",
-      "src/optimisticUpdates/**/*.ts",
-      "src/styleComponents/_documentation/**/*"
+    "src/graphql/**/*",
+    "src/**/*.test.tsx",
+    "src/**/*.stories.tsx",
+    "**.d.ts",
+    "src/**/*.spec.tsx",
+    "src/optimisticUpdates/**/*.ts",
+    "src/styleComponents/_documentation/**/*"
   ]
 }
 
