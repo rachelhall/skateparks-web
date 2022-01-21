@@ -1,0 +1,76 @@
+// @mixin overlayBlur() {
+//     background-color: rgba(255, 255, 255, 0.95);
+//     box-shadow: 0 0 2rem 0rem var(--boxShadowColor);
+
+//     @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+//         background-color: unset;
+//         backdrop-filter: blur(2rem);
+//     }
+// }
+
+@mixin isDark {
+  @media (prefers-color-scheme: null) {
+    // @media (prefers-color-scheme: dark) {
+    @content;
+  }
+}
+
+@mixin desktopBreak {
+  @media only screen and (min-width: $Desktop) {
+    @content;
+  }
+}
+
+@mixin deviceBreak {
+  @media only screen and (max-width: $Device) {
+    @content;
+  }
+}
+
+@mixin tabletBreak {
+  @media only screen and (min-width: $Phone + 1px) and (max-width: $Desktop - 1px) {
+    @content;
+  }
+}
+
+@mixin phoneBreak {
+  @media only screen and (max-width: $Phone) {
+    @content;
+  }
+}
+
+@mixin largerThanPhoneBreak {
+  @media only screen and (min-width: $Phone) {
+    @content;
+  }
+}
+
+@mixin tabletLandscapeBreak {
+  @media only screen and (min-width: $TabletPortrait + 1px) and (max-width: $Desktop - 1px) {
+    @content;
+  }
+}
+
+@mixin tabletPortraitBreak {
+  @media only screen and (min-width: $Phone + 1px) and (max-width: $TabletPortrait) {
+    @content;
+  }
+}
+
+@mixin breakpoint($point, $maxPoint) {
+  @media only screen and (min-width: $point) and (max-width: $maxPoint) {
+    @content;
+  }
+}
+
+@mixin largerThanBreak($point) {
+  @media only screen and (min-width: $point) {
+    @content;
+  }
+}
+
+@mixin smallerThanBreak($point) {
+  @media only screen and (max-width: $point) {
+    @content;
+  }
+}
