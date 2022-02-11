@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 // import { useNavigate } from "react-router-dom";
-
-export const Login = () => {
+interface IProps {}
+export const Login: React.FC<IProps> = () => {
   // const navigate = useNavigate();
 
   // const [emailAddress, setEmailAddress] = useState("");
@@ -25,3 +25,5 @@ export const Login = () => {
     </div>
   );
 };
+
+export default Login;

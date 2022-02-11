@@ -1,18 +1,14 @@
 import React from "react";
+import { Router } from "react-router-dom";
 import "./App.scss";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import * as ROUTES from "./constants/routes";
 
-// Component Imports
-
-import { Login } from "./pages/login";
+import { useRouteRenderer } from "./utils/useRouteRenderer";
 
 const App = () => {
+  const currentView = useRouteRenderer();
   return (
     <Router>
-      <Routes>
-        <Route path={ROUTES.LOGIN} element={Login} />
-      </Routes>
+      <main role="main">{currentView}</main>;
     </Router>
   );
 };

@@ -1,5 +1,8 @@
-export const DASHBOARD = "/";
-export const LOGIN = "/login";
-export const SIGN_UP = "/signup";
-export const PROFILE = "/p/:username";
-export const NOT_FOUND = "/not-found";
+export const ERoutes = {
+  HOME_PAGE: "/app",
+  DASHBOARD: "/",
+  LOGIN: "/login",
+  SIGN_UP: "/signup",
+  PROFILE: "/p/:username",
+  NOT_FOUND: "/not-found",
+};
