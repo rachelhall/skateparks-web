@@ -1,27 +1,32 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import "./App.scss";
+import client from "./graphql/client";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {/* Skating rocks! */}
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import { useRouteRenderer } from "./utils/useRouteRenderer";
+import { gql } from "@apollo/client";
+
+export const App = () => {
+  client
+    .query({
+      query: gql`
+        query Query {
+          listPosts {
+            posts {
+              id
+              title
+              description
+              created_at
+            }
+            success
+            errors
+          }
+        }
+      `,
+    })
+    .then((result) => console.log(result));
+
+  const currentView = useRouteRenderer();
+  return <main role="main">{currentView}</main>;
+};
 
 export default App;

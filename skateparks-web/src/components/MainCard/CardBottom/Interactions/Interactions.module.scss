@@ -1,0 +1,12 @@
+.interactions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.interactionsLeft {
+  display: flex;
+}
+
+.interactionsLeft > * {
+  margin-right: 14px;
+}
