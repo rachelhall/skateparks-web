@@ -1,3 +1,4 @@
+import TextInput from "../../styleComponents/TextInput";
 import React from "react";
 
 import "./LoginForm.scss";
@@ -11,10 +12,8 @@ export const LoginForm: React.FC<IProps> = (props) => {
     <div className="LoginForm">
       <form className="LoginForm-form">
         <div className="LoginForm-inputContainer">
-          <input className="LoginForm-userInput" type="text" />
-          <label className="LoginForm-label">
-            Username, email, or phone number
-          </label>
+          {/* <input className="LoginForm-userInput" type="text" /> */}
+          <TextInput className="" label="Username, email, or phone number" />
         </div>
         <div className="LoginForm-inputContainer">
           <input className="LoginForm-passInput" type="text" />
