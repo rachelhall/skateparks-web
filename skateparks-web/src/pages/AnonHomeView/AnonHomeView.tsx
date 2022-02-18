@@ -2,6 +2,8 @@ import React from "react";
 
 import "./AnonHomeView.scss";
 import { gql, useMutation } from "@apollo/client";
+import { MainCard } from "../../components/MainCard/MainCard";
+import NewSkateparkForm from "../../components/NewSkateparkForm";
 
 interface IProps {}
 
@@ -9,23 +11,14 @@ export const AnonHomeView: React.FC<IProps> = (props) => {
   const {} = props;
 
   const CREATE_POST_METHOD = gql`
-    mutation createPark(
-      $title: string
-      $description: string
-      $created_at: string
-    ) {
-      createPost(
-        title: $title
-        description: $description
-        created_at: $created_at
-      ) {
+    mutation createPark($title: String!, $description: String!) {
+      createPost(title: $title, description: $description) {
         success
         errors
         post {
           id
           title
           description
-          created_at
         }
       }
     }
@@ -33,12 +26,8 @@ export const AnonHomeView: React.FC<IProps> = (props) => {
 
   const [createPark] = useMutation(CREATE_POST_METHOD);
 
-  const handleCreateStandardPark = (
-    title: string,
-    description: string,
-    created_at: string
-  ) => {
-    createPark({ variables: { title, description, created_at } });
+  const handleCreateStandardPark = (title: string, description: string) => {
+    createPark({ variables: { title, description } });
   };
 
   return (
@@ -46,15 +35,12 @@ export const AnonHomeView: React.FC<IProps> = (props) => {
       <p>Anonymous home view. Setup navigation or change url to /app/login</p>
       <button
         onClick={() =>
-          handleCreateStandardPark(
-            "Two Rivers",
-            "Concrete park in Nashville",
-            `${Date.now()}`
-          )
+          handleCreateStandardPark("Two Rivers", "Concrete park in Nashville")
         }
       >
         create standard park
       </button>
+      <NewSkateparkForm />
     </div>
   );
 };
