@@ -1,0 +1,69 @@
+.mainCard {
+  width: 100%;
+  //   background-color: rgba(0, 0, 0, 0.75);
+  text-align: left;
+}
+
+// Header
+
+.header {
+  display: flex;
+  padding: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headerLeft {
+  display: flex;
+}
+
+.profilePic {
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.handleLocation {
+  margin-left: 1rem;
+}
+
+.handle {
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-bottom: 0.1rem;
+}
+
+.location {
+  font-size: 0.8rem;
+}
+
+.headerRight {
+  font-size: 1.5rem;
+}
+
+// Content
+
+.contentContainer {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+// Interactions
+
+.interactions {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.interactionsLeft {
+  display: flex;
+}
+
+.comment {
+  margin-left: 1rem;
+}
+
+.share {
+  margin-left: 1rem;
+}

@@ -13,7 +13,10 @@ export const LoginForm: React.FC<IProps> = (props) => {
       <form className="LoginForm-form">
         <div className="LoginForm-inputContainer">
           {/* <input className="LoginForm-userInput" type="text" /> */}
-          <TextInput className="" label="Username, email, or phone number" />
+          <TextInput
+            className="LoginForm-userInput"
+            label="Username, email, or phone number"
+          />
         </div>
         <div className="LoginForm-inputContainer">
           <input className="LoginForm-passInput" type="text" />

@@ -88,7 +88,7 @@ export const TextInput: React.FC<IProps> = (props) => {
       // color={labelColor}
       // fontSize={labelSize}
       // fontWeight={labelWeight}
-      // label={label}
+      label={label}
       // subLabel={subLabel}
     >
       {/* <div className={inputFieldWrapperClass}>

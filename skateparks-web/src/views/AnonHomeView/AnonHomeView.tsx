@@ -65,6 +65,7 @@ export const AnonHomeView: React.FC<IProps> = (props) => {
   return (
     <div className="AnonHomeView">
       <p>Anonymous home view. Setup navigation or change url to /app/login</p>
+      <p>Existing routes: /app/login, /app/signup, /app/playground</p>
       <button
         onClick={() =>
           handleCreateStandardPark(
