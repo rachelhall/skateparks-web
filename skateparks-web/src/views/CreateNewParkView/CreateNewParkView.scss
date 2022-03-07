@@ -1,0 +1,29 @@
+.CreateNewParkView {
+}
+
+.CreateNewParkView-header {
+  width: 100%;
+  padding: 2rem;
+  background: linear-gradient(to right, purple, rgb(228, 74, 100));
+}
+
+.CreateNewParkView-heading {
+  color: white;
+}
+
+.CreateNewParkView-formContainer {
+  padding: 1.5rem;
+  width: 100%;
+  height: 25rem;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.CreateNewParkView-footer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-top: 1px solid lightgray;
+  padding: 1rem 1.2rem;
+  background-color: white;
+}

@@ -1,0 +1,24 @@
+.NewParkGeneralInfoForm {
+  width: 100%;
+  height: 100%;
+}
+
+.NewParkGeneralInfoForm-heading {
+  text-align: center;
+}
+
+.NewParkGeneralInfoForm-form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-top: 1rem;
+}
+
+.NewParkGeneralInfoForm-inputContainer {
+  position: relative;
+}
+
+.NewParkGeneralInfoForm-TextInput {
+  width: 100%;
+}

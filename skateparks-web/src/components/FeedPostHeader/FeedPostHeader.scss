@@ -1,0 +1,32 @@
+.FeedPostHeader {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  align-items: center;
+  background-color: white;
+}
+
+.FeedPostHeader-left {
+  display: flex;
+}
+
+.FeedPostHeader-handlelocation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 1rem;
+}
+
+.FeedPostHeader-handle {
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-bottom: 0.1rem;
+}
+
+.FeedPostHeader-location {
+  font-size: 0.8rem;
+}
+
+.FeedPostHeader-right {
+  font-size: 1.5rem;
+}

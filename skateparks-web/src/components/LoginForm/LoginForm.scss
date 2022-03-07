@@ -1,6 +1,8 @@
 .LoginForm-form {
   margin: 0 auto;
   width: 100%;
+  max-width: 40rem;
+  // border: 1px solid black;
   // background-color: rgba(0, 0, 0, 0.3);
   padding: 2rem;
   display: flex;
@@ -10,63 +12,23 @@
 
 .LoginForm-inputContainer {
   position: relative;
+  margin: 0.7rem 0;
 }
 
-.LoginForm-userInput {
-  border-top-left-radius: 7px;
-  border-top-right-radius: 7px;
-}
-
-.LoginForm-passInput {
-  border-bottom-left-radius: 7px;
-  border-bottom-right-radius: 7px;
-}
-
-.LoginForm-userInput,
-.LoginForm-passInput {
-  border: 1px solid gray;
-  padding: 20px;
+.LoginForm-TextInput {
   width: 100%;
-}
-
-.LoginForm-userInput:focus,
-.LoginForm-passInput:focus {
-  outline: none;
-}
-
-.LoginForm-label {
-  position: absolute;
-  left: 10px;
-  top: 35%;
-  color: gray;
-  transition: 0.1s;
-}
-
-.LoginForm-userInput:focus ~ .LoginForm-label,
-.LoginForm-passInput:focus ~ .LoginForm-label {
-  top: 10%;
-  font-size: 12px;
-}
-
-.LoginForm-loginButton {
-  width: 100%;
-  margin: 20px auto 0 auto;
-  height: 3rem;
-  border: none;
-  border-radius: 10px;
-  background-color: rgb(90, 161, 206);
-  color: white;
-  font-size: 16px;
-}
-.LoginForm-loginButton:focus {
-  outline: none;
 }
 
 .LoginForm-link {
   margin-top: 20px;
   color: rgb(90, 161, 206);
+  cursor: pointer;
 }
 
 .LoginForm-signUp {
   margin-top: 40px;
+}
+
+.LoginForm-Button-login {
+  margin-top: 1rem;
 }

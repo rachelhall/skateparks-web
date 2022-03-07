@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import TextInput from "src/styleComponents/TextInput";
+import Button from "src/styleComponents/Button";
+import FileInput from "src/styleComponents/FileInput";
 
 import "./PlaygroundView.scss";
 
@@ -12,7 +14,7 @@ export const PlaygroundView: React.FC<IProps> = (props) => {
 
   return (
     <div className="PlaygroundView">
-      <TextInput value={value} onChange={setValue} />
+      <FileInput />
     </div>
   );
 };

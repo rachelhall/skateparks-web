@@ -1,0 +1,43 @@
+.SelectorInput {
+  display: flex;
+  align-items: center;
+  height: 4.5rem;
+  border-radius: 1rem;
+  border: 1px solid lightgray;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.SelectorInput-text {
+  width: fit-content;
+  font-size: 1.1rem;
+}
+.SelectorInput-noImage {
+  justify-content: center;
+}
+
+.SelectorInput-withImage {
+  justify-content: space-between;
+}
+
+.SelectorInput-image {
+  width: 3rem;
+  object-fit: cover;
+  border-radius: 0.3rem;
+}
+
+.SelectorInput-input {
+  display: none;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.SelectorInput-selected {
+  border: 2px solid black;
+  background: rgb(245, 245, 245);
+}
+
+.SelectorInput:hover {
+  border: 2px solid black;
+}

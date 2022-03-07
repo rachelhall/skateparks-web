@@ -1,20 +1,40 @@
 import React from "react";
+import cx from "classnames";
 
 import "./Text.scss";
 
 interface IProps extends React.HTMLAttributes<HTMLParagraphElement> {
-  fontSize: "small" | "medium" | "large";
-  fontWeight: "regular" | "bold";
-  htmlEntity: "span" | "p" | "h1" | "h2" | "h3" | "h4";
+  className?: string;
+  fontSize?: "small" | "medium" | "large" | null;
+  fontWeight?: "regular" | "bold";
+  htmlEntity?: "span" | "p" | "h1" | "h2" | "h3" | "h4";
 }
 
 export const Text: React.FC<IProps> = (props) => {
-  const { children, htmlEntity = "p", ...rest } = props;
+  const {
+    children,
+    className,
+    fontSize = "medium",
+    fontWeight = "regular",
+    htmlEntity = "p",
+    ...rest
+  } = props;
   const CustomElement: React.ElementType = htmlEntity;
+  const mainClass = cx(
+    "Text",
+    className,
+    fontSize === "small"
+      ? "Text-small"
+      : fontSize === "medium"
+      ? "Text-medium"
+      : fontSize === "large"
+      ? "Text-large"
+      : null
+  );
   return (
-    <div className="Text">
-      <CustomElement {...rest}>{children}</CustomElement>
-    </div>
+    <CustomElement className={mainClass} {...rest}>
+      {children}
+    </CustomElement>
   );
 };
 
