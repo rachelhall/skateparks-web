@@ -1,25 +1,21 @@
 import React, { useState } from "react";
 
 import "./FileInput.scss";
-import axios from "axios";
-import storage from "../../firebase";
-import Button from "src/styleComponents/Button";
-interface IProps {}
+interface IProps {
+  selectedFiles: File | Array<File> | Object | null;
+  setSelectedFiles: (newFile: File | Array<File> | Object | null) => void;
+}
 
 export const FileInput: React.FC<IProps> = (props) => {
-  const {} = props;
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const { selectedFiles, setSelectedFiles } = props;
 
   const fileSelectedHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.target.files && setSelectedFile(e.target.files[0]);
+    e.target.files && setSelectedFiles(Array.from(e.target.files));
   };
-  const fileUploadHandler = () => {
-    axios.post(storage);
-  };
+  const fileUploadHandler = () => {};
   return (
     <div className="FileInput">
-      <input type="file" onChange={fileSelectedHandler} />
-      <Button onClick={fileUploadHandler}>Upload</Button>
+      <input type="file" onChange={fileSelectedHandler} multiple />
     </div>
   );
 };

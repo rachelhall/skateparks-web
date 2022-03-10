@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "./FeedPost.scss";
 import FeedPostHeader from "../FeedPostHeader";
 import FeedPostContent from "../FeedPostContent";
+import FileInput from "../../styleComponents/FileInput";
 
 interface IProps {
   className?: string;

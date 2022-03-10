@@ -12,11 +12,7 @@ export const PlaygroundView: React.FC<IProps> = (props) => {
 
   const [value, setValue] = useState("Type something here");
 
-  return (
-    <div className="PlaygroundView">
-      <FileInput />
-    </div>
-  );
+  return <div className="PlaygroundView"></div>;
 };
 
 export default PlaygroundView;
