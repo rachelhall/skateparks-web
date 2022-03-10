@@ -5,6 +5,7 @@ import FeedPostHeader from "../FeedPostHeader";
 import FeedPostContent from "../FeedPostContent";
 
 interface IProps {
+  id?: string;
   className?: string;
   contentPieces?: "single" | "multiple";
   fileType?: "photo" | "video";
@@ -12,7 +13,9 @@ interface IProps {
 }
 
 export const FeedPost: React.FC<IProps> = (props) => {
-  const {} = props;
+  const { id } = props;
+
+  const { data } = getPost(id);
 
   return (
     <div className="FeedPost">

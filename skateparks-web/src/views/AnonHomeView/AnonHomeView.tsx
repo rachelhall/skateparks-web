@@ -9,38 +9,38 @@ interface IProps {}
 export const AnonHomeView: React.FC<IProps> = (props) => {
   const {} = props;
 
-  const CREATE_POST_METHOD = gql`
-    mutation createPark(
-      $title: string
-      $description: string
-      $created_at: string
-    ) {
-      createPost(
-        title: $title
-        description: $description
-        created_at: $created_at
-      ) {
-        success
-        errors
-        post {
-          id
-          title
-          description
-          created_at
-        }
-      }
-    }
-  `;
+  // const CREATE_POST_METHOD = gql`
+  //   mutation createPark(
+  //     $title: String!
+  //     $description: String!
+  //     $created_at: string!
+  //   ) {
+  //     createPost(
+  //       title: $title
+  //       description: $description
+  //       created_at: $created_at
+  //     ) {
+  //       success
+  //       errors
+  //       post {
+  //         id
+  //         title
+  //         description
+  //         created_at
+  //       }
+  //     }
+  //   }
+  // `;
 
-  const [createPark] = useMutation(CREATE_POST_METHOD);
+  // const [createPark] = useMutation(CREATE_POST_METHOD);
 
-  const handleCreateStandardPark = (
-    title: string,
-    description: string,
-    created_at: string
-  ) => {
-    createPark({ variables: { title, description, created_at } });
-  };
+  // const handleCreateStandardPark = (
+  //   title: String,
+  //   description: String,
+  //   created_at: String
+  // ) => {
+  //   createPark({ variables: { title, description, created_at } });
+  // };
 
   const [allPosts, setAllPosts] = useState();
 
@@ -69,7 +69,7 @@ export const AnonHomeView: React.FC<IProps> = (props) => {
         Existing routes: /app/login, /app/signup, /app/createpark,
         /app/playground
       </p>
-      <button
+      {/* <button
         onClick={() =>
           handleCreateStandardPark(
             "Two Rivers",
@@ -77,9 +77,9 @@ export const AnonHomeView: React.FC<IProps> = (props) => {
             `${Date.now()}`
           )
         }
-      >
-        create standard park
-      </button>
+      > */}
+      {/* create standard park
+      </button> */}
       {/* <p>{allPosts.post}</p> */}
     </div>
   );

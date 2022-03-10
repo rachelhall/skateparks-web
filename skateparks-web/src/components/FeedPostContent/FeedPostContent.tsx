@@ -26,15 +26,15 @@ export const FeedPostContent: React.FC<IProps> = (props) => {
   //     })
   // };
   // Style container based on single or swipe
-  const contentContainerClass = cx(
-    "FeedPostContent-container",
-    numberContentPieces > 1 && "FeedPostContent-container-swipe"
-  );
+  // const contentContainerClass = cx(
+  //   "FeedPostContent-container",
+  //   numberContentPieces > 1 && "FeedPostContent-container-swipe"
+  // );
   return (
     <div className="FeedPostContent">
-      <div className={contentContainerClass}>
-        <FeedPostContentPiece video={src} />
-      </div>
+      {/* <div className={contentContainerClass}> */}
+      <FeedPostContentPiece video={src} />
+      {/* </div> */}
     </div>
   );
 };

@@ -13,13 +13,13 @@ export const FileInput: React.FC<IProps> = (props) => {
   const fileSelectedHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.target.files && setSelectedFile(e.target.files[0]);
   };
-  const fileUploadHandler = () => {
-    axios.post(storage);
-  };
+  // const fileUploadHandler = () => {
+  //   axios.post(storage);
+  // };
   return (
     <div className="FileInput">
       <input type="file" onChange={fileSelectedHandler} />
-      <Button onClick={fileUploadHandler}>Upload</Button>
+      {/* <Button onClick={fileUploadHandler}>Upload</Button> */}
     </div>
   );
 };
