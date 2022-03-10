@@ -12,9 +12,15 @@ export const FeedView: React.FC<IProps> = (props) => {
     File | Array<File> | Object | null
   >(null);
   console.log(selectedFiles);
+
+  const filesArray = [
+    "../images/testpic.jpg",
+    "../images/testpic2.jpg",
+    "https://picsum.photos/500",
+  ];
   return (
     <div className="FeedView">
-      <FeedPost />
+      <FeedPost src={filesArray} />
       <FileInput
         selectedFiles={selectedFiles}
         setSelectedFiles={setSelectedFiles}

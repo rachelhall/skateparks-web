@@ -7,18 +7,16 @@ import FileInput from "../../styleComponents/FileInput";
 
 interface IProps {
   className?: string;
-  contentPieces?: "single" | "multiple";
-  fileType?: "photo" | "video";
-  src?: string;
+  src: Array<string>;
 }
 
 export const FeedPost: React.FC<IProps> = (props) => {
-  const {} = props;
+  const { src } = props;
 
   return (
     <div className="FeedPost">
       <FeedPostHeader location="Nashville, TN" />
-      <FeedPostContent />
+      <FeedPostContent src={src} />
     </div>
   );
 };
