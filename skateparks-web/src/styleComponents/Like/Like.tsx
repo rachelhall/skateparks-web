@@ -1,14 +1,20 @@
 import React from "react";
 import { HeartOutline, Heart } from "react-ionicons";
 
+import "./Like.scss";
+
 interface IProps {
-  prevIsLiked: boolean;
+  prevIsLiked?: boolean;
   setPrevIsLiked: (value: boolean) => void;
 }
-export const Like: React.FC<IProps> = ({ prevIsLiked, setPrevIsLiked }) => {
+
+export const Like: React.FC<IProps> = (props) => {
+  const { prevIsLiked = false, setPrevIsLiked } = props;
+
   const toggleLike = () => {
     setPrevIsLiked(!prevIsLiked);
   };
+
   if (prevIsLiked) {
     return (
       <Heart onClick={toggleLike} color={"red"} height="29px" width="29px" />
@@ -23,3 +29,5 @@ export const Like: React.FC<IProps> = ({ prevIsLiked, setPrevIsLiked }) => {
       />
     );
 };
+
+export default Like;

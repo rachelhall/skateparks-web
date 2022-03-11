@@ -20,11 +20,11 @@ export const FeedView: React.FC<IProps> = (props) => {
   ];
   return (
     <div className="FeedView">
-      <FeedPost src={filesArray} />
-      <FileInput
+      <FeedPost user="profilename" src={filesArray} />
+      {/* <FileInput
         selectedFiles={selectedFiles}
         setSelectedFiles={setSelectedFiles}
-      />
+      /> */}
     </div>
   );
 };

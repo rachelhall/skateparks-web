@@ -14,8 +14,26 @@ interface IProps {}
 
 export const CreateNewParkView: React.FC<IProps> = (props) => {
   const {} = props;
+
+  // State for form values
+
+  const [generalInfo, setGeneralInfo] = useState({
+    name: "",
+    address: "",
+    city: "",
+    state: "",
+  });
+
+  const [rampInfo, setRampInfo] = useState([]);
+  const [railInfo, setRailInfo] = useState([]);
+
+  // Array for form JSX components
+
   const formPages = [
-    <NewParkGeneralInfoForm />,
+    <NewParkGeneralInfoForm
+      generalInfo={generalInfo}
+      setGeneralInfo={setGeneralInfo}
+    />,
     <NewParkRampsForm />,
     <NewParkRailsForm />,
   ];

@@ -4,10 +4,19 @@ import "./NewParkGeneralInfoForm.scss";
 import TextInput from "../../../styleComponents/TextInput/TextInput";
 import Text from "../../../styleComponents/Text/Text";
 
-interface IProps {}
+interface IProps {
+  generalInfo: GeneralProps;
+  setGeneralInfo: (value: GeneralProps) => void;
+}
+interface GeneralProps {
+  name: string;
+  address: string;
+  city: string;
+  state: string;
+}
 
 export const NewParkGeneralInfoForm: React.FC<IProps> = (props) => {
-  const {} = props;
+  const { generalInfo, setGeneralInfo } = props;
 
   return (
     <div className="NewParkGeneralInfoForm">
@@ -17,6 +26,7 @@ export const NewParkGeneralInfoForm: React.FC<IProps> = (props) => {
       <form className="NewParkGeneralInfoForm-form">
         <div className="NewParkGeneralInfoForm-inputContainer">
           <TextInput
+            value={generalInfo.name}
             inputWrapperClass="NewParkGeneralInfoForm-TextInput"
             labelContent="Skatepark Name"
             placeholder=" "
@@ -24,6 +34,7 @@ export const NewParkGeneralInfoForm: React.FC<IProps> = (props) => {
         </div>
         <div className="NewParkGeneralInfoForm-inputContainer">
           <TextInput
+            value={generalInfo.address}
             inputWrapperClass="NewParkGeneralInfoForm-TextInput"
             labelContent="Street Address"
             placeholder=" "
@@ -31,6 +42,7 @@ export const NewParkGeneralInfoForm: React.FC<IProps> = (props) => {
         </div>
         <div className="NewParkGeneralInfoForm-inputContainer">
           <TextInput
+            value={generalInfo.city}
             inputWrapperClass="NewParkGeneralInfoForm-TextInput"
             labelContent="City"
             placeholder=" "
@@ -38,6 +50,7 @@ export const NewParkGeneralInfoForm: React.FC<IProps> = (props) => {
         </div>
         <div className="NewParkGeneralInfoForm-inputContainer">
           <TextInput
+            value={generalInfo.state}
             inputWrapperClass="NewParkGeneralInfoForm-TextInput"
             labelContent="State"
             placeholder=" "

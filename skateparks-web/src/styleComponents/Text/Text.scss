@@ -1,4 +1,9 @@
 .Text {
+  display: flex;
+}
+
+.Text-xSmall {
+  font-size: 0.9rem;
 }
 
 .Text-small {
@@ -11,4 +16,16 @@
 
 .Text-large {
   font-size: 2rem;
+}
+
+.Text-bold {
+  font-weight: bold;
+}
+
+.Text-flex {
+  display: flex;
+}
+
+.Text-inline {
+  display: inline;
 }

@@ -24,9 +24,22 @@
 }
 
 .FeedPostHeader-location {
+  color: gray;
   font-size: 0.8rem;
+  margin-top: 4px;
 }
 
 .FeedPostHeader-right {
-  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.FeedPostHeader-elipses {
+  margin: 0 1.5px;
+  width: 3px;
+  height: 3px;
+  background-color: rgb(44, 44, 44);
+  border-radius: 50%;
 }

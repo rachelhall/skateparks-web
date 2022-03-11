@@ -5,15 +5,17 @@ import "./Text.scss";
 
 interface IProps extends React.HTMLAttributes<HTMLParagraphElement> {
   className?: string;
-  fontSize?: "small" | "medium" | "large" | null;
+  fontSize?: "xSmall" | "small" | "medium" | "large" | null;
   fontWeight?: "regular" | "bold";
   htmlEntity?: "span" | "p" | "h1" | "h2" | "h3" | "h4";
+  display?: "flex" | "inline";
 }
 
 export const Text: React.FC<IProps> = (props) => {
   const {
     children,
     className,
+    display = "flex",
     fontSize = "medium",
     fontWeight = "regular",
     htmlEntity = "p",
@@ -23,13 +25,17 @@ export const Text: React.FC<IProps> = (props) => {
   const mainClass = cx(
     "Text",
     className,
-    fontSize === "small"
+    fontSize === "xSmall"
+      ? "Text-xSmall"
+      : fontSize === "small"
       ? "Text-small"
       : fontSize === "medium"
       ? "Text-medium"
       : fontSize === "large"
       ? "Text-large"
-      : null
+      : null,
+    fontWeight === "bold" && "Text-bold",
+    display === "inline" ? "Text-inline" : "Text-flex"
   );
   return (
     <CustomElement className={mainClass} {...rest}>
