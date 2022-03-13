@@ -6,7 +6,7 @@ import Text from "../../../styleComponents/Text/Text";
 
 interface IProps {
   generalInfo: GeneralProps;
-  setGeneralInfo: (value: GeneralProps) => void;
+  setGeneralInfo: (value: GeneralProps |) => void;
 }
 interface GeneralProps {
   name: string;
@@ -17,6 +17,8 @@ interface GeneralProps {
 
 export const NewParkGeneralInfoForm: React.FC<IProps> = (props) => {
   const { generalInfo, setGeneralInfo } = props;
+
+  
 
   return (
     <div className="NewParkGeneralInfoForm">
@@ -30,6 +32,11 @@ export const NewParkGeneralInfoForm: React.FC<IProps> = (props) => {
             inputWrapperClass="NewParkGeneralInfoForm-TextInput"
             labelContent="Skatepark Name"
             placeholder=" "
+            onChange={(value) => {
+              setGeneralInfo((prevState: GeneralProps) =>
+                !prevState ? undefined : { ...prevState, name: value }
+              );
+            }}
           />
         </div>
         <div className="NewParkGeneralInfoForm-inputContainer">
