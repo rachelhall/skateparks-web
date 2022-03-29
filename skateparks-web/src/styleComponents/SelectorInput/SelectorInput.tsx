@@ -3,10 +3,12 @@ import cx from "classnames";
 
 import "./SelectorInput.scss";
 import Text from "../Text/Text";
+import { IRailProps } from "../../views/CreateNewParkView/CreateNewParkView";
 
 interface IProps {
   className?: string;
   image?: string;
+  // onClick?: () => void;
 }
 
 export const SelectorInput: React.FC<IProps> = (props) => {
@@ -14,6 +16,7 @@ export const SelectorInput: React.FC<IProps> = (props) => {
   const [isSelected, setIsSelected] = useState(false);
   const handleClick = () => {
     setIsSelected(!isSelected);
+    console.log(isSelected);
   };
 
   const mainClass = cx(
@@ -28,7 +31,11 @@ export const SelectorInput: React.FC<IProps> = (props) => {
         {children}
       </Text>
       {image && <img className="SelectorInput-image" src={image} />}
-      <input className="SelectorInput-input" type="checkbox" />
+      <input
+        className="SelectorInput-input"
+        type="checkbox"
+        checked={isSelected}
+      />
     </div>
   );
 };

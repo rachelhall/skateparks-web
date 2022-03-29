@@ -2,6 +2,7 @@ import React from "react";
 import Text from "../../styleComponents/Text";
 import Link from "../../styleComponents/Link";
 import "./FeedPostCaption.scss";
+import cx from "classnames";
 
 interface IProps {
   user: string;
@@ -11,15 +12,17 @@ interface IProps {
 export const FeedPostCaption: React.FC<IProps> = (props) => {
   const { caption, user } = props;
 
+  const captionClass = cx(
+    "FeedPostCaption-caption",
+    caption && caption.length > 50 && "FeedPostCaption-long"
+  );
   return (
     <div className="FeedPostCaption">
-      <Text className="" display="inline" fontSize="xSmall">
+      <Text className={captionClass} display="inline" fontSize="xSmall">
         <Link className="FeedPostCaption-user" to="#">
           {user}
         </Link>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
-        voluptatibus nulla aliquam dignissimos nisi facere exercitationem id
-        alias quis temporibus?
+        {caption}
       </Text>
     </div>
   );

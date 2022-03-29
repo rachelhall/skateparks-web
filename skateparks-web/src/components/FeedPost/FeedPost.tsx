@@ -40,7 +40,11 @@ export const FeedPost: React.FC<IProps> = (props) => {
         totalLikeCount={totalLikeCount}
         setTotalLikeCount={setTotalLikeCount}
       />
-      <FeedPostCaption user={user} />
+
+      <FeedPostCaption
+        caption="Lorem ipsum dolor asdfasdfasdfasdfasdfasdf asdf asdf asdflakjsn dfl;aksejnf a;lskefj a;lsefkj a;sdlfkjn as;elfjkn ase;lfjn a;lsekfj as;ldfkjn asdfasdfasdfasdfasdfasdf asdf asdf asdflakjsn dfl;aksejnf a;lskefj a;lsefkj a;sdlfkjn as;elfjkn ase;lfjn a;lsekfj as;ldfkjn "
+        user={user}
+      />
     </div>
   );
 };

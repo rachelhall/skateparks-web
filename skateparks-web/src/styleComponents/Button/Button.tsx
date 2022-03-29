@@ -2,6 +2,7 @@ import React from "react";
 import cx from "classnames";
 
 import "./Button.scss";
+import { Link } from "react-router-dom";
 
 interface IProps extends React.HTMLProps<HTMLButtonElement> {
   allowClickWhenDisabled?: boolean;
@@ -94,6 +95,10 @@ export const Button: React.FC<IProps> = (props) => {
       ? "Button-black"
       : "Button-transparent"
   );
+
+  if (!!linkTo && !disabled) {
+    return <Link to={linkTo}>{children}</Link>;
+  }
 
   return (
     <button onClick={onClick} className={mainClass}>

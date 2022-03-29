@@ -12,6 +12,20 @@ import NewParkRailsForm from "../../components/NewParkForms/NewParkRailsForm/New
 
 interface IProps {}
 
+export interface IRampProps {
+  miniRamp: boolean;
+  quarterPipe: boolean;
+  halfPipe: boolean;
+  bowl: boolean;
+}
+
+export interface IRailProps {
+  roundRail: boolean;
+  squareRail: boolean;
+  downRail: boolean;
+  rainbowRail: boolean;
+}
+
 export const CreateNewParkView: React.FC<IProps> = (props) => {
   const {} = props;
 
@@ -24,8 +38,8 @@ export const CreateNewParkView: React.FC<IProps> = (props) => {
     state: "",
   });
 
-  const [rampInfo, setRampInfo] = useState([]);
-  const [railInfo, setRailInfo] = useState([]);
+  const [rampInfo, setRampInfo] = useState<IRampProps[]>();
+  const [railInfo, setRailInfo] = useState<IRailProps[]>();
 
   // Array for form JSX components
 
@@ -34,8 +48,8 @@ export const CreateNewParkView: React.FC<IProps> = (props) => {
       generalInfo={generalInfo}
       setGeneralInfo={setGeneralInfo}
     />,
-    <NewParkRampsForm />,
-    <NewParkRailsForm />,
+    <NewParkRampsForm rampInfo={rampInfo} setRampInfo={setRampInfo} />,
+    <NewParkRailsForm railInfo={railInfo} setRailInfo={setRailInfo} />,
   ];
 
   const [formPage, setFormPage] = useState(0);

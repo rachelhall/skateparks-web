@@ -5,10 +5,10 @@ import TextInput from "../../../styleComponents/TextInput/TextInput";
 import Text from "../../../styleComponents/Text/Text";
 
 interface IProps {
-  generalInfo: GeneralProps;
-  setGeneralInfo: (value: GeneralProps |) => void;
+  generalInfo: IGeneralProps;
+  setGeneralInfo: (newValue: IGeneralProps) => void;
 }
-interface GeneralProps {
+interface IGeneralProps {
   name: string;
   address: string;
   city: string;
@@ -18,8 +18,6 @@ interface GeneralProps {
 export const NewParkGeneralInfoForm: React.FC<IProps> = (props) => {
   const { generalInfo, setGeneralInfo } = props;
 
-  
-
   return (
     <div className="NewParkGeneralInfoForm">
       <Text className="NewParkGeneralInfoForm-heading" fontSize="medium">
@@ -28,19 +26,20 @@ export const NewParkGeneralInfoForm: React.FC<IProps> = (props) => {
       <form className="NewParkGeneralInfoForm-form">
         <div className="NewParkGeneralInfoForm-inputContainer">
           <TextInput
+            onChange={(value) => {
+              setGeneralInfo({ ...generalInfo, name: value });
+            }}
             value={generalInfo.name}
             inputWrapperClass="NewParkGeneralInfoForm-TextInput"
             labelContent="Skatepark Name"
             placeholder=" "
-            onChange={(value) => {
-              setGeneralInfo((prevState: GeneralProps) =>
-                !prevState ? undefined : { ...prevState, name: value }
-              );
-            }}
           />
         </div>
         <div className="NewParkGeneralInfoForm-inputContainer">
           <TextInput
+            onChange={(value) => {
+              setGeneralInfo({ ...generalInfo, address: value });
+            }}
             value={generalInfo.address}
             inputWrapperClass="NewParkGeneralInfoForm-TextInput"
             labelContent="Street Address"
@@ -49,6 +48,9 @@ export const NewParkGeneralInfoForm: React.FC<IProps> = (props) => {
         </div>
         <div className="NewParkGeneralInfoForm-inputContainer">
           <TextInput
+            onChange={(value) => {
+              setGeneralInfo({ ...generalInfo, city: value });
+            }}
             value={generalInfo.city}
             inputWrapperClass="NewParkGeneralInfoForm-TextInput"
             labelContent="City"
@@ -57,6 +59,9 @@ export const NewParkGeneralInfoForm: React.FC<IProps> = (props) => {
         </div>
         <div className="NewParkGeneralInfoForm-inputContainer">
           <TextInput
+            onChange={(value) => {
+              setGeneralInfo({ ...generalInfo, state: value });
+            }}
             value={generalInfo.state}
             inputWrapperClass="NewParkGeneralInfoForm-TextInput"
             labelContent="State"

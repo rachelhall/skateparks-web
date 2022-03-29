@@ -9,6 +9,7 @@ interface IProps extends React.HTMLAttributes<HTMLParagraphElement> {
   fontWeight?: "regular" | "bold";
   htmlEntity?: "span" | "p" | "h1" | "h2" | "h3" | "h4";
   display?: "flex" | "inline";
+  ellipsis?: boolean;
 }
 
 export const Text: React.FC<IProps> = (props) => {
@@ -16,6 +17,7 @@ export const Text: React.FC<IProps> = (props) => {
     children,
     className,
     display = "flex",
+    ellipsis = false,
     fontSize = "medium",
     fontWeight = "regular",
     htmlEntity = "p",
