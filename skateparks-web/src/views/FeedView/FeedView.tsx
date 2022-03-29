@@ -3,14 +3,14 @@ import React from "react";
 import "./FeedView.scss";
 import FeedPost from "../../components/FeedPost";
 import { gql, useQuery } from "@apollo/client";
-import { usePostsQuery } from "../../graphql/graphql";
+import { useGetAllParksQuery } from "../../graphql/graphql";
 
 interface IProps {}
 
 export const FeedView: React.FC<IProps> = (props) => {
   const {} = props;
 
-  const { data } = usePostsQuery();
+  const { data } = useGetAllParksQuery();
 
   console.log({ data });
 

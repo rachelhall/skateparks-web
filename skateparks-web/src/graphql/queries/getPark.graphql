@@ -1,0 +1,20 @@
+# interface ParkQuery {
+#   getPost(id: string): {
+#     id: string;
+#     title: string;
+#     description: string;
+#     created_at: string;
+#   };
+# }
+query getPark($getPostId: ID!) {
+  getPost(id: $getPostId) {
+    success
+    errors
+    post {
+      id
+      title
+      description
+      created_at
+    }
+  }
+}

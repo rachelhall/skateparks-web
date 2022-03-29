@@ -1,5 +1,6 @@
 import { gql } from "@apollo/client";
 import * as Apollo from "@apollo/client";
+import { TypedDocumentNode as DocumentNode } from "@graphql-typed-document-node/core";
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = {
@@ -76,9 +77,9 @@ export type QueryGetPostArgs = {
   id: Scalars["ID"];
 };
 
-export type PostsQueryVariables = Exact<{ [key: string]: never }>;
+export type GetAllParksQueryVariables = Exact<{ [key: string]: never }>;
 
-export type PostsQuery = {
+export type GetAllParksQuery = {
   __typename?: "Query";
   listPosts: {
     __typename?: "PostsResult";
@@ -94,37 +95,28 @@ export type PostsQuery = {
   };
 };
 
-export type QueryQueryVariables = Exact<{ [key: string]: never }>;
+export type GetParkQueryVariables = Exact<{
+  getPostId: Scalars["ID"];
+}>;
 
-export type QueryQuery = {
+export type GetParkQuery = {
   __typename?: "Query";
-  listPosts: {
-    __typename?: "PostsResult";
+  getPost: {
+    __typename?: "PostResult";
     success: boolean;
     errors?: Array<string | null> | null;
-    posts?: Array<{
+    post?: {
       __typename?: "Post";
       id: string;
       title: string;
       description: string;
       created_at: string;
-    } | null> | null;
+    } | null;
   };
 };
 
-export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never }>;
-
-export type Unnamed_1_Query = {
-  __typename?: "Query";
-  listPosts: {
-    __typename?: "PostsResult";
-    success: boolean;
-    posts?: Array<{ __typename?: "Post"; id: string } | null> | null;
-  };
-};
-
-export const PostsDocument = gql`
-  query Posts {
+export const GetAllParksDocument = gql`
+  query getAllParks {
     listPosts {
       success
       errors
@@ -139,121 +131,104 @@ export const PostsDocument = gql`
 `;
 
 /**
- * __usePostsQuery__
+ * __useGetAllParksQuery__
  *
- * To run a query within a React component, call `usePostsQuery` and pass it any options that fit your needs.
- * When your component renders, `usePostsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useGetAllParksQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetAllParksQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = usePostsQuery({
+ * const { data, loading, error } = useGetAllParksQuery({
  *   variables: {
  *   },
  * });
  */
-export function usePostsQuery(
-  baseOptions?: Apollo.QueryHookOptions<PostsQuery, PostsQueryVariables>
+export function useGetAllParksQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    GetAllParksQuery,
+    GetAllParksQueryVariables
+  >
 ) {
   const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<PostsQuery, PostsQueryVariables>(
-    PostsDocument,
+  return Apollo.useQuery<GetAllParksQuery, GetAllParksQueryVariables>(
+    GetAllParksDocument,
     options
   );
 }
-export function usePostsLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<PostsQuery, PostsQueryVariables>
+export function useGetAllParksLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetAllParksQuery,
+    GetAllParksQueryVariables
+  >
 ) {
   const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<PostsQuery, PostsQueryVariables>(
-    PostsDocument,
+  return Apollo.useLazyQuery<GetAllParksQuery, GetAllParksQueryVariables>(
+    GetAllParksDocument,
     options
   );
 }
-export type PostsQueryHookResult = ReturnType<typeof usePostsQuery>;
-export type PostsLazyQueryHookResult = ReturnType<typeof usePostsLazyQuery>;
-export type PostsQueryResult = Apollo.QueryResult<
-  PostsQuery,
-  PostsQueryVariables
+export type GetAllParksQueryHookResult = ReturnType<typeof useGetAllParksQuery>;
+export type GetAllParksLazyQueryHookResult = ReturnType<
+  typeof useGetAllParksLazyQuery
 >;
-export const QueryDocument = gql`
-  query Query {
-    listPosts {
-      posts {
+export type GetAllParksQueryResult = Apollo.QueryResult<
+  GetAllParksQuery,
+  GetAllParksQueryVariables
+>;
+export const GetParkDocument = gql`
+  query getPark($getPostId: ID!) {
+    getPost(id: $getPostId) {
+      success
+      errors
+      post {
         id
         title
         description
         created_at
       }
-      success
-      errors
     }
   }
 `;
 
 /**
- * __useQueryQuery__
+ * __useGetParkQuery__
  *
- * To run a query within a React component, call `useQueryQuery` and pass it any options that fit your needs.
- * When your component renders, `useQueryQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useGetParkQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetParkQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useQueryQuery({
+ * const { data, loading, error } = useGetParkQuery({
  *   variables: {
+ *      getPostId: // value for 'getPostId'
  *   },
  * });
  */
-export function useQueryQuery(
-  baseOptions?: Apollo.QueryHookOptions<QueryQuery, QueryQueryVariables>
+export function useGetParkQuery(
+  baseOptions: Apollo.QueryHookOptions<GetParkQuery, GetParkQueryVariables>
 ) {
   const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<QueryQuery, QueryQueryVariables>(
-    QueryDocument,
+  return Apollo.useQuery<GetParkQuery, GetParkQueryVariables>(
+    GetParkDocument,
     options
   );
 }
-export function useQueryLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<QueryQuery, QueryQueryVariables>
+export function useGetParkLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<GetParkQuery, GetParkQueryVariables>
 ) {
   const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<QueryQuery, QueryQueryVariables>(
-    QueryDocument,
+  return Apollo.useLazyQuery<GetParkQuery, GetParkQueryVariables>(
+    GetParkDocument,
     options
   );
 }
-export type QueryQueryHookResult = ReturnType<typeof useQueryQuery>;
-export type QueryLazyQueryHookResult = ReturnType<typeof useQueryLazyQuery>;
-export type QueryQueryResult = Apollo.QueryResult<
-  QueryQuery,
-  QueryQueryVariables
+export type GetParkQueryHookResult = ReturnType<typeof useGetParkQuery>;
+export type GetParkLazyQueryHookResult = ReturnType<typeof useGetParkLazyQuery>;
+export type GetParkQueryResult = Apollo.QueryResult<
+  GetParkQuery,
+  GetParkQueryVariables
 >;
-export const Document = gql`
-  {
-    listPosts {
-      success
-      posts {
-        id
-      }
-    }
-  }
-`;
-
-/**
- * __useQuery__
- *
- * To run a query within a React component, call `useQuery` and pass it any options that fit your needs.
- * When your component renders, `useQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useQuery({
- *   variables: {
- *   },
- * });
- */

@@ -3,6 +3,7 @@ import React from "react";
 import "./FeedPost.scss";
 import FeedPostHeader from "../FeedPostHeader";
 import FeedPostContent from "../FeedPostContent";
+import { useGetParkQuery } from "../../graphql/graphql";
 
 interface IProps {
   id?: string;
@@ -14,12 +15,13 @@ interface IProps {
 
 export const FeedPost: React.FC<IProps> = (props) => {
   const { id } = props;
+  const queryId = id ?? "";
 
-  const { data } = getPost(id);
+  const { data } = useGetParkQuery({ variables: { getPostId: queryId } });
 
   return (
     <div className="FeedPost">
-      <FeedPostHeader location="Nashville, TN" />
+      <FeedPostHeader title={data?.getPost.post?.title} />
       <FeedPostContent />
     </div>
   );

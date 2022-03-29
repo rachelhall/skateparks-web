@@ -6,10 +6,11 @@ import ProfilePic from "../../styleComponents/ProfilePic";
 interface IProps {
   className?: string;
   location?: string;
+  title?: string;
 }
 
 export const FeedPostHeader: React.FC<IProps> = (props) => {
-  const { className, location } = props;
+  const { className, location = "Nashville, TN", title } = props;
 
   const mainClass = cx("FeedPostHeader", className);
   return (
@@ -17,7 +18,7 @@ export const FeedPostHeader: React.FC<IProps> = (props) => {
       <div className="FeedPostHeader-left">
         <ProfilePic size="small" image="https://picsum.photos/500" />
         <div className="FeedPostHeader-handlelocation">
-          <div className="FeedPostHeader-handle">profilename</div>
+          <div className="FeedPostHeader-handle">{title}</div>
           {location && (
             <div className="FeedPostHeader-location">{location}</div>
           )}

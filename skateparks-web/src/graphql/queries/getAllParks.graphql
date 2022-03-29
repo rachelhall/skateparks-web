@@ -1,0 +1,21 @@
+# interface AllParksQuery {
+#   post: {
+#     id: string;
+#     title: string;
+#     description: string;
+#     created_at: string;
+#   };
+# }
+
+query getAllParks {
+  listPosts {
+    success
+    errors
+    posts {
+      id
+      title
+      description
+      created_at
+    }
+  }
+}
