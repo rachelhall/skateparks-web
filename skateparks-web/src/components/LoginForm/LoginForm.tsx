@@ -1,14 +1,21 @@
 import React from "react";
 import TextInput from "../../styleComponents/TextInput";
 import Button from "../../styleComponents/Button/Button";
+// import { FEED_VIEW_ROUTE } from "../../apps/SkateparksApp/skateparksAppRoutes";
 
 import "./LoginForm.scss";
 
-interface IProps {}
+interface IProps {
+  loginInfo: ILoginInfo;
+  setLoginInfo: (newValue: ILoginInfo) => void;
+}
+interface ILoginInfo {
+  username: string;
+  password: string;
+}
 
 export const LoginForm: React.FC<IProps> = (props) => {
-  const {} = props;
-
+  const { loginInfo, setLoginInfo } = props;
   return (
     <div className="LoginForm">
       <form className="LoginForm-form">
@@ -17,6 +24,10 @@ export const LoginForm: React.FC<IProps> = (props) => {
             placeholder=" "
             inputWrapperClass="LoginForm-TextInput"
             labelContent="Username, email, or phone number"
+            value={loginInfo.username}
+            onChange={(value) => {
+              setLoginInfo({ ...loginInfo, username: value });
+            }}
           />
         </div>
         <div className="LoginForm-inputContainer">
@@ -25,6 +36,10 @@ export const LoginForm: React.FC<IProps> = (props) => {
             inputWrapperClass="LoginForm-TextInput"
             labelContent="Password"
             type="password"
+            value={loginInfo.password}
+            onChange={(value) => {
+              setLoginInfo({ ...loginInfo, password: value });
+            }}
           />
         </div>
         <Button className="LoginForm-Button-login" buttonSize="full">

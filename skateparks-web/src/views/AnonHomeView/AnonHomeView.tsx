@@ -14,6 +14,21 @@ export const AnonHomeView: React.FC<IProps> = (props) => {
         Existing routes: /app/login, /app/signup, /app/createpark,
         /app/playground
       </p>
+<<<<<<< HEAD
+=======
+      <button
+        onClick={() =>
+          handleCreateStandardPark(
+            "Two Rivers",
+            "Concrete park in Nashville",
+            `${Date.now()}`
+          )
+        }
+      >
+        create standard park
+      </button>
+      {/* <p>{allPosts.post}</p> */}
+>>>>>>> 11ce64e (Squashing will's commit)
     </div>
   );
 };

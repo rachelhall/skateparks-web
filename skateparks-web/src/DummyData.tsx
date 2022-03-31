@@ -35,12 +35,3 @@ export const rails = [
   { type: "Down Rail", image: "https://picsum.photos/500" },
   { type: "Rainbow Rail", image: "https://picsum.photos/500" },
 ];
-
-export const fileTypes = [
-  { extension: "mov", type: "video" },
-  { extension: "mp4", type: "video" },
-  { extension: "m4a", type: "video" },
-  { extension: "jpg", type: "photo" },
-  { extension: "jpeg", type: "photo" },
-  { extension: "png", type: "photo" },
-];

@@ -4,14 +4,32 @@ import "./NewParkRailsForm.scss";
 import SelectorInput from "../../../styleComponents/SelectorInput/SelectorInput";
 import Text from "../../../styleComponents/Text/Text";
 import { rails } from "../../../DummyData";
-
-interface IProps {}
+import { IRailProps } from "../../../views/CreateNewParkView/CreateNewParkView";
+interface IProps {
+  railInfo: IRailProps[] | undefined;
+  setRailInfo: (newValue: IRailProps[]) => void;
+}
 
 export const NewParkRailsForm: React.FC<IProps> = (props) => {
-  const {} = props;
-
-  const railSelectors = rails.map((rail) => {
-    return <SelectorInput image={rail.image}>{rail.type}</SelectorInput>;
+  const { railInfo = [], setRailInfo } = props;
+  const handleClick = (railType: IRailProps) => {
+    if (railInfo.includes(railType)) {
+      const filteredRailInfo = railInfo.filter((rail) => {
+        return rail !== railType;
+      });
+      setRailInfo(filteredRailInfo);
+    } else {
+      setRailInfo([...railInfo, railType]);
+    }
+  };
+  // Take current rail info
+  // Check if current rail type exists, if not push to array, if so remove it
+  const railSelectors = rails.map((rail, index) => {
+    return (
+      <SelectorInput name={rail.type} key={index} image={rail.image}>
+        {rail.type}
+      </SelectorInput>
+    );
   });
 
   return (

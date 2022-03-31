@@ -1,2 +1,14 @@
 .SignUpView {
 }
+
+.SignUpView-header {
+  display: flex;
+  align-items: center;
+  height: 7rem;
+  border-bottom: 1px solid lightgray;
+}
+
+.SignUpView-logo {
+  margin: 20px auto 0 auto;
+  width: fit-content;
+}
