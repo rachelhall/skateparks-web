@@ -7,7 +7,6 @@ import Button from "../../styleComponents/Button/Button";
 import NewParkGeneralInfoForm from "../../components/NewParkForms/NewParkGeneralInfoForm";
 import NewParkRampsForm from "../../components/NewParkForms/NewParkRampsForm/NewParkRampsForm";
 import NewParkRailsForm from "../../components/NewParkForms/NewParkRailsForm/NewParkRailsForm";
-import { useCreateParkMutation } from "@skateparks/generated/graphql";
 
 // import Text from "../../styleComponents/Text/Text";
 
