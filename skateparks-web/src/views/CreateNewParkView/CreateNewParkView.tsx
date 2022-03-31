@@ -7,6 +7,7 @@ import Button from "../../styleComponents/Button/Button";
 import NewParkGeneralInfoForm from "../../components/NewParkForms/NewParkGeneralInfoForm";
 import NewParkRampsForm from "../../components/NewParkForms/NewParkRampsForm/NewParkRampsForm";
 import NewParkRailsForm from "../../components/NewParkForms/NewParkRailsForm/NewParkRailsForm";
+import { useCreateParkMutation } from "@skateparks/generated/graphql";
 
 // import Text from "../../styleComponents/Text/Text";
 
@@ -28,6 +29,25 @@ export const CreateNewParkView: React.FC<IProps> = (props) => {
   const handleClickForward = () => {
     formPage < formPages.length - 1 && setFormPage(formPage + 1);
   };
+
+  const [createPark] = useCreateParkMutation({});
+
+  // const [state, setState] = useState();
+
+  // const handleSubmit = () => {
+  //   createPark({
+  //     variables: {
+  //       title: state.title,
+  //       description,
+  //       streetNumber,
+  //       streetName,
+  //       city,
+  //       state,
+  //       country,
+  //       elements,
+  //     },
+  //   });
+  // };
   return (
     <div className="CreateNewParkView">
       <div className="CreateNewParkView-header">

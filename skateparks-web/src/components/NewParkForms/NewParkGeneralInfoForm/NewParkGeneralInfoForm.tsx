@@ -1,13 +1,46 @@
-import React from "react";
+import React, { useCallback } from "react";
 
 import "./NewParkGeneralInfoForm.scss";
 import TextInput from "../../../styleComponents/TextInput/TextInput";
 import Text from "../../../styleComponents/Text/Text";
 
+import { useEffect } from "react";
+import { useCreateParkMutation } from "../../../generated/graphql";
+
 interface IProps {}
 
 export const NewParkGeneralInfoForm: React.FC<IProps> = (props) => {
   const {} = props;
+
+  const [createPark] = useCreateParkMutation({});
+
+  const handleSubmitPark = useCallback(
+    async (
+      title,
+      description,
+      streetNumber,
+      streetName,
+      city,
+      state,
+      country,
+      elements
+    ) => {
+      const result = await createPark({
+        variables: {
+          title,
+          description,
+          streetNumber,
+          streetName,
+          city,
+          state,
+          country,
+          elements,
+        },
+      });
+      console.log({ result });
+    },
+    [createPark]
+  );
 
   return (
     <div className="NewParkGeneralInfoForm">

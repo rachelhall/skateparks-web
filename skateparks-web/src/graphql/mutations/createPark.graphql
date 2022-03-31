@@ -1,0 +1,26 @@
+mutation createPark(
+  $title: String!
+  $description: String!
+  $city: String!
+  $state: String!
+  $streetNumber: Int
+  $streetName: String
+  $country: String
+  $elements: [EElement]
+) {
+  createPark(
+    title: $title
+    description: $description
+    city: $city
+    state: $state
+    streetNumber: $streetNumber
+    streetName: $streetName
+    country: $country
+    elements: $elements
+  ) {
+    park {
+      id
+      title
+    }
+  }
+}
