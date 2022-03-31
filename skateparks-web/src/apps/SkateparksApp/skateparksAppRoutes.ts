@@ -1,7 +1,7 @@
-import { IRoute } from "@skateparks/localModels/route";
 import PlaygroundView from "../../views/PlaygroundView/";
 import LoginView from "../../views/LoginView/LoginView";
 import SignUpView from "../../views/SignUpView/SignUpView";
+import { IRoute } from "../../localModels/route";
 
 const AR = `/app`;
 

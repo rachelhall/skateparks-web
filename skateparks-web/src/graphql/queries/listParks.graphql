@@ -1,0 +1,12 @@
+query listParks {
+  listParks {
+    parks {
+      id
+      title
+      description
+      created_at
+    }
+    success
+    errors
+  }
+}

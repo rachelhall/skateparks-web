@@ -19,11 +19,10 @@ export const LoginView: React.FC<IProps> = (props) => {
 
   return (
     <div className="LoginView">
-      <div></div>
-      <div>
+      <div className="LoginView-header">
         <h1 className="LoginView-logo">Skateparks</h1>
-        <LoginForm />
       </div>
+      <LoginForm />
     </div>
   );
 };

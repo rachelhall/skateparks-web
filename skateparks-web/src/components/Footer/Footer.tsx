@@ -13,7 +13,7 @@ export const Footer = () => {
       <SearchIcon />
       <PostIcon />
       <ActivityIcon />
-      <ProfileIcon />
+      {/* <ProfileIcon /> */}
     </div>
   );
 };

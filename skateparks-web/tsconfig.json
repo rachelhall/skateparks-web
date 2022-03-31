@@ -27,11 +27,6 @@
               "afterDeclarations": true
           }
       ],
-      "paths": {
-          "@skateparks/*": ["src/*"]
-      }
-    ,
-  
   },
   "include": ["src/**/*"],
   "exclude": [

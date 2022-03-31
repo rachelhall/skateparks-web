@@ -11,16 +11,19 @@ interface IProps extends Omit<React.HTMLProps<HTMLInputElement>, "onChange"> {
   hasError?: boolean;
   innerRef?: React.RefObject<HTMLInputElement>;
   inputClassName?: string;
+  inputWrapperClass?: string;
   isRequired?: boolean;
   isSearch?: boolean;
   label?: string;
   labelColor?: string;
+  labelContent?: string;
   labelSize?: string;
   labelWeight?: string;
   onChange?: (newValue: string) => void;
   onChangeEvent?: (newEvent: React.ChangeEvent<HTMLInputElement>) => void;
   onClear?: () => void;
   subLabel?: string;
+  type?: string;
   value?: string;
   withClear?: boolean;
   withDollarSign?: boolean;
@@ -39,9 +42,11 @@ export const TextInput: React.FC<IProps> = (props) => {
     inputClassName,
     label,
     labelColor,
+    labelContent,
     labelSize,
     labelWeight,
     name,
+    inputWrapperClass,
     isRequired,
     isSearch,
     placeholder,
@@ -49,6 +54,7 @@ export const TextInput: React.FC<IProps> = (props) => {
     onChangeEvent,
     onClear,
     subLabel,
+    type,
     value,
     withClear,
     withDollarSign,
@@ -81,36 +87,33 @@ export const TextInput: React.FC<IProps> = (props) => {
   };
 
   const mainClass = cx("TextInput", className);
-
+  const inputClass = cx("textInputField", inputWrapperClass);
   return (
     <TextInputLabel
       className={mainClass}
       // color={labelColor}
       // fontSize={labelSize}
       // fontWeight={labelWeight}
-      // label={label}
+      label={label}
       // subLabel={subLabel}
     >
-      {/* <div className={inputFieldWrapperClass}>
-        {withDollarSign && <p className={styles.dollarSign}>$</p>}
-        {isSearch && <SearchIcon className={styles.searchIcon} />} */}
-
       {children}
-      <div className={"TextInput"}>
-        <input
-          className={mainClass}
-          placeholder={defaultValue}
-          disabled={disabled}
-          name={name}
-          onChange={_onChange}
-          onFocus={() => setDefaultValue("")}
-          onBlur={() => setDefaultValue(placeholder)}
-          ref={innerRef}
-          value={value}
-          {...inputProps}
-        />
-      </div>
-      {/* </div> */}
+      <input
+        className={inputClass}
+        placeholder={defaultValue}
+        disabled={disabled}
+        name={name}
+        onChange={_onChange}
+        onFocus={() => setDefaultValue("")}
+        onBlur={() => setDefaultValue(placeholder)}
+        ref={innerRef}
+        type={type}
+        value={value}
+        {...inputProps}
+      />
+      {labelContent && (
+        <label className="TextInput-labelContent">{labelContent}</label>
+      )}
     </TextInputLabel>
   );
 };
