@@ -13,12 +13,44 @@ import { useCreateParkMutation } from "@skateparks/generated/graphql";
 
 interface IProps {}
 
+export interface IRampProps {
+  miniRamp: boolean;
+  quarterPipe: boolean;
+  halfPipe: boolean;
+  bowl: boolean;
+}
+
+export interface IRailProps {
+  roundRail: boolean;
+  squareRail: boolean;
+  downRail: boolean;
+  rainbowRail: boolean;
+}
+
 export const CreateNewParkView: React.FC<IProps> = (props) => {
   const {} = props;
+
+  // State for form values
+
+  const [generalInfo, setGeneralInfo] = useState({
+    name: "",
+    address: "",
+    city: "",
+    state: "",
+  });
+
+  const [rampInfo, setRampInfo] = useState<IRampProps[]>();
+  const [railInfo, setRailInfo] = useState<IRailProps[]>();
+
+  // Array for form JSX components
+
   const formPages = [
-    <NewParkGeneralInfoForm />,
-    <NewParkRampsForm />,
-    <NewParkRailsForm />,
+    <NewParkGeneralInfoForm
+      generalInfo={generalInfo}
+      setGeneralInfo={setGeneralInfo}
+    />,
+    <NewParkRampsForm rampInfo={rampInfo} setRampInfo={setRampInfo} />,
+    <NewParkRailsForm railInfo={railInfo} setRailInfo={setRailInfo} />,
   ];
 
   const [formPage, setFormPage] = useState(0);
@@ -29,25 +61,6 @@ export const CreateNewParkView: React.FC<IProps> = (props) => {
   const handleClickForward = () => {
     formPage < formPages.length - 1 && setFormPage(formPage + 1);
   };
-
-  const [createPark] = useCreateParkMutation({});
-
-  // const [state, setState] = useState();
-
-  // const handleSubmit = () => {
-  //   createPark({
-  //     variables: {
-  //       title: state.title,
-  //       description,
-  //       streetNumber,
-  //       streetName,
-  //       city,
-  //       state,
-  //       country,
-  //       elements,
-  //     },
-  //   });
-  // };
   return (
     <div className="CreateNewParkView">
       <div className="CreateNewParkView-header">

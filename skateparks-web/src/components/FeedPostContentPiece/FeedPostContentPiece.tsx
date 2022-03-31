@@ -3,21 +3,23 @@ import cx from "classnames";
 import "./FeedPostContentPiece.scss";
 
 interface IProps {
+  src: string;
   photo?: string;
   video?: string;
 }
 
 export const FeedPostContentPiece: React.FC<IProps> = (props) => {
-  const { photo, video } = props;
+  const { photo, video, src } = props;
   const mainClass = cx(
     "FeedPostContentPiece",
     video ? "FeedPostContentPiece-video" : "FeedPostContentPiece-photo"
   );
-  if (photo) {
-    return <img src={photo} className={mainClass} />;
-  } else {
-    return <video autoPlay muted src={video} className={mainClass} />;
-  }
+  return <img src={src} className={mainClass} />;
+  // if (photo) {
+  //   return <img src={photo} className={mainClass} />;
+  // } else {
+  //   return <video autoPlay muted src={video} className={mainClass} />;
+  // }
 };
 
 export default FeedPostContentPiece;

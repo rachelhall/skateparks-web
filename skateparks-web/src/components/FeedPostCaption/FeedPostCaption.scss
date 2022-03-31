@@ -1,0 +1,17 @@
+.FeedPostCaption {
+  padding: 0 0.7rem;
+  display: flex;
+}
+
+.FeedPostCaption-user {
+  font-weight: bold;
+  margin-right: 4px;
+}
+
+.FeedPostCaption-long {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}

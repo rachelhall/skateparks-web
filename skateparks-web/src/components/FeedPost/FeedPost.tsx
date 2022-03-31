@@ -1,28 +1,50 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import "./FeedPost.scss";
 import FeedPostHeader from "../FeedPostHeader";
 import FeedPostContent from "../FeedPostContent";
+import FeedPostInteractions from "../FeedPostInteractions";
+import FeedPostLikedBy from "../FeedPostLikedBy";
+import FeedPostCaption from "../FeedPostCaption";
+import FileInput from "../../styleComponents/FileInput";
 
 interface IProps {
-  id?: string;
+  user: string;
   className?: string;
-  contentPieces?: "single" | "multiple";
-  fileType?: "photo" | "video";
-  src?: string;
+  src: Array<string>;
 }
 
 export const FeedPost: React.FC<IProps> = (props) => {
-  const { id } = props;
-  const queryId = id ?? "";
-
-  // const { data } = useGetParkQuery({ variables: { getPostId: queryId } });
+  const { src, user } = props;
+  const [prevIsLiked, setPrevIsLiked] = useState(false);
+  const [prevIsSaved, setPrevIsSaved] = useState(false);
+  const [totalLikeCount, setTotalLikeCount] = useState(10);
+  const addLike = () => {
+    setTotalLikeCount(totalLikeCount + 1);
+  };
+  const removeLike = () => {
+    setTotalLikeCount(totalLikeCount - 1);
+  };
 
   return (
     <div className="FeedPost">
-      <FeedPostHeader title={"data?.getPost.post?.title"} />
-      {/* <FeedPostHeader title={data?.getPost.post?.title} /> */}
-      <FeedPostContent />
+      <FeedPostHeader user={user} location="Nashville, TN" />
+      <FeedPostContent src={src} />
+      <FeedPostInteractions
+        prevIsLiked={prevIsLiked}
+        setPrevIsLiked={setPrevIsLiked}
+        prevIsSaved={prevIsSaved}
+        setPrevIsSaved={setPrevIsSaved}
+      />
+      <FeedPostLikedBy
+        totalLikeCount={totalLikeCount}
+        setTotalLikeCount={setTotalLikeCount}
+      />
+
+      <FeedPostCaption
+        caption="Lorem ipsum dolor asdfasdfasdfasdfasdfasdf asdf asdf asdflakjsn dfl;aksejnf a;lskefj a;lsefkj a;sdlfkjn as;elfjkn ase;lfjn a;lsekfj as;ldfkjn asdfasdfasdfasdfasdfasdf asdf asdf asdflakjsn dfl;aksejnf a;lskefj a;lsefkj a;sdlfkjn as;elfjkn ase;lfjn a;lsekfj as;ldfkjn "
+        user={user}
+      />
     </div>
   );
 };

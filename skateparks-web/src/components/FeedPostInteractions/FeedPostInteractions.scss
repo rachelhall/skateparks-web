@@ -1,0 +1,10 @@
+.FeedPostInteractions {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0.7rem;
+  margin-bottom: 0.5rem;
+}
+
+.FeedPostInteractions-left > * {
+  margin-right: 14px;
+}
