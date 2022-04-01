@@ -4,19 +4,31 @@ import "./NewParkRampsForm.scss";
 import SelectorInput from "../../../styleComponents/SelectorInput/SelectorInput";
 import Text from "../../../styleComponents/Text/Text";
 import { ramps } from "../../../DummyData";
+import { EElement } from "src/generated/graphql";
+import { elements } from "../../../localModels/elements";
+import ElementSelector from "src/components/ElementSelector";
 
 interface IProps {
-  rampInfo: any;
-  setRampInfo: any;
+  rampInfo: EElement[];
+  setRampInfo: (newValue: EElement[]) => void;
 }
 
 export const NewParkRampsForm: React.FC<IProps> = (props) => {
-  const {} = props;
-  const rampSelectors = ramps.map((ramp) => {
+  const { rampInfo = [], setRampInfo } = props;
+
+  const rampSelectors = elements.map((element: EElement, index) => {
+    const handleClick = () => {
+      if (rampInfo.includes(element)) {
+        const filteredRampInfo = rampInfo.filter((ramp) => {
+          return ramp !== element;
+        });
+        setRampInfo(filteredRampInfo);
+      } else {
+        setRampInfo([...rampInfo, element]);
+      }
+    };
     return (
-      <SelectorInput image={ramp.image} name={""}>
-        {ramp.type}
-      </SelectorInput>
+      <ElementSelector onClick={handleClick} element={element} key={index} />
     );
   });
 

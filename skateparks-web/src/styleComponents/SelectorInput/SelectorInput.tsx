@@ -3,24 +3,25 @@ import cx from "classnames";
 
 import "./SelectorInput.scss";
 import Text from "../Text/Text";
-import { IRailProps } from "../../views/CreateNewParkView/CreateNewParkView";
+import { EElement } from "src/generated/graphql";
 
 interface IProps {
   className?: string;
   disabled?: boolean;
-  image?: string;
-  name: string;
+  title?: string;
+  onClick?: (arg1: string) => void;
 }
 
 export const SelectorInput: React.FC<IProps> = (props) => {
-  const { className, children, disabled = false, image, name } = props;
+  const { className, children, disabled = false, onClick, title } = props;
 
   // State
   const [isSelected, setIsSelected] = useState(false);
 
   // Click Handler
-  const handleClick = () => {
+  const handleClick = (title?: string) => {
     !disabled && setIsSelected(!isSelected);
+    onClick && title && onClick(title);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,20 +32,19 @@ export const SelectorInput: React.FC<IProps> = (props) => {
     "SelectorInput",
     className,
     isSelected ? "SelectorInput-selected" : undefined,
-    image ? "SelectorInput-withImage" : "SelectorInput-noImage",
+
     disabled ? "SelectorInput-disabled" : undefined
   );
   return (
-    <div className={mainClass} onClick={handleClick}>
+    <div className={mainClass} onClick={() => handleClick(title)}>
       <Text className="SelectorInput-text" fontSize={null}>
-        {children}
+        {title}
       </Text>
-      {image && <img className="SelectorInput-image" src={image} />}
+
       <input
         className="SelectorInput-input"
         checked={isSelected}
         disabled={disabled}
-        name={name}
         onChange={handleChange}
         type="checkbox"
       />

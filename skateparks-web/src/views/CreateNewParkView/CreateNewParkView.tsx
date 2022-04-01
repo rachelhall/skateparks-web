@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 
 import "./CreateNewParkView.scss";
 import Heading from "../../styleComponents/Heading/Heading";
@@ -7,24 +7,11 @@ import Button from "../../styleComponents/Button/Button";
 import NewParkGeneralInfoForm from "../../components/NewParkForms/NewParkGeneralInfoForm";
 import NewParkRampsForm from "../../components/NewParkForms/NewParkRampsForm/NewParkRampsForm";
 import NewParkRailsForm from "../../components/NewParkForms/NewParkRailsForm/NewParkRailsForm";
+import { EElement, ERails, useCreateParkMutation } from "src/generated/graphql";
 
 // import Text from "../../styleComponents/Text/Text";
 
 interface IProps {}
-
-export interface IRampProps {
-  miniRamp: boolean;
-  quarterPipe: boolean;
-  halfPipe: boolean;
-  bowl: boolean;
-}
-
-export interface IRailProps {
-  roundRail: boolean;
-  squareRail: boolean;
-  downRail: boolean;
-  rainbowRail: boolean;
-}
 
 export const CreateNewParkView: React.FC<IProps> = (props) => {
   const {} = props;
@@ -33,13 +20,44 @@ export const CreateNewParkView: React.FC<IProps> = (props) => {
 
   const [generalInfo, setGeneralInfo] = useState({
     name: "",
-    address: "",
+    description: "",
+    streetNumber: 0,
+    streetName: "",
     city: "",
     state: "",
+    country: "",
   });
 
-  const [rampInfo, setRampInfo] = useState<IRampProps[]>();
-  const [railInfo, setRailInfo] = useState<IRailProps[]>();
+  const [rampInfo, setRampInfo] = useState<EElement[]>([]);
+  const [railInfo, setRailInfo] = useState<ERails[]>([]);
+
+  const [createPark] = useCreateParkMutation({
+    variables: {
+      title: generalInfo.name,
+      description: generalInfo.description,
+      streetNumber: generalInfo.streetNumber,
+      streetName: generalInfo.streetName,
+      city: generalInfo.city,
+      state: generalInfo.state,
+      country: generalInfo.country,
+      elements: [...rampInfo, ...(railInfo as unknown as EElement[])],
+    },
+  });
+
+  const handleSubmitPark = useCallback(async () => {
+    const result = await createPark();
+    // variables: {
+    //   title: generalInfo.name,
+    //   description: generalInfo.description,
+    //   streetNumber: generalInfo.streetNumber,
+    //   streetName: generalInfo.streetName,
+    //   city: generalInfo.city,
+    //   state: generalInfo.state,
+    //   country: generalInfo.country,
+    //   elements: [...rampInfo, ...(railInfo as unknown as EElement[])],
+    // },
+    console.log({ result });
+  }, [createPark]);
 
   // Array for form JSX components
 
@@ -92,6 +110,7 @@ export const CreateNewParkView: React.FC<IProps> = (props) => {
         >
           Next
         </Button>
+        <Button onClick={handleSubmitPark}>Save</Button>
       </Footer>
     </div>
   );

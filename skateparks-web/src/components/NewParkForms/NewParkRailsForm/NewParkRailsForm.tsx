@@ -3,33 +3,29 @@ import React from "react";
 import "./NewParkRailsForm.scss";
 import SelectorInput from "../../../styleComponents/SelectorInput/SelectorInput";
 import Text from "../../../styleComponents/Text/Text";
-import { rails } from "../../../DummyData";
-import { IRailProps } from "../../../views/CreateNewParkView/CreateNewParkView";
+import ElementSelector from "src/components/ElementSelector";
+import { ERails } from "src/generated/graphql";
+import { elements, rails } from "src/localModels/elements";
 interface IProps {
-  railInfo: IRailProps[] | undefined;
-  setRailInfo: (newValue: IRailProps[]) => void;
+  railInfo: ERails[];
+  setRailInfo: (newValue: ERails[]) => void;
 }
 
 export const NewParkRailsForm: React.FC<IProps> = (props) => {
   const { railInfo = [], setRailInfo } = props;
-  const handleClick = (railType: IRailProps) => {
-    if (railInfo.includes(railType)) {
-      const filteredRailInfo = railInfo.filter((rail) => {
-        return rail !== railType;
-      });
-      setRailInfo(filteredRailInfo);
-    } else {
-      setRailInfo([...railInfo, railType]);
-    }
-  };
-  // Take current rail info
-  // Check if current rail type exists, if not push to array, if so remove it
-  const railSelectors = rails.map((rail, index) => {
-    return (
-      <SelectorInput name={rail.type} key={index} image={rail.image}>
-        {rail.type}
-      </SelectorInput>
-    );
+
+  const railSelectors = rails.map((rail: ERails, index) => {
+    const handleClick = () => {
+      if (railInfo.includes(rail)) {
+        const filteredRailInfo = railInfo.filter((r) => {
+          return r !== rail;
+        });
+        setRailInfo(filteredRailInfo);
+      } else {
+        setRailInfo([...railInfo, rail]);
+      }
+    };
+    return <ElementSelector onClick={handleClick} element={rail} key={index} />;
   });
 
   return (

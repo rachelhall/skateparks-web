@@ -4,46 +4,13 @@ import "./NewParkGeneralInfoForm.scss";
 import TextInput from "../../../styleComponents/TextInput/TextInput";
 import Text from "../../../styleComponents/Text/Text";
 
-import { useEffect } from "react";
-import { useCreateParkMutation } from "../../../generated/graphql";
-
 interface IProps {
   generalInfo: any;
   setGeneralInfo: any;
 }
 
 export const NewParkGeneralInfoForm: React.FC<IProps> = (props) => {
-  const {} = props;
-
-  const [createPark] = useCreateParkMutation({});
-
-  const handleSubmitPark = useCallback(
-    async (
-      title,
-      description,
-      streetNumber,
-      streetName,
-      city,
-      state,
-      country,
-      elements
-    ) => {
-      const result = await createPark({
-        variables: {
-          title,
-          description,
-          streetNumber,
-          streetName,
-          city,
-          state,
-          country,
-          elements,
-        },
-      });
-      console.log({ result });
-    },
-    [createPark]
-  );
+  const { generalInfo, setGeneralInfo } = props;
 
   return (
     <div className="NewParkGeneralInfoForm">
@@ -56,13 +23,42 @@ export const NewParkGeneralInfoForm: React.FC<IProps> = (props) => {
             inputWrapperClass="NewParkGeneralInfoForm-TextInput"
             labelContent="Skatepark Name"
             placeholder=" "
+            onChange={(value) => {
+              setGeneralInfo({ ...generalInfo, name: value });
+            }}
+            value={generalInfo.name}
           />
         </div>
         <div className="NewParkGeneralInfoForm-inputContainer">
           <TextInput
             inputWrapperClass="NewParkGeneralInfoForm-TextInput"
-            labelContent="Street Address"
+            labelContent="Description"
             placeholder=" "
+            onChange={(value) => {
+              setGeneralInfo({ ...generalInfo, description: value });
+            }}
+            value={generalInfo.description}
+          />
+        </div>
+        <div className="NewParkGeneralInfoForm-inputContainer">
+          <TextInput
+            inputWrapperClass="NewParkGeneralInfoForm-TextInput"
+            labelContent="Street Number"
+            onChange={(value) => {
+              setGeneralInfo({ ...generalInfo, streetNumber: parseInt(value) });
+            }}
+            value={generalInfo.streetNumber}
+          />
+        </div>
+        <div className="NewParkGeneralInfoForm-inputContainer">
+          <TextInput
+            inputWrapperClass="NewParkGeneralInfoForm-TextInput"
+            labelContent="Street Name"
+            placeholder=" "
+            onChange={(value) => {
+              setGeneralInfo({ ...generalInfo, streetName: value });
+            }}
+            value={generalInfo.streetName}
           />
         </div>
         <div className="NewParkGeneralInfoForm-inputContainer">
@@ -70,6 +66,10 @@ export const NewParkGeneralInfoForm: React.FC<IProps> = (props) => {
             inputWrapperClass="NewParkGeneralInfoForm-TextInput"
             labelContent="City"
             placeholder=" "
+            onChange={(value) => {
+              setGeneralInfo({ ...generalInfo, city: value });
+            }}
+            value={generalInfo.city}
           />
         </div>
         <div className="NewParkGeneralInfoForm-inputContainer">
@@ -77,6 +77,21 @@ export const NewParkGeneralInfoForm: React.FC<IProps> = (props) => {
             inputWrapperClass="NewParkGeneralInfoForm-TextInput"
             labelContent="State"
             placeholder=" "
+            onChange={(value) => {
+              setGeneralInfo({ ...generalInfo, state: value });
+            }}
+            value={generalInfo.state}
+          />
+        </div>
+        <div className="NewParkGeneralInfoForm-inputContainer">
+          <TextInput
+            inputWrapperClass="NewParkGeneralInfoForm-TextInput"
+            labelContent="Country"
+            placeholder=" "
+            onChange={(value) => {
+              setGeneralInfo({ ...generalInfo, country: value });
+            }}
+            value={generalInfo.country}
           />
         </div>
       </form>
