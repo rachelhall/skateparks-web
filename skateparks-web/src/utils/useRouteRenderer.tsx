@@ -1,11 +1,11 @@
 import React from "react";
+import { useRoutes } from "react-router-dom";
 
 import PlaygroundView from "../views/PlaygroundView";
 import NoMatchView from "../views/NoMatchView";
 import LoginView from "../views/LoginView/LoginView";
 import SignUpView from "../views/SignUpView/SignUpView";
 import CreateNewParkView from "../views/CreateNewParkView/CreateNewParkView";
-import { useRoutes } from "react-router-dom";
 import { ERoutes } from "../constants/routes";
 import SkateparksApp from "../apps/SkateparksApp";
 import AnonHomeView from "../views/AnonHomeView";

@@ -1,9 +1,14 @@
-query listParks {
+query Parks {
   listParks {
     parks {
       id
       title
       description
+      streetNumber
+      streetName
+      city
+      state
+      country
       created_at
     }
     success
