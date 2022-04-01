@@ -7,15 +7,17 @@ import FeedPostInteractions from "../FeedPostInteractions";
 import FeedPostLikedBy from "../FeedPostLikedBy";
 import FeedPostCaption from "../FeedPostCaption";
 import FileInput from "../../styleComponents/FileInput";
+import { Park } from "src/generated/graphql";
 
 interface IProps {
   user: string;
   className?: string;
-  src: Array<string>;
+  src: Park | null;
+  filesArray: any;
 }
 
 export const FeedPost: React.FC<IProps> = (props) => {
-  const { src, user } = props;
+  const { src, user, filesArray } = props;
   const [prevIsLiked, setPrevIsLiked] = useState(false);
   const [prevIsSaved, setPrevIsSaved] = useState(false);
   const [totalLikeCount, setTotalLikeCount] = useState(10);
@@ -28,8 +30,8 @@ export const FeedPost: React.FC<IProps> = (props) => {
 
   return (
     <div className="FeedPost">
-      <FeedPostHeader user={user} location="Nashville, TN" />
-      <FeedPostContent src={src} />
+      <FeedPostHeader user={user} location={src?.city} />
+      <FeedPostContent src={filesArray} />
       <FeedPostInteractions
         prevIsLiked={prevIsLiked}
         setPrevIsLiked={setPrevIsLiked}

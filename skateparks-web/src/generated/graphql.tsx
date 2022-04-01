@@ -133,10 +133,10 @@ export type CreateParkMutationVariables = Exact<{
 
 export type CreateParkMutation = { __typename?: 'Mutation', createPark: { __typename?: 'ParkResult', park?: { __typename?: 'Park', id: string, title: string } | null } };
 
-export type ListParksQueryVariables = Exact<{ [key: string]: never; }>;
+export type ParksQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ListParksQuery = { __typename?: 'Query', listParks: { __typename?: 'ParksResult', success: boolean, errors?: Array<string | null> | null, parks?: Array<{ __typename?: 'Park', id: string, title: string, description: string, created_at: string } | null> | null } };
+export type ParksQuery = { __typename?: 'Query', listParks: { __typename?: 'ParksResult', success: boolean, errors?: Array<string | null> | null, parks?: Array<{ __typename?: 'Park', id: string, title: string, description: string, streetNumber: number, streetName: string, city: string, state: string, country?: string | null, created_at: string } | null> | null } };
 
 
 export const CreateParkDocument = gql`
@@ -191,13 +191,18 @@ export function useCreateParkMutation(baseOptions?: Apollo.MutationHookOptions<C
 export type CreateParkMutationHookResult = ReturnType<typeof useCreateParkMutation>;
 export type CreateParkMutationResult = Apollo.MutationResult<CreateParkMutation>;
 export type CreateParkMutationOptions = Apollo.BaseMutationOptions<CreateParkMutation, CreateParkMutationVariables>;
-export const ListParksDocument = gql`
-    query listParks {
+export const ParksDocument = gql`
+    query Parks {
   listParks {
     parks {
       id
       title
       description
+      streetNumber
+      streetName
+      city
+      state
+      country
       created_at
     }
     success
@@ -207,28 +212,28 @@ export const ListParksDocument = gql`
     `;
 
 /**
- * __useListParksQuery__
+ * __useParksQuery__
  *
- * To run a query within a React component, call `useListParksQuery` and pass it any options that fit your needs.
- * When your component renders, `useListParksQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useParksQuery` and pass it any options that fit your needs.
+ * When your component renders, `useParksQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useListParksQuery({
+ * const { data, loading, error } = useParksQuery({
  *   variables: {
  *   },
  * });
  */
-export function useListParksQuery(baseOptions?: Apollo.QueryHookOptions<ListParksQuery, ListParksQueryVariables>) {
+export function useParksQuery(baseOptions?: Apollo.QueryHookOptions<ParksQuery, ParksQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<ListParksQuery, ListParksQueryVariables>(ListParksDocument, options);
+        return Apollo.useQuery<ParksQuery, ParksQueryVariables>(ParksDocument, options);
       }
-export function useListParksLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ListParksQuery, ListParksQueryVariables>) {
+export function useParksLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ParksQuery, ParksQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<ListParksQuery, ListParksQueryVariables>(ListParksDocument, options);
+          return Apollo.useLazyQuery<ParksQuery, ParksQueryVariables>(ParksDocument, options);
         }
-export type ListParksQueryHookResult = ReturnType<typeof useListParksQuery>;
-export type ListParksLazyQueryHookResult = ReturnType<typeof useListParksLazyQuery>;
-export type ListParksQueryResult = Apollo.QueryResult<ListParksQuery, ListParksQueryVariables>;
+export type ParksQueryHookResult = ReturnType<typeof useParksQuery>;
+export type ParksLazyQueryHookResult = ReturnType<typeof useParksLazyQuery>;
+export type ParksQueryResult = Apollo.QueryResult<ParksQuery, ParksQueryVariables>;
