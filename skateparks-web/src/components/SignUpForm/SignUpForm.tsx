@@ -2,7 +2,6 @@ import React from "react";
 import TextInput from "../../styleComponents/TextInput";
 import Button from "../../styleComponents/Button/Button";
 import Text from "../../styleComponents/Text";
-import Link from "../../styleComponents/Link";
 
 import "./SignUpForm.scss";
 

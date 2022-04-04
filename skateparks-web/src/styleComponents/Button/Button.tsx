@@ -29,6 +29,7 @@ interface IProps extends React.HTMLProps<HTMLButtonElement> {
     | "fit"
     | undefined;
   borderRadius?: 1 | 2 | 3;
+  textButton?: boolean;
   type?: "submit" | "reset" | "button";
 }
 
@@ -51,6 +52,7 @@ export const Button: React.FC<IProps> = (props) => {
     onMouseMove,
     replace,
     buttonSize = "medium",
+    textButton = false,
     type = "button",
     ...buttonProps
   } = props;
@@ -93,7 +95,9 @@ export const Button: React.FC<IProps> = (props) => {
       ? "Button-secondary"
       : color === "black"
       ? "Button-black"
-      : "Button-transparent"
+      : "Button-transparent",
+    textButton ? "Button-textButton" : undefined,
+    disabled && "Button-disabled"
   );
 
   if (!!linkTo && !disabled) {
@@ -105,7 +109,7 @@ export const Button: React.FC<IProps> = (props) => {
   }
 
   return (
-    <button onClick={onClick} className={mainClass}>
+    <button onClick={handleOnClick} className={mainClass}>
       {children}
     </button>
   );

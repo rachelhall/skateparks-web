@@ -1,0 +1,25 @@
+.ParkItemDetails {
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 1px solid lightgray;
+  padding-top: 1rem;
+}
+
+.ParkItemDetails-heading {
+  margin-bottom: 2rem;
+}
+
+.ParkItemDetails-specsContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.ParkItemDetails-column {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

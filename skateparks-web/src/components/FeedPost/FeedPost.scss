@@ -1,2 +1,10 @@
 .FeedPost {
+  max-width: 40rem;
+  border: 1px solid lightgray;
+  background-color: white;
+  font-size: 0.9rem;
+}
+
+.FeedPost-bottom {
+  padding: 0 1rem;
 }

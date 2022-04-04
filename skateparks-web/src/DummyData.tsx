@@ -22,6 +22,43 @@ export const posts = [
   },
 ];
 
+export const comments = [
+  {
+    user: "olliemckickflip",
+    comment: "Dude I would love to kickflip that 7 stair",
+  },
+  {
+    user: "nyjah",
+    comment:
+      "Hey man, Nyjah Houston here! Great content brother. Hope to see you at the park soon",
+  },
+  {
+    user: "Rob Dyrdek",
+    comment: "This isn't shit compared to my fantasy factory fuck you poser",
+  },
+];
+
+export const messages = [
+  { user: "olliemckickflip", lastMessage: "sounds good peace" },
+  { user: "nyjah", lastMessage: "Yo what's up" },
+  { user: "Rob Dyrdek", lastMessage: "My fantasy factory is better" },
+  { user: "Donald Trump", lastMessage: "Have you seen my new tre flip video?" },
+  {
+    user: "Hillary Clinton",
+    lastMessage: "Donald Trump can't tre flip for shit",
+  },
+  { user: "Bernie Sanders", lastMessage: "I am the only true skater" },
+];
+
+export const ParkItemContent = [
+  "https://picsum.photos/500",
+  "https://picsum.photos/500",
+  "https://picsum.photos/500",
+  "https://picsum.photos/500",
+  "https://picsum.photos/500",
+  "https://picsum.photos/500",
+];
+
 export const ramps = [
   { type: "Mini Ramp", image: "https://picsum.photos/500" },
   { type: "Quarter Pipe", image: "https://picsum.photos/500" },

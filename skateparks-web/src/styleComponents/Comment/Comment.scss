@@ -1,2 +1,16 @@
 .Comment {
+  font-size: inherit;
+  margin-bottom: 0.3rem;
+}
+
+.Comment-user {
+  font-size: inherit;
+  text-decoration: none;
+  font-weight: bold;
+  margin-right: 4px;
+}
+
+.Comment-comment {
+  font-size: inherit;
+  display: inline;
 }

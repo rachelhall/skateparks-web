@@ -8,16 +8,18 @@ import FeedPostLikedBy from "../FeedPostLikedBy";
 import FeedPostCaption from "../FeedPostCaption";
 import FileInput from "../../styleComponents/FileInput";
 import { Park } from "src/generated/graphql";
+import FeedPostComments from "../FeedPostComments";
 
 interface IProps {
   user: string;
   className?: string;
+  comments?: any;
   src: Park | null;
   filesArray: any;
 }
 
 export const FeedPost: React.FC<IProps> = (props) => {
-  const { src, user, filesArray } = props;
+  const { comments, src, user, filesArray } = props;
   const [prevIsLiked, setPrevIsLiked] = useState(false);
   const [prevIsSaved, setPrevIsSaved] = useState(false);
   const [totalLikeCount, setTotalLikeCount] = useState(10);
@@ -32,21 +34,24 @@ export const FeedPost: React.FC<IProps> = (props) => {
     <div className="FeedPost">
       <FeedPostHeader user={user} location={src?.city} />
       <FeedPostContent src={filesArray} />
-      <FeedPostInteractions
-        prevIsLiked={prevIsLiked}
-        setPrevIsLiked={setPrevIsLiked}
-        prevIsSaved={prevIsSaved}
-        setPrevIsSaved={setPrevIsSaved}
-      />
-      <FeedPostLikedBy
-        totalLikeCount={totalLikeCount}
-        setTotalLikeCount={setTotalLikeCount}
-      />
+      <div className="FeedPost-bottom">
+        <FeedPostInteractions
+          prevIsLiked={prevIsLiked}
+          setPrevIsLiked={setPrevIsLiked}
+          prevIsSaved={prevIsSaved}
+          setPrevIsSaved={setPrevIsSaved}
+        />
+        <FeedPostLikedBy
+          totalLikeCount={totalLikeCount}
+          setTotalLikeCount={setTotalLikeCount}
+        />
 
-      <FeedPostCaption
-        caption="Lorem ipsum dolor asdfasdfasdfasdfasdfasdf asdf asdf asdflakjsn dfl;aksejnf a;lskefj a;lsefkj a;sdlfkjn as;elfjkn ase;lfjn a;lsekfj as;ldfkjn asdfasdfasdfasdfasdfasdf asdf asdf asdflakjsn dfl;aksejnf a;lskefj a;lsefkj a;sdlfkjn as;elfjkn ase;lfjn a;lsekfj as;ldfkjn "
-        user={user}
-      />
+        <FeedPostCaption
+          caption="We chillin n shit this skatepark dope af"
+          user={user}
+        />
+        <FeedPostComments user={user} comments={comments} />
+      </div>
     </div>
   );
 };

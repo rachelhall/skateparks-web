@@ -4,6 +4,8 @@ import "./FeedView.scss";
 import FeedPost from "../../components/FeedPost";
 import FileInput from "../../styleComponents/FileInput";
 import { Park, useParksQuery } from "src/generated/graphql";
+import ParkItem from "src/components/ParkItem";
+import { ParkItemContent, comments } from "../../DummyData";
 
 interface IProps {}
 
@@ -25,10 +27,27 @@ export const FeedView: React.FC<IProps> = (props) => {
   useEffect(() => console.log({ parks }), [data, parks]);
   return (
     <div className="FeedView">
-      <p>Test</p>
-      {data?.listParks.parks?.map((park) => (
-        <FeedPost user="Bill Trotten" src={park} filesArray={filesArray} />
+      <ParkItem
+        description="Great park with lots of ramps and rails and cool shit"
+        parkName="6th Avenue Skatepark"
+        rating={3}
+        src={ParkItemContent}
+      />
+      {data?.listParks.parks?.map((park, index) => (
+        <FeedPost
+          key={index}
+          comments={comments}
+          user="Bill Trotten"
+          src={park}
+          filesArray={filesArray}
+        />
       ))}
+      <ParkItem
+        description="Great park with lots of ramps and rails and cool shit"
+        parkName="6th Avenue Skatepark"
+        rating={3}
+        src={ParkItemContent}
+      />
       {/* <FeedPost user="profilename" src={filesArray} /> */}
       {/* <FileInput
         selectedFiles={selectedFiles}

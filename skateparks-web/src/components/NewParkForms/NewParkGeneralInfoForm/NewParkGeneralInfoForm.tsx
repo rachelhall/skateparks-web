@@ -20,7 +20,7 @@ export const NewParkGeneralInfoForm: React.FC<IProps> = (props) => {
       <form className="NewParkGeneralInfoForm-form">
         <div className="NewParkGeneralInfoForm-inputContainer">
           <TextInput
-            inputWrapperClass="NewParkGeneralInfoForm-TextInput"
+            className="NewParkGeneralInfoForm-TextInput"
             labelContent="Skatepark Name"
             placeholder=" "
             onChange={(value) => {
@@ -31,7 +31,7 @@ export const NewParkGeneralInfoForm: React.FC<IProps> = (props) => {
         </div>
         <div className="NewParkGeneralInfoForm-inputContainer">
           <TextInput
-            inputWrapperClass="NewParkGeneralInfoForm-TextInput"
+            className="NewParkGeneralInfoForm-TextInput"
             labelContent="Description"
             placeholder=" "
             onChange={(value) => {
@@ -42,7 +42,7 @@ export const NewParkGeneralInfoForm: React.FC<IProps> = (props) => {
         </div>
         <div className="NewParkGeneralInfoForm-inputContainer">
           <TextInput
-            inputWrapperClass="NewParkGeneralInfoForm-TextInput"
+            className="NewParkGeneralInfoForm-TextInput"
             labelContent="Street Number"
             onChange={(value) => {
               setGeneralInfo({ ...generalInfo, streetNumber: parseInt(value) });
@@ -52,7 +52,7 @@ export const NewParkGeneralInfoForm: React.FC<IProps> = (props) => {
         </div>
         <div className="NewParkGeneralInfoForm-inputContainer">
           <TextInput
-            inputWrapperClass="NewParkGeneralInfoForm-TextInput"
+            className="NewParkGeneralInfoForm-TextInput"
             labelContent="Street Name"
             placeholder=" "
             onChange={(value) => {
@@ -63,7 +63,7 @@ export const NewParkGeneralInfoForm: React.FC<IProps> = (props) => {
         </div>
         <div className="NewParkGeneralInfoForm-inputContainer">
           <TextInput
-            inputWrapperClass="NewParkGeneralInfoForm-TextInput"
+            className="NewParkGeneralInfoForm-TextInput"
             labelContent="City"
             placeholder=" "
             onChange={(value) => {
@@ -74,7 +74,7 @@ export const NewParkGeneralInfoForm: React.FC<IProps> = (props) => {
         </div>
         <div className="NewParkGeneralInfoForm-inputContainer">
           <TextInput
-            inputWrapperClass="NewParkGeneralInfoForm-TextInput"
+            className="NewParkGeneralInfoForm-TextInput"
             labelContent="State"
             placeholder=" "
             onChange={(value) => {
@@ -85,7 +85,7 @@ export const NewParkGeneralInfoForm: React.FC<IProps> = (props) => {
         </div>
         <div className="NewParkGeneralInfoForm-inputContainer">
           <TextInput
-            inputWrapperClass="NewParkGeneralInfoForm-TextInput"
+            className="NewParkGeneralInfoForm-TextInput"
             labelContent="Country"
             placeholder=" "
             onChange={(value) => {

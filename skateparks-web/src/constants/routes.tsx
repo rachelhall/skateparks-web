@@ -4,7 +4,11 @@ export const ERoutes = {
   LOGIN: "login",
   SIGN_UP: "signup",
   FEED: "feed",
-  PROFILE: "/p/:username",
+  MESSAGES: "messages",
+  NEWPOST: "newpost",
+  SEARCH: "search",
+  ACTIVITY: "activity",
+  PROFILE: "p/:username",
   NOT_FOUND: "/not-found",
   CREATEPARK: "createpark",
 };

@@ -1,0 +1,25 @@
+.ConversationPreview {
+  display: flex;
+  padding: 0.7rem 1rem;
+  align-items: center;
+}
+
+.ConversationPreview:hover {
+  background-color: rgb(247, 247, 247);
+  cursor: pointer;
+}
+
+.ConversationPreview-preview {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 1.2rem;
+}
+
+.ConversationPreview-text {
+  padding: 0.1rem;
+}
+
+.ConversationPreview-lastMessage {
+  color: gray;
+}

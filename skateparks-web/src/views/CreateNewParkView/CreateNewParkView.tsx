@@ -102,15 +102,24 @@ export const CreateNewParkView: React.FC<IProps> = (props) => {
         >
           Back
         </Button>
-        <Button
-          buttonSize="xSmall"
-          borderRadius={2}
-          color="black"
-          onClick={handleClickForward}
-        >
-          Next
-        </Button>
-        <Button onClick={handleSubmitPark}>Save</Button>
+        {formPage === formPages.length - 1 ? (
+          <Button
+            buttonSize="xSmall"
+            borderRadius={2}
+            onClick={handleSubmitPark}
+          >
+            Save
+          </Button>
+        ) : (
+          <Button
+            buttonSize="xSmall"
+            borderRadius={2}
+            color="black"
+            onClick={handleClickForward}
+          >
+            Next
+          </Button>
+        )}
       </Footer>
     </div>
   );

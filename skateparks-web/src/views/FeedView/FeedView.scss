@@ -1,2 +1,10 @@
 .FeedView {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // background-color: rgb(245, 245, 245);
+}
+
+.FeedView > * {
+  margin-bottom: 1.5rem;
 }

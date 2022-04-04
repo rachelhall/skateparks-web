@@ -1,0 +1,26 @@
+.ParkItemBody {
+}
+
+.ParkItemBody-container {
+  padding: 1rem;
+}
+
+.ParkItemBody-content {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.ParkItemBody-contentContainer {
+  height: 7rem;
+  width: 7rem;
+  border: 1px solid lightgray;
+}
+
+.ParkItemBody-contentContainer:hover {
+  cursor: pointer;
+}
+
+.ParkItemBody-seeMore {
+  margin: 0 auto 1rem auto;
+}

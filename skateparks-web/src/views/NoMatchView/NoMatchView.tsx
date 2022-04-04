@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FEED_VIEW_ROUTE } from "src/apps/SkateparksApp/skateparksAppRoutes";
 
 import "./NoMatchView.scss";
 
@@ -13,7 +14,7 @@ export const NoMatchView: React.FC<IProps> = (props) => {
       <h1>
         <b>Oops... we couldn&apos;t find what you were looking for</b>
       </h1>
-      <Link to={"./app"}>
+      <Link to={FEED_VIEW_ROUTE}>
         <h4>Return home</h4>
       </Link>
       {/* if (!!linkTo && !disabled && !externalLink) {

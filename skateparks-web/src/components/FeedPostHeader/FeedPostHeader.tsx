@@ -2,7 +2,7 @@ import React from "react";
 import cx from "classnames";
 import "./FeedPostHeader.scss";
 import ProfilePic from "../../styleComponents/ProfilePic";
-import Link from "../../styleComponents/Link";
+import { Link } from "react-router-dom";
 
 interface IProps {
   className?: string;
@@ -20,7 +20,9 @@ export const FeedPostHeader: React.FC<IProps> = (props) => {
         <ProfilePic size="small" image="https://picsum.photos/500" />
         <div className="FeedPostHeader-handlelocation">
           <div className="FeedPostHeader-handle">
-            <Link to="#">{user}</Link>
+            <Link className="plainLink" to="#">
+              {user}
+            </Link>
           </div>
           {location && (
             <div className="FeedPostHeader-location">{location}</div>

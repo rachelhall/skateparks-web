@@ -86,18 +86,39 @@ export const TextInput: React.FC<IProps> = (props) => {
     }
   };
 
-  const mainClass = cx("TextInput", className);
-  const inputClass = cx("textInputField", inputWrapperClass);
-  return (
-    <TextInputLabel
-      className={mainClass}
-      // color={labelColor}
-      // fontSize={labelSize}
-      // fontWeight={labelWeight}
-      label={label}
-      // subLabel={subLabel}
-    >
-      {children}
+  const mainClass = cx("TextInput", inputWrapperClass);
+  const inputClass = cx("textInputField", className);
+  if (label || labelContent) {
+    return (
+      <TextInputLabel
+        className={mainClass}
+        // color={labelColor}
+        // fontSize={labelSize}
+        // fontWeight={labelWeight}
+        label={label}
+        // subLabel={subLabel}
+      >
+        {children}
+        <input
+          className={inputClass}
+          placeholder={defaultValue}
+          disabled={disabled}
+          name={name}
+          onChange={_onChange}
+          onFocus={() => setDefaultValue("")}
+          onBlur={() => setDefaultValue(placeholder)}
+          ref={innerRef}
+          type={type}
+          value={value}
+          {...inputProps}
+        />
+        {labelContent && (
+          <label className="TextInput-labelContent">{labelContent}</label>
+        )}
+      </TextInputLabel>
+    );
+  } else {
+    return (
       <input
         className={inputClass}
         placeholder={defaultValue}
@@ -111,11 +132,8 @@ export const TextInput: React.FC<IProps> = (props) => {
         value={value}
         {...inputProps}
       />
-      {labelContent && (
-        <label className="TextInput-labelContent">{labelContent}</label>
-      )}
-    </TextInputLabel>
-  );
+    );
+  }
 };
 
 export default TextInput;

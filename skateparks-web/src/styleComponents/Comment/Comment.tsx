@@ -1,14 +1,27 @@
 import React from "react";
-import { ChatbubbleOutline } from "react-ionicons";
+import Button from "../Button";
+import Text from "../Text";
 
 import "./Comment.scss";
 
-interface IProps {}
+interface IProps {
+  user: string;
+  comment: string;
+}
 
 export const Comment: React.FC<IProps> = (props) => {
-  const {} = props;
+  const { comment, user } = props;
 
-  return <ChatbubbleOutline color={"#00000"} height="29px" width="29px" />;
+  return (
+    <div className="Comment">
+      <Button linkTo="#" className="Comment-user" textButton={true}>
+        {user}
+      </Button>
+      <Text className="Comment-comment" fontSize="small">
+        {comment}
+      </Text>
+    </div>
+  );
 };
 
 export default Comment;

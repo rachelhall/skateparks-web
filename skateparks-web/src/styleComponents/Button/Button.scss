@@ -1,4 +1,5 @@
 .Button {
+  position: relative;
   border: none;
   height: 3rem;
   display: flex;
@@ -12,6 +13,8 @@
 
 .Button-xSmall {
   width: 5rem;
+  height: 2rem;
+  font-size: 0.8rem;
 }
 
 .Button-small {
@@ -68,4 +71,18 @@
   background-color: transparent;
   color: black;
   border: 1px solid black;
+}
+
+// Text Button
+.Button-textButton {
+  background-color: transparent;
+  color: inherit;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  font-size: inherit;
+  width: fit-content;
+  height: fit-content;
+  display: inline;
 }

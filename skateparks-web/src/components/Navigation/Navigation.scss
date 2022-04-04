@@ -1,0 +1,22 @@
+.Navigation {
+  background-color: white;
+  padding: 1rem 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100%;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+.Navigation-logo {
+  font-size: 1.4rem;
+}
+
+.Navigation-right {
+  display: flex;
+  align-items: center;
+}
+
+.Navigation-right > * {
+  margin-left: 0.8rem;
+}

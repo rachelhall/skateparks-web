@@ -19,6 +19,7 @@ export const FeedPostLikedBy: React.FC<IProps> = (props) => {
           className="FeedPostLikedBy-count"
           fontSize="xSmall"
           fontWeight="bold"
+          htmlEntity="span"
         >
           {totalLikeCount} others
         </Text>

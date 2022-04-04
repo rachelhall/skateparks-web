@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import cx from "classnames";
 import "./FeedPostContent.scss";
-import FeedPostContentPiece from "../FeedPostContentPiece";
+import ContentPiece from "../ContentPiece";
 import Button from "../../styleComponents/Button";
 // import fileTypes from "../../DummyData";
 
@@ -36,7 +36,7 @@ export const FeedPostContent: React.FC<IProps> = (props) => {
   // Function to generate content JSX elemtn and push to contentPieces array
   const createContentPiece = () => {
     src.map((file, index) => {
-      contentPieces.push(<FeedPostContentPiece key={index} src={file} />);
+      contentPieces.push(<ContentPiece key={index} src={file} />);
     });
   };
 

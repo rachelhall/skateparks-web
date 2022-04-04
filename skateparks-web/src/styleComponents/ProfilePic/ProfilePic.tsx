@@ -5,12 +5,13 @@ import "./ProfilePic.scss";
 
 interface IProps {
   className?: string;
-  size?: "xSmall" | "small" | "medium" | "large";
+  size?: "xSmall" | "nav" | "small" | "medium" | "large";
   image: string;
+  isActive?: boolean;
 }
 
 export const ProfilePic: React.FC<IProps> = (props) => {
-  const { className, image, size = "medium" } = props;
+  const { className, image, isActive, size = "medium" } = props;
   const mainClass = cx(
     "ProfilePic",
     className,
@@ -20,7 +21,9 @@ export const ProfilePic: React.FC<IProps> = (props) => {
       ? "ProfilePic-small"
       : size === "medium"
       ? "ProfilePic-medium"
-      : "ProfilePic-large"
+      : size === "large"
+      ? "ProfilePic-large"
+      : "ProfilePic-nav"
   );
   return <img className={mainClass} src={image} />;
 };

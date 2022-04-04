@@ -5,14 +5,17 @@
 
 .NewParkGeneralInfoForm-heading {
   text-align: center;
+  justify-content: center;
 }
 
 .NewParkGeneralInfoForm-form {
-  height: 100%;
+  height: 70vh;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   margin-top: 1rem;
+  overflow: scroll;
+  margin-bottom: 5rem;
 }
 
 .NewParkGeneralInfoForm-inputContainer {

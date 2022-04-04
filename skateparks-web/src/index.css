@@ -4,3 +4,14 @@
   box-sizing: border-box;
   font-family: sans-serif;
 }
+
+.plainLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  /* max-width: 40rem;
+  margin: 0 auto; */
+  background-color: rgb(245, 245, 245);
+}

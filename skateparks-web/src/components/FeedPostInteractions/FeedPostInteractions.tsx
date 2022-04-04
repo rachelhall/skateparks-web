@@ -1,6 +1,6 @@
 import React from "react";
 import Like from "../../styleComponents/Like";
-import Comment from "../../styleComponents/Comment";
+import CommentIcon from "../../styleComponents/CommentIcon";
 import Share from "../../styleComponents/Share";
 import Save from "../../styleComponents/Save";
 
@@ -20,7 +20,7 @@ export const FeedPostInteractions: React.FC<IProps> = (props) => {
     <div className="FeedPostInteractions">
       <div className="FeedPostInteractions-left">
         <Like prevIsLiked={prevIsLiked} setPrevIsLiked={setPrevIsLiked} />
-        <Comment />
+        <CommentIcon />
         <Share />
       </div>
       <div className="FeedPostInteractions-right">

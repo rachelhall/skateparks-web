@@ -1,0 +1,27 @@
+.AddComment {
+  border-top: 1px solid lightgray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.AddComment-input {
+  height: 3rem;
+  border-radius: 0;
+  border: none;
+  padding: 0;
+  flex: auto;
+}
+
+.AddComment-input:focus {
+  outline: none;
+}
+
+.AddComment-post {
+  width: fit-content;
+  font-size: 0.9rem;
+  font-weight: bold;
+  border: none;
+  color: rgb(90, 161, 206);
+}
