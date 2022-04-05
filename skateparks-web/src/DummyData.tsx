@@ -48,6 +48,11 @@ export const messages = [
     lastMessage: "Donald Trump can't tre flip for shit",
   },
   { user: "Bernie Sanders", lastMessage: "I am the only true skater" },
+  { user: "Bernie Sanders", lastMessage: "I am the only true skater" },
+  { user: "Bernie Sanders", lastMessage: "I am the only true skater" },
+  { user: "Bernie Sanders", lastMessage: "I am the only true skater" },
+  { user: "Bernie Sanders", lastMessage: "I am the only true skater" },
+  { user: "Bernie Sanders", lastMessage: "I am the only true skater" },
 ];
 
 export const ParkItemContent = [

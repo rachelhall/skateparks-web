@@ -1,0 +1,39 @@
+.Conversation {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100vh;
+  width: 100%;
+  background: white;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.Conversation-chat {
+  display: flex;
+  flex-direction: column;
+}
+
+.Conversation-chat > * {
+  margin-bottom: 1.7rem;
+}
+
+.Conversation-top {
+  width: 100%;
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 1rem;
+}
+.Conversation-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  font-size: 1.5rem;
+  // border: 1px solid black;
+}
+
+.Conversation-close:hover {
+  cursor: pointer;
+}

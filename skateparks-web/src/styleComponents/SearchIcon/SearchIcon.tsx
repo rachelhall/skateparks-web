@@ -4,15 +4,28 @@ import { Search, SearchOutline } from "react-ionicons";
 import "./SearchIcon.scss";
 
 interface IProps {
+  buttonSize: number;
   isActive: boolean;
 }
 
 export const SearchIcon: React.FC<IProps> = (props) => {
-  const { isActive } = props;
+  const { buttonSize, isActive } = props;
   if (isActive) {
-    return <Search color={"#00000"} height="26px" width="26px" />;
+    return (
+      <Search
+        color={"#00000"}
+        height={`${buttonSize}px`}
+        width={`${buttonSize}px`}
+      />
+    );
   } else {
-    return <SearchOutline color={"#00000"} height="26px" width="26px" />;
+    return (
+      <SearchOutline
+        color={"#00000"}
+        height={`${buttonSize}px`}
+        width={`${buttonSize}px`}
+      />
+    );
   }
 };
 

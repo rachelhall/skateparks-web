@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+import Button from "../Button";
 
 import "./FileInput.scss";
 interface IProps {
@@ -11,12 +12,28 @@ export const FileInput: React.FC<IProps> = (props) => {
 
   const fileSelectedHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.target.files && setSelectedFiles(e.target.files);
-    console.log(selectedFiles);
+    // console.log(selectedFiles);
+  };
+
+  const hiddenInput = useRef(null);
+
+  const handleClick = () => {
+    // @ts-ignore
+    hiddenInput.current?.click();
   };
   const fileUploadHandler = (files: File | Array<File>) => {};
   return (
     <div className="FileInput">
-      <input type="file" onChange={fileSelectedHandler} multiple />
+      <input
+        ref={hiddenInput}
+        className="FileInput-input"
+        type="file"
+        onChange={fileSelectedHandler}
+        multiple
+      />
+      <Button onClick={handleClick} buttonSize="small" borderRadius="none">
+        Select Files
+      </Button>
     </div>
   );
 };

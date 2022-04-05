@@ -1,5 +1,5 @@
 import React from "react";
-
+import cx from "classnames";
 import "./NavButton.scss";
 import Button from "../Button";
 import HomeIcon from "../HomeIcon";
@@ -28,10 +28,15 @@ export enum ENavType {
 interface IProps {
   activeView: ENavType;
   type: ENavType;
+  onClick?: () => void;
+  postIsOpen?: boolean;
+  closePost?: () => void;
+  className?: string;
 }
 
 export const NavButton: React.FC<IProps> = (props) => {
-  const { activeView, type } = props;
+  const { activeView, className, type, onClick, postIsOpen } = props;
+  const buttonSize = 29;
   const getLinkTo = () => {
     switch (type) {
       case ENavType.FEED:
@@ -39,7 +44,7 @@ export const NavButton: React.FC<IProps> = (props) => {
       case ENavType.MESSAGES:
         return MESSAGES_VIEW_ROUTE;
       case ENavType.POST:
-        return NEWPOST_VIEW_ROUTE;
+        return undefined;
       case ENavType.SEARCH:
         return SEARCH_VIEW_ROUTE;
       case ENavType.ACTIVITY:
@@ -52,15 +57,42 @@ export const NavButton: React.FC<IProps> = (props) => {
   const renderNavIcon = () => {
     switch (type) {
       case ENavType.FEED:
-        return <HomeIcon isActive={activeView === ENavType.FEED} />;
+        return (
+          <HomeIcon
+            buttonSize={buttonSize}
+            isActive={activeView === ENavType.FEED}
+          />
+        );
       case ENavType.MESSAGES:
-        return <MessagesIcon isActive={activeView === ENavType.MESSAGES} />;
+        return (
+          <MessagesIcon
+            buttonSize={buttonSize}
+            isActive={activeView === ENavType.MESSAGES}
+          />
+        );
       case ENavType.POST:
-        return <PostIcon isActive={activeView === ENavType.POST} />;
+        return (
+          <PostIcon
+            postIsOpen={postIsOpen}
+            onClick={onClick}
+            buttonSize={buttonSize}
+            isActive={activeView === ENavType.POST}
+          />
+        );
       case ENavType.SEARCH:
-        return <SearchIcon isActive={activeView === ENavType.SEARCH} />;
+        return (
+          <SearchIcon
+            buttonSize={buttonSize}
+            isActive={activeView === ENavType.SEARCH}
+          />
+        );
       case ENavType.ACTIVITY:
-        return <ActivityIcon isActive={activeView === ENavType.ACTIVITY} />;
+        return (
+          <ActivityIcon
+            buttonSize={buttonSize}
+            isActive={activeView === ENavType.ACTIVITY}
+          />
+        );
       case ENavType.PROFILE:
         return (
           <ProfilePic
@@ -73,8 +105,9 @@ export const NavButton: React.FC<IProps> = (props) => {
         return;
     }
   };
+  const mainClass = cx("NavButton", className);
   return (
-    <Button textButton={true} linkTo={linkTo} className="NavButton">
+    <Button textButton={true} linkTo={linkTo} className={mainClass}>
       {renderNavIcon()}
     </Button>
   );

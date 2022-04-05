@@ -21,23 +21,37 @@ import { ENavType } from "src/styleComponents/NavButton/NavButton";
 
 interface IProps {
   pathname: string;
+  setPostIsOpen?: any;
 }
 
 export const Navigation: React.FC<IProps> = (props) => {
-  const { pathname } = props;
+  const { pathname, setPostIsOpen } = props;
   const activeView = useMemo(() => {
     if (pathname.includes("feed")) {
       return ENavType.FEED;
     } else if (pathname.includes("messages")) {
       return ENavType.MESSAGES;
+    }
+    // else if (pathname.includes("newpost")) {
+    //   return ENavType.POST;
+    // }
+    else if (pathname.includes("search")) {
+      return ENavType.SEARCH;
+    } else if (pathname.includes("activity")) {
+      return ENavType.ACTIVITY;
+    } else if (pathname.includes("profile")) {
+      return ENavType.PROFILE;
     } else {
       return ENavType.FEED;
     }
   }, [pathname]);
 
-  //   useEffect(() => {
-  //     navigate(LOGIN_VIEW_ROUTE);
-  //   });
+  const handlePostClick = () => {
+    setPostIsOpen(true);
+    if (typeof window != "undefined" && window.document) {
+      document.body.style.overflow = "hidden";
+    }
+  };
 
   return (
     <div className="Navigation">
@@ -45,12 +59,37 @@ export const Navigation: React.FC<IProps> = (props) => {
         <Text className="Navigation-logo">GrindyLocks</Text>
       </div>
       <div className="Navigation-right">
-        <NavButton type={ENavType.FEED} activeView={activeView} />
-        <NavButton type={ENavType.MESSAGES} activeView={activeView} />
-        <NavButton type={ENavType.POST} activeView={activeView} />
-        <NavButton type={ENavType.SEARCH} activeView={activeView} />
-        <NavButton type={ENavType.ACTIVITY} activeView={activeView} />
-        <NavButton type={ENavType.PROFILE} activeView={activeView} />
+        <NavButton
+          className="Navigation-button"
+          type={ENavType.FEED}
+          activeView={activeView}
+        />
+        <NavButton
+          className="Navigation-button"
+          type={ENavType.MESSAGES}
+          activeView={activeView}
+        />
+        <NavButton
+          className="Navigation-button"
+          onClick={handlePostClick}
+          type={ENavType.POST}
+          activeView={activeView}
+        />
+        <NavButton
+          className="Navigation-button"
+          type={ENavType.SEARCH}
+          activeView={activeView}
+        />
+        <NavButton
+          className="Navigation-button"
+          type={ENavType.ACTIVITY}
+          activeView={activeView}
+        />
+        <NavButton
+          className="Navigation-button"
+          type={ENavType.PROFILE}
+          activeView={activeView}
+        />
       </div>
     </div>
   );

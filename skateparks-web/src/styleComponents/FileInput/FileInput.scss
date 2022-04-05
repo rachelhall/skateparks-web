@@ -1,2 +1,10 @@
 .FileInput {
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.FileInput-input {
+  display: none;
 }

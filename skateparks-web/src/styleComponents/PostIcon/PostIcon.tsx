@@ -4,15 +4,32 @@ import { AddCircle, AddCircleOutline } from "react-ionicons";
 import "./PostIcon.scss";
 
 interface IProps {
+  buttonSize: number;
   isActive: boolean;
+  onClick?: () => void;
+  postIsOpen?: boolean;
 }
 
 export const PostIcon: React.FC<IProps> = (props) => {
-  const { isActive } = props;
-  if (isActive) {
-    return <AddCircle color={"#00000"} height="26px" width="26px" />;
+  const { buttonSize, isActive, onClick, postIsOpen } = props;
+  if (postIsOpen) {
+    return (
+      <AddCircle
+        onClick={onClick}
+        color={"#00000"}
+        height={`${buttonSize}px`}
+        width={`${buttonSize}px`}
+      />
+    );
   } else {
-    return <AddCircleOutline color={"#00000"} height="26px" width="26px" />;
+    return (
+      <AddCircleOutline
+        onClick={onClick}
+        color={"#00000"}
+        height={`${buttonSize}px`}
+        width={`${buttonSize}px`}
+      />
+    );
   }
 };
 

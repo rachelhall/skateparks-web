@@ -7,13 +7,14 @@ import "./ConversationPreview.scss";
 interface IProps {
   withUser: string;
   lastMessage: string;
+  onClick?: any;
 }
 
 export const ConversationPreview: React.FC<IProps> = (props) => {
-  const { lastMessage, withUser } = props;
+  const { lastMessage, onClick, withUser } = props;
 
   return (
-    <div className="ConversationPreview">
+    <div className="ConversationPreview" onClick={onClick}>
       <ProfilePic image="https://picsum.photos/500" size="medium" />
       <div className="ConversationPreview-preview">
         <Text className="ConversationPreview-text" fontSize="small">

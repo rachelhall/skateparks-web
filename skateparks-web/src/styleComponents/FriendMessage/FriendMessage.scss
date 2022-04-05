@@ -1,0 +1,12 @@
+.FriendMessage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: lightgray;
+  color: black;
+  width: fit-content;
+  align-self: flex-start;
+  padding: 0.7rem 1.5rem;
+  border-radius: 0.25rem;
+  max-width: 80%;
+}

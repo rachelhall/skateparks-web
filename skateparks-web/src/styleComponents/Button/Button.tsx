@@ -28,7 +28,7 @@ interface IProps extends React.HTMLProps<HTMLButtonElement> {
     | "full"
     | "fit"
     | undefined;
-  borderRadius?: 1 | 2 | 3;
+  borderRadius?: 1 | 2 | 3 | "none";
   textButton?: boolean;
   type?: "submit" | "reset" | "button";
 }
@@ -88,7 +88,9 @@ export const Button: React.FC<IProps> = (props) => {
       ? "Button-radius1"
       : borderRadius === 2
       ? "Button-radius2"
-      : "Button-radius3",
+      : borderRadius === 3
+      ? "Button-radius3"
+      : "Button-radius-none",
     color === "primary"
       ? "Button-primary"
       : color === "secondary"

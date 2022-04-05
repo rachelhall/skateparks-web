@@ -4,17 +4,28 @@ import { ChatbubbleEllipses, ChatbubbleEllipsesOutline } from "react-ionicons";
 import "./MessagesIcon.scss";
 
 interface IProps {
+  buttonSize: number;
   isActive: boolean;
 }
 
 export const MessagesIcon: React.FC<IProps> = (props) => {
-  const { isActive } = props;
+  const { buttonSize, isActive } = props;
 
   if (isActive) {
-    return <ChatbubbleEllipses color={"#00000"} height="26px" width="26px" />;
+    return (
+      <ChatbubbleEllipses
+        color={"#00000"}
+        height={`${buttonSize}px`}
+        width={`${buttonSize}px`}
+      />
+    );
   } else {
     return (
-      <ChatbubbleEllipsesOutline color={"#00000"} height="26px" width="26px" />
+      <ChatbubbleEllipsesOutline
+        color={"#00000"}
+        height={`${buttonSize}px`}
+        width={`${buttonSize}px`}
+      />
     );
   }
 };
