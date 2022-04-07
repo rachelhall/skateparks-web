@@ -5,7 +5,7 @@ import Text from "../../styleComponents/Text";
 import FileInput from "src/styleComponents/FileInput";
 
 interface IProps {
-  heading: string;
+  heading?: string;
 }
 
 export const FileSelectModal: React.FC<IProps> = (props) => {
@@ -17,13 +17,15 @@ export const FileSelectModal: React.FC<IProps> = (props) => {
 
   return (
     <div className="FileSelectModal">
-      <Text
-        fontSize="small"
-        fontWeight="bold"
-        className="FileSelectModal-heading"
-      >
-        {heading}
-      </Text>
+      {heading && (
+        <Text
+          fontSize="small"
+          fontWeight="bold"
+          className="FileSelectModal-heading"
+        >
+          {heading}
+        </Text>
+      )}
       <div className="FileSelectModal-body">
         <Text className="FileSelectModal-text">
           Upload photos and videos here

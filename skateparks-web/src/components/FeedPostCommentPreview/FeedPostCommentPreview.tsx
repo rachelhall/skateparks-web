@@ -12,8 +12,9 @@ export const FeedPostCommentPreview: React.FC<IProps> = (props) => {
 
   return (
     <div className="FeedPostCommentPreview">
-      <Comment user={comments[0].user} comment={comments[0].comment} />
-      <Comment user={comments[1].user} comment={comments[1].comment} />
+      {comments.map((comment, index) => {
+        <Comment user={comment.user} comment={comment.comment} key={index} />;
+      })}
     </div>
   );
 };

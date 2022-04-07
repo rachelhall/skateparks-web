@@ -12,11 +12,12 @@ export const App = () => {
   const { pathname } = useLocation();
 
   const [postIsOpen, setPostIsOpen] = useState<boolean>(false);
+  const navigation = isLoggedIn && (
+    <Navigation setPostIsOpen={setPostIsOpen} pathname={pathname} />
+  );
   return (
     <main role="main">
-      {isLoggedIn && (
-        <Navigation setPostIsOpen={setPostIsOpen} pathname={pathname} />
-      )}
+      {navigation}
       {postIsOpen && <NewPostView setPostIsOpen={setPostIsOpen} />}
       {currentView}
     </main>

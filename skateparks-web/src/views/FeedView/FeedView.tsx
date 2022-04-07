@@ -5,7 +5,7 @@ import FeedPost from "../../components/FeedPost";
 import FileInput from "../../styleComponents/FileInput";
 import { useParksQuery } from "src/generated/graphql";
 import ParkItem from "src/components/ParkItem";
-import { ParkItemContent, comments } from "../../DummyData";
+import { ParkItemContent, comments, users } from "../../DummyData";
 
 interface IProps {}
 

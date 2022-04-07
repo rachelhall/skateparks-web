@@ -19,7 +19,7 @@ export const FeedPostComments: React.FC<IProps> = (props) => {
         View all {commentCount} comments
       </Button>
       <FeedPostCommentPreview comments={comments} />
-      <AddComment user={user} comments={comments} />
+      <AddComment user={user} />
     </div>
   );
 };
