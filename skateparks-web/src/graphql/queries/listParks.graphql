@@ -9,6 +9,7 @@ query Parks {
       city
       state
       country
+      imageUrl
       created_at
     }
     success

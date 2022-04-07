@@ -42,20 +42,22 @@ export enum ERegion {
   WestCoast = 'WEST_COAST'
 }
 
-export type Mutation = {
+export type IMutation = {
   __typename?: 'Mutation';
-  createPark: ParkResult;
-  deletePark: ParkResult;
-  updatePark: ParkResult;
+  createPark: IParkResult;
+  deletePark: IParkResult;
+  updatePark: IParkResult;
+  uploadImage: IImageResult;
 };
 
 
-export type MutationCreateParkArgs = {
+export type IMutationCreateParkArgs = {
   city: Scalars['String'];
   country?: InputMaybe<Scalars['String']>;
   created_at?: InputMaybe<Scalars['String']>;
   description: Scalars['String'];
   elements?: InputMaybe<Array<InputMaybe<EElement>>>;
+  imageUrl?: InputMaybe<Scalars['String']>;
   state: Scalars['String'];
   streetName?: InputMaybe<Scalars['String']>;
   streetNumber?: InputMaybe<Scalars['Int']>;
@@ -63,24 +65,30 @@ export type MutationCreateParkArgs = {
 };
 
 
-export type MutationDeleteParkArgs = {
+export type IMutationDeleteParkArgs = {
   id?: InputMaybe<Scalars['ID']>;
 };
 
 
-export type MutationUpdateParkArgs = {
+export type IMutationUpdateParkArgs = {
   city: Scalars['String'];
   country?: InputMaybe<Scalars['String']>;
   description?: InputMaybe<Scalars['String']>;
   elements?: InputMaybe<Array<InputMaybe<EElement>>>;
   id: Scalars['ID'];
+  imageUrl?: InputMaybe<Scalars['String']>;
   state: Scalars['String'];
   streetName: Scalars['String'];
   streetNumber: Scalars['Int'];
   title?: InputMaybe<Scalars['String']>;
 };
 
-export type Park = {
+
+export type IMutationUploadImageArgs = {
+  imageUrl?: InputMaybe<Scalars['String']>;
+};
+
+export type IPark = {
   __typename?: 'Park';
   city: Scalars['String'];
   country?: Maybe<Scalars['String']>;
@@ -88,38 +96,79 @@ export type Park = {
   description: Scalars['String'];
   elements?: Maybe<Array<Maybe<EElement>>>;
   id: Scalars['ID'];
+  imageUrl?: Maybe<Scalars['String']>;
   state: Scalars['String'];
   streetName: Scalars['String'];
   streetNumber: Scalars['Int'];
   title: Scalars['String'];
 };
 
-export type ParkResult = {
+export type IParkResult = {
   __typename?: 'ParkResult';
   errors?: Maybe<Array<Maybe<Scalars['String']>>>;
-  park?: Maybe<Park>;
+  park: IPark;
   success: Scalars['Boolean'];
 };
 
-export type ParksResult = {
+export type IParksResult = {
   __typename?: 'ParksResult';
   errors?: Maybe<Array<Maybe<Scalars['String']>>>;
-  parks?: Maybe<Array<Maybe<Park>>>;
+  parks: Array<IPark>;
   success: Scalars['Boolean'];
 };
 
-export type Query = {
+export type IPost = {
+  __typename?: 'Post';
+  caption: Scalars['String'];
+  id: Scalars['ID'];
+  location: IPark;
+  user: IUser;
+};
+
+export type IQuery = {
   __typename?: 'Query';
-  getPark: ParkResult;
-  listParks: ParksResult;
+  getPark: IParkResult;
+  listParks: IParksResult;
 };
 
 
-export type QueryGetParkArgs = {
+export type IQueryGetParkArgs = {
   id: Scalars['ID'];
 };
 
-export type CreateParkMutationVariables = Exact<{
+export type IUser = {
+  __typename?: 'User';
+  emailAddress: Scalars['String'];
+  firstName: Scalars['String'];
+  id: Scalars['ID'];
+  lastName: Scalars['String'];
+  phoneNumber: Scalars['String'];
+};
+
+export type IImageResult = {
+  __typename?: 'imageResult';
+  errors?: Maybe<Array<Maybe<Scalars['String']>>>;
+  imageUrl?: Maybe<IUploadResponse>;
+  success: Scalars['Boolean'];
+};
+
+export type IUploadResponse = {
+  __typename?: 'uploadResponse';
+  bytes?: Maybe<Scalars['Int']>;
+  created_at?: Maybe<Scalars['String']>;
+  format?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['Int']>;
+  public_id?: Maybe<Scalars['String']>;
+  resource_type?: Maybe<Scalars['String']>;
+  secure_url?: Maybe<Scalars['String']>;
+  signature?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  url?: Maybe<Scalars['String']>;
+  version?: Maybe<Scalars['Int']>;
+  width?: Maybe<Scalars['Int']>;
+};
+
+export type ICreateParkMutationVariables = Exact<{
   title: Scalars['String'];
   description: Scalars['String'];
   city: Scalars['String'];
@@ -127,20 +176,21 @@ export type CreateParkMutationVariables = Exact<{
   streetNumber?: InputMaybe<Scalars['Int']>;
   streetName?: InputMaybe<Scalars['String']>;
   country?: InputMaybe<Scalars['String']>;
+  imageUrl?: InputMaybe<Scalars['String']>;
   elements?: InputMaybe<Array<InputMaybe<EElement>> | InputMaybe<EElement>>;
 }>;
 
 
-export type CreateParkMutation = { __typename?: 'Mutation', createPark: { __typename?: 'ParkResult', park?: { __typename?: 'Park', id: string, title: string } | null } };
+export type ICreateParkMutation = { __typename?: 'Mutation', createPark: { __typename?: 'ParkResult', park: { __typename?: 'Park', id: string, title: string } } };
 
-export type ParksQueryVariables = Exact<{ [key: string]: never; }>;
+export type IParksQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ParksQuery = { __typename?: 'Query', listParks: { __typename?: 'ParksResult', success: boolean, errors?: Array<string | null> | null, parks?: Array<{ __typename?: 'Park', id: string, title: string, description: string, streetNumber: number, streetName: string, city: string, state: string, country?: string | null, created_at: string } | null> | null } };
+export type IParksQuery = { __typename?: 'Query', listParks: { __typename?: 'ParksResult', success: boolean, errors?: Array<string | null> | null, parks: Array<{ __typename?: 'Park', id: string, title: string, description: string, streetNumber: number, streetName: string, city: string, state: string, country?: string | null, imageUrl?: string | null, created_at: string }> } };
 
 
 export const CreateParkDocument = gql`
-    mutation createPark($title: String!, $description: String!, $city: String!, $state: String!, $streetNumber: Int, $streetName: String, $country: String, $elements: [EElement]) {
+    mutation createPark($title: String!, $description: String!, $city: String!, $state: String!, $streetNumber: Int, $streetName: String, $country: String, $imageUrl: String, $elements: [EElement]) {
   createPark(
     title: $title
     description: $description
@@ -149,6 +199,7 @@ export const CreateParkDocument = gql`
     streetNumber: $streetNumber
     streetName: $streetName
     country: $country
+    imageUrl: $imageUrl
     elements: $elements
   ) {
     park {
@@ -158,7 +209,7 @@ export const CreateParkDocument = gql`
   }
 }
     `;
-export type CreateParkMutationFn = Apollo.MutationFunction<CreateParkMutation, CreateParkMutationVariables>;
+export type ICreateParkMutationFn = Apollo.MutationFunction<ICreateParkMutation, ICreateParkMutationVariables>;
 
 /**
  * __useCreateParkMutation__
@@ -180,17 +231,18 @@ export type CreateParkMutationFn = Apollo.MutationFunction<CreateParkMutation, C
  *      streetNumber: // value for 'streetNumber'
  *      streetName: // value for 'streetName'
  *      country: // value for 'country'
+ *      imageUrl: // value for 'imageUrl'
  *      elements: // value for 'elements'
  *   },
  * });
  */
-export function useCreateParkMutation(baseOptions?: Apollo.MutationHookOptions<CreateParkMutation, CreateParkMutationVariables>) {
+export function useCreateParkMutation(baseOptions?: Apollo.MutationHookOptions<ICreateParkMutation, ICreateParkMutationVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<CreateParkMutation, CreateParkMutationVariables>(CreateParkDocument, options);
+        return Apollo.useMutation<ICreateParkMutation, ICreateParkMutationVariables>(CreateParkDocument, options);
       }
 export type CreateParkMutationHookResult = ReturnType<typeof useCreateParkMutation>;
-export type CreateParkMutationResult = Apollo.MutationResult<CreateParkMutation>;
-export type CreateParkMutationOptions = Apollo.BaseMutationOptions<CreateParkMutation, CreateParkMutationVariables>;
+export type CreateParkMutationResult = Apollo.MutationResult<ICreateParkMutation>;
+export type CreateParkMutationOptions = Apollo.BaseMutationOptions<ICreateParkMutation, ICreateParkMutationVariables>;
 export const ParksDocument = gql`
     query Parks {
   listParks {
@@ -203,6 +255,7 @@ export const ParksDocument = gql`
       city
       state
       country
+      imageUrl
       created_at
     }
     success
@@ -226,14 +279,14 @@ export const ParksDocument = gql`
  *   },
  * });
  */
-export function useParksQuery(baseOptions?: Apollo.QueryHookOptions<ParksQuery, ParksQueryVariables>) {
+export function useParksQuery(baseOptions?: Apollo.QueryHookOptions<IParksQuery, IParksQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<ParksQuery, ParksQueryVariables>(ParksDocument, options);
+        return Apollo.useQuery<IParksQuery, IParksQueryVariables>(ParksDocument, options);
       }
-export function useParksLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<ParksQuery, ParksQueryVariables>) {
+export function useParksLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<IParksQuery, IParksQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<ParksQuery, ParksQueryVariables>(ParksDocument, options);
+          return Apollo.useLazyQuery<IParksQuery, IParksQueryVariables>(ParksDocument, options);
         }
 export type ParksQueryHookResult = ReturnType<typeof useParksQuery>;
 export type ParksLazyQueryHookResult = ReturnType<typeof useParksLazyQuery>;
-export type ParksQueryResult = Apollo.QueryResult<ParksQuery, ParksQueryVariables>;
+export type ParksQueryResult = Apollo.QueryResult<IParksQuery, IParksQueryVariables>;

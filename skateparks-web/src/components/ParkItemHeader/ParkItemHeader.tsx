@@ -6,7 +6,7 @@ import "./ParkItemHeader.scss";
 
 interface IProps {
   parkName: string;
-  rating: number;
+  rating?: number;
 }
 
 export const ParkItemHeader: React.FC<IProps> = (props) => {

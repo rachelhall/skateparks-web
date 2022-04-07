@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 
 import "./NewParkGeneralInfoForm.scss";
 import TextInput from "../../../styleComponents/TextInput/TextInput";
@@ -11,6 +11,22 @@ interface IProps {
 
 export const NewParkGeneralInfoForm: React.FC<IProps> = (props) => {
   const { generalInfo, setGeneralInfo } = props;
+
+  const fileUploadRef = useRef<HTMLInputElement>(null);
+  const [imagePreview, setImagePreview] = useState<string>();
+
+  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target && e.target.files !== null && e.target.files.length > 0) {
+      setImagePreview(URL.createObjectURL(e.target.files[0]));
+      setGeneralInfo({
+        ...generalInfo,
+        imageUrl: e.target.files[0],
+      });
+    }
+  };
+  //MAKE A DEDICATED FILE UPLOAD STYLE COMPONENT
+
+  useEffect(() => console.log(generalInfo.imageUrl), [generalInfo]);
 
   return (
     <div className="NewParkGeneralInfoForm">
@@ -93,6 +109,17 @@ export const NewParkGeneralInfoForm: React.FC<IProps> = (props) => {
             }}
             value={generalInfo.country}
           />
+          <input
+            type="file"
+            id="FileInput"
+            ref={fileUploadRef}
+            name="newImage"
+            onChange={handleImageUpload}
+            accept="image/png, image/jpeg"
+          />
+          {generalInfo.imageUrl && (
+            <img src={imagePreview} alt="skatepark" height={100} width={100} />
+          )}
         </div>
       </form>
     </div>

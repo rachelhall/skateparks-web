@@ -7,14 +7,14 @@ import FeedPostInteractions from "../FeedPostInteractions";
 import FeedPostLikedBy from "../FeedPostLikedBy";
 import FeedPostCaption from "../FeedPostCaption";
 import FileInput from "../../styleComponents/FileInput";
-import { Park } from "src/generated/graphql";
+import { IPark } from "src/generated/graphql";
 import FeedPostComments from "../FeedPostComments";
 
 interface IProps {
   user: string;
   className?: string;
   comments?: any;
-  // src: Park | null;
+  src: IPark;
   filesArray: any;
   location: string | undefined;
 }

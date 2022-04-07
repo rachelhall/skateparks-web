@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import TextInput from "src/styleComponents/TextInput";
-import { Park, useParksQuery } from "src/generated/graphql";
+import { IPark, useParksQuery } from "src/generated/graphql";
 import "./SearchView.scss";
 import ListItem from "src/styleComponents/ListItem";
 

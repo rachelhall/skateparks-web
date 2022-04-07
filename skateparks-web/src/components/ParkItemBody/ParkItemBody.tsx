@@ -8,7 +8,7 @@ import ParkItemDetails from "../ParkItemDetails";
 
 interface IProps {
   description: string;
-  src?: string[];
+  src: string;
 }
 
 export const ParkItemBody: React.FC<IProps> = (props) => {
@@ -17,21 +17,18 @@ export const ParkItemBody: React.FC<IProps> = (props) => {
   const handleClick = () => {
     setDetailsOpen(!detailsOpen);
   };
-  const parkItemContent = src?.map((photo, index) => {
+  const parkItemContent = () => {
     return (
-      <div key={index} className="ParkItemBody-contentContainer">
-        <ContentPiece
-          className="ParkItemBody-contentPiece"
-          src={photo}
-          key={index}
-        />
+      <div className="ParkItemBody-contentContainer">
+        <ContentPiece className="ParkItemBody-contentPiece" src={src} />
       </div>
     );
-  });
+  };
+
   return (
     <div className="ParkItemBody">
       <div className="ParkItemBody-container">
-        <div className="ParkItemBody-content">{parkItemContent}</div>
+        <div className="ParkItemBody-content">{parkItemContent()}</div>
         <Text fontSize="small" className="ParkItemBody-description">
           {description}
         </Text>

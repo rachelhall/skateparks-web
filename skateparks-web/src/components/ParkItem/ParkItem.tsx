@@ -1,24 +1,28 @@
 import React from "react";
-import FeedPostContent from "../FeedPostContent";
+
 import ParkItemBody from "../ParkItemBody";
 import ParkItemHeader from "../ParkItemHeader";
+import { IPark } from "../../generated/graphql";
 
 import "./ParkItem.scss";
+import { FALLBACK } from "../../static/assets/images";
 
 interface IProps {
-  description: string;
-  parkName: string;
-  rating: number;
-  src?: string[];
+  park: IPark;
 }
 
 export const ParkItem: React.FC<IProps> = (props) => {
-  const { description, parkName, rating, src } = props;
+  const { park } = props;
+  console.log({ park });
 
   return (
     <div className="ParkItem">
-      <ParkItemHeader parkName={parkName} rating={rating} />
-      <ParkItemBody description={description} src={src} />
+      <ParkItemHeader parkName={park.title} />
+
+      <ParkItemBody
+        description={park.description}
+        src={park.imageUrl ?? "../static/assets/FALLBACK.jpg"}
+      />
     </div>
   );
 };
