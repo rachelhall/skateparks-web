@@ -6,6 +6,7 @@ import Text from "../../../styleComponents/Text/Text";
 import ElementSelector from "src/components/ElementSelector";
 import { ERails } from "src/generated/graphql";
 import { elements, rails } from "src/localModels/elements";
+import FileSelectModal from "src/components/FileSelectModal";
 interface IProps {
   railInfo: ERails[];
   setRailInfo: (newValue: ERails[]) => void;

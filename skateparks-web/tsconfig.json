@@ -4,7 +4,7 @@
     "baseUrl": ".",
     "declaration": true,
     "esModuleInterop": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "module": "commonjs",
     "moduleResolution": "node",
     // "noEmit": true,
@@ -13,20 +13,20 @@
     "noImplicitReturns": true,
     //   "noUnusedLocals": true,
     //   "noUnusedParameters": true,
-      "outDir": "../dist/",
-      "resolveJsonModule": true,
-      "skipLibCheck": true,
-      "sourceMap": true,
-      "strict": true,
-      "strictPropertyInitialization": false,
-      "target": "esnext",
-      "lib": ["es2015", "dom"],
-      "plugins": [
-          {
-              "transform": "typescript-transform-paths",
-              "afterDeclarations": true
-          }
-      ],
+    "outDir": "../dist/",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "strictPropertyInitialization": false,
+    "target": "esnext",
+    "lib": ["es2015", "dom"],
+    "plugins": [
+      {
+        "transform": "typescript-transform-paths",
+        "afterDeclarations": true
+      }
+    ]
   },
   "include": ["src/**/*"],
   "exclude": [

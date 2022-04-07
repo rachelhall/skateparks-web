@@ -12,7 +12,7 @@ export const FileInput: React.FC<IProps> = (props) => {
 
   const fileSelectedHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.target.files && setSelectedFiles(e.target.files);
-    // console.log(selectedFiles);
+    console.log(selectedFiles);
   };
 
   const hiddenInput = useRef(null);
@@ -31,7 +31,12 @@ export const FileInput: React.FC<IProps> = (props) => {
         onChange={fileSelectedHandler}
         multiple
       />
-      <Button onClick={handleClick} buttonSize="small" borderRadius="none">
+      <Button
+        className="FileInput-button"
+        onClick={handleClick}
+        buttonSize="small"
+        borderRadius={1}
+      >
         Select Files
       </Button>
     </div>

@@ -1,3 +1,60 @@
+export const users = [
+  {
+    handle: "willtrotman",
+    name: "Will Trotman",
+    following: ["rachelhall", "nyjah", "grindylocks"],
+    followers: ["rachelhall", "nyjah", "ryansheckler"],
+    posts: [
+      {
+        location: "Nashville",
+        src: ["https://picsum.photos/500", "https://picsum.photos/600"],
+        likedBy: ["rachelhall", "ryansheckler", "nyjah", "grindylocks"],
+        comments: [
+          {
+            user: "rachelhall",
+            comment: "good stuff dude",
+          },
+          {
+            user: "skater301",
+            comment: "nice kickflip",
+          },
+          { user: "grindylocks", comment: "yo yo yo" },
+        ],
+        savedBy: ["nyjah", "skater301", "grindylocks"],
+      },
+    ],
+  },
+  {
+    handle: "rachelhall",
+    name: "Rachel Hall",
+    following: ["willtrotman", "nyjah", "grindylocks", "ryansheckler"],
+    followers: ["willtrotman", "grindylocks", "ryansheckler", "nyjah"],
+    posts: [
+      {
+        location: "San Diego",
+        src: ["https://picsum.photos/500", "https://picsum.photos/600"],
+        likedBy: ["rachelhall", "ryansheckler", "nyjah", "grindylocks"],
+        comments: [
+          {
+            user: "willtrotman",
+            comment: "yooooooooooooo",
+          },
+          {
+            user: "skater301",
+            comment: "nice kickflip",
+          },
+          { user: "grindylocks", comment: "yo yo yo" },
+        ],
+        savedBy: ["nyjah", "skater301", "grindylocks"],
+      },
+    ],
+  },
+  { handle: "ryansheckler", name: "Ryan Sheckler" },
+  { handle: "nyjah", name: "Nyjah Houston" },
+  { handle: "skater301", name: "Kevin Smith" },
+  { handle: "grindylocks", name: "Bob Jones" },
+];
+
 export const posts = [
   {
     user: "skater301",

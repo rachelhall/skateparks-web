@@ -14,12 +14,19 @@ interface IProps {
   user: string;
   className?: string;
   comments?: any;
-  src: Park | null;
+  // src: Park | null;
   filesArray: any;
+  location: string | undefined;
 }
 
 export const FeedPost: React.FC<IProps> = (props) => {
-  const { comments, src, user, filesArray } = props;
+  const {
+    comments,
+    // src,
+    user,
+    filesArray,
+    location,
+  } = props;
   const [prevIsLiked, setPrevIsLiked] = useState(false);
   const [prevIsSaved, setPrevIsSaved] = useState(false);
   const [totalLikeCount, setTotalLikeCount] = useState(10);
@@ -32,7 +39,7 @@ export const FeedPost: React.FC<IProps> = (props) => {
 
   return (
     <div className="FeedPost">
-      <FeedPostHeader user={user} location={src?.city} />
+      <FeedPostHeader user={user} location={location} />
       <FeedPostContent src={filesArray} />
       <div className="FeedPost-bottom">
         <FeedPostInteractions
