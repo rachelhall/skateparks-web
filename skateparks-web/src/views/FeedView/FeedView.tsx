@@ -24,7 +24,7 @@ export const FeedView: React.FC<IProps> = (props) => {
     "https://picsum.photos/500",
   ];
 
-  useEffect(() => console.log({ parks }), [data, parks]);
+  // useEffect(() => console.log({ parks }), [data, parks]);
   return (
     <div className="FeedView">
       <ParkItem
@@ -33,15 +33,6 @@ export const FeedView: React.FC<IProps> = (props) => {
         rating={3}
         src={ParkItemContent}
       />
-      {users.map((user, index) => {
-        <FeedPost
-          key={index}
-          user={user.handle}
-          filesArray={user.posts?.[0].src}
-          location={user.posts?.[0].location}
-          comments={user.posts?.[0].comments}
-        />;
-      })}
 
       {/* {data?.listParks.parks?.map((park, index) => (
         <FeedPost

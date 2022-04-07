@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import FeedPostContent from "../FeedPostContent";
 import ParkItemBody from "../ParkItemBody";
 import ParkItemHeader from "../ParkItemHeader";
+import cx from "classnames";
 
 import "./ParkItem.scss";
+import Button from "src/styleComponents/Button";
 
 interface IProps {
   description: string;
@@ -17,8 +19,10 @@ export const ParkItem: React.FC<IProps> = (props) => {
 
   return (
     <div className="ParkItem">
-      <ParkItemHeader parkName={parkName} rating={rating} />
-      <ParkItemBody description={description} src={src} />
+      <div className="ParkItem-feedview">
+        <ParkItemHeader parkName={parkName} rating={rating} />
+        <ParkItemBody description={description} src={src} />
+      </div>
     </div>
   );
 };

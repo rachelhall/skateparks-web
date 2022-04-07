@@ -13,10 +13,15 @@ import FeedPostComments from "../FeedPostComments";
 interface IProps {
   user: string;
   className?: string;
-  comments?: any;
+  comments?: IComments[];
   // src: Park | null;
   filesArray: any;
   location: string | undefined;
+}
+
+interface IComments {
+  user: string;
+  comment: string;
 }
 
 export const FeedPost: React.FC<IProps> = (props) => {
@@ -36,7 +41,6 @@ export const FeedPost: React.FC<IProps> = (props) => {
   const removeLike = () => {
     setTotalLikeCount(totalLikeCount - 1);
   };
-
   return (
     <div className="FeedPost">
       <FeedPostHeader user={user} location={location} />

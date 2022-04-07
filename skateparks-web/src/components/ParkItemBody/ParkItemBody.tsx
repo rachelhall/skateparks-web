@@ -9,13 +9,15 @@ import ParkItemDetails from "../ParkItemDetails";
 interface IProps {
   description: string;
   src?: string[];
+  onClick?: any;
 }
 
 export const ParkItemBody: React.FC<IProps> = (props) => {
-  const { description, src } = props;
+  const { description, src, onClick } = props;
   const [detailsOpen, setDetailsOpen] = useState(false);
   const handleClick = () => {
-    setDetailsOpen(!detailsOpen);
+    // setDetailsOpen(!detailsOpen);
+    onClick();
   };
   const parkItemContent = src?.map((photo, index) => {
     return (
