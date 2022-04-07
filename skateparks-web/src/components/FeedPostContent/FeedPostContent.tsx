@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import cx from "classnames";
 import "./FeedPostContent.scss";
 import ContentPiece from "../ContentPiece";
-import Button from "../../styleComponents/Button";
-// import fileTypes from "../../DummyData";
 
 interface IProps {
   src: Array<string>;

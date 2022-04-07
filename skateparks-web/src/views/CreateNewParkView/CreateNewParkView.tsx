@@ -26,6 +26,7 @@ export const CreateNewParkView: React.FC<IProps> = (props) => {
     city: "",
     state: "",
     country: "",
+    imageUrl: "",
   });
 
   const [rampInfo, setRampInfo] = useState<EElement[]>([]);
@@ -40,6 +41,7 @@ export const CreateNewParkView: React.FC<IProps> = (props) => {
       city: generalInfo.city,
       state: generalInfo.state,
       country: generalInfo.country,
+      imageUrl: generalInfo.imageUrl,
       elements: [...rampInfo, ...(railInfo as unknown as EElement[])],
     },
   });

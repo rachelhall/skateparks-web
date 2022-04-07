@@ -1,11 +1,8 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React from "react";
 
 import "./FeedView.scss";
-import FeedPost from "../../components/FeedPost";
-import FileInput from "../../styleComponents/FileInput";
 import { useParksQuery } from "src/generated/graphql";
 import ParkItem from "src/components/ParkItem";
-import { ParkItemContent, comments, users } from "../../DummyData";
 
 interface IProps {}
 

@@ -6,6 +6,7 @@ mutation createPark(
   $streetNumber: Int
   $streetName: String
   $country: String
+  $imageUrl: String
   $elements: [EElement]
 ) {
   createPark(
@@ -16,6 +17,7 @@ mutation createPark(
     streetNumber: $streetNumber
     streetName: $streetName
     country: $country
+    imageUrl: $imageUrl
     elements: $elements
   ) {
     park {

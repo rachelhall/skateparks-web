@@ -8,7 +8,7 @@ import ParkItemDetails from "../ParkItemDetails";
 
 interface IProps {
   description: string;
-  src?: string;
+  src: string;
 }
 
 export const ParkItemBody: React.FC<IProps> = (props) => {
@@ -28,7 +28,7 @@ export const ParkItemBody: React.FC<IProps> = (props) => {
   return (
     <div className="ParkItemBody">
       <div className="ParkItemBody-container">
-        <div className="ParkItemBody-content">{parkItemContent}</div>
+        <div className="ParkItemBody-content">{parkItemContent()}</div>
         <Text fontSize="small" className="ParkItemBody-description">
           {description}
         </Text>

@@ -5,6 +5,7 @@ import ParkItemHeader from "../ParkItemHeader";
 import { IPark } from "../../generated/graphql";
 
 import "./ParkItem.scss";
+import { FALLBACK } from "../../static/assets/images";
 
 interface IProps {
   park: IPark;
@@ -17,7 +18,11 @@ export const ParkItem: React.FC<IProps> = (props) => {
   return (
     <div className="ParkItem">
       <ParkItemHeader parkName={park.title} />
-      <ParkItemBody description={park.description} src={park.imageUrl} />
+
+      <ParkItemBody
+        description={park.description}
+        src={park.imageUrl ?? "../static/assets/FALLBACK.jpg"}
+      />
     </div>
   );
 };

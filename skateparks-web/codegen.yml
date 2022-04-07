@@ -9,6 +9,7 @@ generates:
       - "typescript-react-apollo"
     config:
       typesPrefix: I
+      enumPrefix: false
   ./graphql.schema.json:
     plugins:
       - "introspection"
