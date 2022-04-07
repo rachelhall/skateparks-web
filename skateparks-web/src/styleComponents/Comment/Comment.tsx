@@ -7,6 +7,7 @@ import "./Comment.scss";
 interface IProps {
   user: string;
   comment: string;
+  key: number;
 }
 
 export const Comment: React.FC<IProps> = (props) => {

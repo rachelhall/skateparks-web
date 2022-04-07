@@ -12,10 +12,11 @@ interface IProps {
 }
 
 export const ParkItemBody: React.FC<IProps> = (props) => {
-  const { description, src } = props;
+  const { description, src, onClick } = props;
   const [detailsOpen, setDetailsOpen] = useState(false);
   const handleClick = () => {
-    setDetailsOpen(!detailsOpen);
+    // setDetailsOpen(!detailsOpen);
+    onClick();
   };
   const parkItemContent = () => {
     return (

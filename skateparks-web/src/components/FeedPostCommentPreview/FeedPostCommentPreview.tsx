@@ -4,12 +4,16 @@ import "./FeedPostCommentPreview.scss";
 import Comment from "../../styleComponents/Comment";
 
 interface IProps {
-  comments?: any;
+  comments?: IComments[];
+}
+
+interface IComments {
+  user: string;
+  comment: string;
 }
 
 export const FeedPostCommentPreview: React.FC<IProps> = (props) => {
   const { comments } = props;
-
   return (
     <div className="FeedPostCommentPreview">
       {/* {comments.map((comment, index: Number) => {

@@ -19,6 +19,11 @@ interface IProps {
   location: string | undefined;
 }
 
+interface IComments {
+  user: string;
+  comment: string;
+}
+
 export const FeedPost: React.FC<IProps> = (props) => {
   const {
     comments,
@@ -36,7 +41,6 @@ export const FeedPost: React.FC<IProps> = (props) => {
   const removeLike = () => {
     setTotalLikeCount(totalLikeCount - 1);
   };
-
   return (
     <div className="FeedPost">
       <FeedPostHeader user={user} location={location} />

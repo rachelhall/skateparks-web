@@ -18,34 +18,6 @@ export const FeedView: React.FC<IProps> = (props) => {
         <ParkItem park={park} key={park?.id} />
       ))}
     </div>
-    // <div className="FeedView">
-    //   <ParkItem
-    //     description="Great park with lots of ramps and rails and cool shit"
-    //     parkName="6th Avenue Skatepark"
-    //     rating={3}
-    //     src={ParkItemContent}
-    //   />
-    //   {data?.listParks.parks?.map((park, index) => (
-    //     <FeedPost
-    //       key={index}
-    //       comments={comments}
-    //       user="Bill Trotten"
-    //       src={park}
-    //       filesArray={filesArray}
-    //     />
-    //   ))}
-    //   <ParkItem
-    //     description="Great park with lots of ramps and rails and cool shit"
-    //     parkName="6th Avenue Skatepark"
-    //     rating={3}
-    //     src={ParkItemContent}
-    //   />
-    //   {/* <FeedPost user="profilename" src={filesArray} /> */}
-    //   {/* <FileInput
-    //     selectedFiles={selectedFiles}
-    //     setSelectedFiles={setSelectedFiles}
-    //   /> */}
-    // </div>
   );
 };
 

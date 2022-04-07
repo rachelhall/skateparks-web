@@ -6,8 +6,13 @@ import FeedPostCommentPreview from "../FeedPostCommentPreview";
 import "./FeedPostComments.scss";
 
 interface IProps {
-  comments?: any;
+  comments?: IComments[];
   user: string;
+}
+
+interface IComments {
+  user: string;
+  comment: string;
 }
 
 export const FeedPostComments: React.FC<IProps> = (props) => {
