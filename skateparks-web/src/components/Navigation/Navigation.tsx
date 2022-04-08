@@ -39,8 +39,10 @@ export const Navigation: React.FC<IProps> = (props) => {
       return ENavType.SEARCH;
     } else if (pathname.includes("activity")) {
       return ENavType.ACTIVITY;
-    } else if (pathname.includes("profile")) {
+    } else if (pathname.includes("username")) {
       return ENavType.PROFILE;
+    } else if (pathname.includes("park")) {
+      return ENavType.SEARCH;
     } else {
       return ENavType.FEED;
     }

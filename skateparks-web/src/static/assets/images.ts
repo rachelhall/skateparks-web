@@ -1,1 +1,1 @@
-export const FALLBACK = "FALLBACK.jpg";
+export const FALLBACK = require("./FALLBACK.jpg");

@@ -2,6 +2,8 @@ export const users = [
   {
     handle: "willtrotman",
     name: "Will Trotman",
+    profilePicture: "https://picsum.photos/500",
+    bio: "Bio here",
     following: ["rachelhall", "nyjah", "grindylocks"],
     followers: ["rachelhall", "nyjah", "ryansheckler"],
     posts: [

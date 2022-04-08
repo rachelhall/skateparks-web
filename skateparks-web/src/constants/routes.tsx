@@ -8,6 +8,7 @@ export const ERoutes = {
   NEWPOST: "newpost",
   SEARCH: "search",
   ACTIVITY: "activity",
+  PARK: "park/parkname",
   PROFILE: "p/:username",
   NOT_FOUND: "/not-found",
   CREATEPARK: "createpark",
