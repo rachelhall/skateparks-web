@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+<<<<<<< HEAD
 
 import ParkItemBody from "../ParkItemBody";
 import ParkItemHeader from "../ParkItemHeader";
@@ -6,6 +7,14 @@ import { IPark } from "../../generated/graphql";
 
 import "./ParkItem.scss";
 import { FALLBACK } from "../../static/assets/images";
+=======
+import FeedPostContent from "../FeedPostContent";
+import ParkItemBody from "../ParkItemBody";
+import ParkItemHeader from "../ParkItemHeader";
+import cx from "classnames";
+
+import "./ParkItem.scss";
+>>>>>>> 70443bdb84536e5970b691ec02f1461981486e96
 import Button from "src/styleComponents/Button";
 
 interface IProps {
