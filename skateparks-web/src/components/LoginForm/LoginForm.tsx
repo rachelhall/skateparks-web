@@ -1,21 +1,23 @@
 import React from "react";
 import TextInput from "../../styleComponents/TextInput";
 import Button from "../../styleComponents/Button/Button";
-// import { FEED_VIEW_ROUTE } from "../../apps/SkateparksApp/skateparksAppRoutes";
 
 import "./LoginForm.scss";
+import {
+  FEED_VIEW_ROUTE,
+  SIGNUP_VIEW_ROUTE,
+} from "src/apps/SkateparksApp/skateparksAppRoutes";
+import { Link } from "react-router-dom";
 
 interface IProps {
-  loginInfo: ILoginInfo;
-  setLoginInfo: (newValue: ILoginInfo) => void;
-}
-interface ILoginInfo {
   username: string;
+  setUsername: (newValue: string) => void;
   password: string;
+  setPassword: (newValue: string) => void;
 }
 
 export const LoginForm: React.FC<IProps> = (props) => {
-  const { loginInfo, setLoginInfo } = props;
+  const { username, setUsername, password, setPassword } = props;
   return (
     <div className="LoginForm">
       <form className="LoginForm-form">
@@ -24,9 +26,9 @@ export const LoginForm: React.FC<IProps> = (props) => {
             placeholder=" "
             inputWrapperClass="LoginForm-TextInput"
             labelContent="Username, email, or phone number"
-            value={loginInfo.username}
+            value={username}
             onChange={(value) => {
-              setLoginInfo({ ...loginInfo, username: value });
+              setUsername(value);
             }}
           />
         </div>
@@ -36,18 +38,25 @@ export const LoginForm: React.FC<IProps> = (props) => {
             inputWrapperClass="LoginForm-TextInput"
             labelContent="Password"
             type="password"
-            value={loginInfo.password}
+            value={password}
             onChange={(value) => {
-              setLoginInfo({ ...loginInfo, password: value });
+              setPassword(value);
             }}
           />
         </div>
-        <Button className="LoginForm-Button-login" buttonSize="full">
+        <Button
+          linkTo={FEED_VIEW_ROUTE}
+          className="LoginForm-Button-login"
+          buttonSize="full"
+        >
           Log In
         </Button>
         <a className="LoginForm-link">Forgot password?</a>
         <p className="LoginForm-signUp">
-          Don't have an account? <a className="LoginForm-link">Sign up</a>
+          Don't have an account?{" "}
+          <Link to={SIGNUP_VIEW_ROUTE} className="LoginForm-link">
+            Sign up
+          </Link>
         </p>
       </form>
     </div>

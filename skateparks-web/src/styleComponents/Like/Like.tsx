@@ -1,28 +1,34 @@
 import React from "react";
 import { HeartOutline, Heart } from "react-ionicons";
+import cx from "classnames";
 
 import "./Like.scss";
 
 interface IProps {
+  onClick: () => void;
   prevIsLiked?: boolean;
-  setPrevIsLiked: (value: boolean) => void;
+  className?: string;
 }
 
 export const Like: React.FC<IProps> = (props) => {
-  const { prevIsLiked = false, setPrevIsLiked } = props;
-
-  const toggleLike = () => {
-    setPrevIsLiked(!prevIsLiked);
-  };
+  const { prevIsLiked = false, onClick, className } = props;
+  const mainClass = cx("Like", className);
 
   if (prevIsLiked) {
     return (
-      <Heart onClick={toggleLike} color={"red"} height="29px" width="29px" />
+      <Heart
+        cssClasses={mainClass}
+        onClick={onClick}
+        color={"red"}
+        height="29px"
+        width="29px"
+      />
     );
   } else
     return (
       <HeartOutline
-        onClick={toggleLike}
+        cssClasses={mainClass}
+        onClick={onClick}
         color={"#00000"}
         height="29px"
         width="29px"

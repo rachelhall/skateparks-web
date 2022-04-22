@@ -1,0 +1,56 @@
+.ProfileHeader {
+  // padding: 0.8rem 0;
+  width: 100%;
+}
+
+.ProfileHeader-top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  padding: 0.8rem 1rem 0 1rem;
+}
+
+.ProfileHeader-right {
+  margin-left: 2rem;
+  //   background: red;
+  display: column;
+  flex: auto;
+}
+
+.ProfileHeader-editProfile {
+  margin-top: 0.8rem;
+  border: 1px solid lightgray;
+  border-radius: 0.25rem;
+  padding: 0;
+  height: 1.75rem;
+  font-size: 1rem;
+}
+
+.ProfileHeader-nameBio {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid lightgray;
+  padding: 1rem;
+}
+.ProfileHeader-name {
+  margin-bottom: 0.25rem;
+}
+
+.ProfileHeader-bio {
+  line-height: 1.15rem;
+}
+
+.ProfileHeader-stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 1px solid lightgray;
+  padding: 0.8rem 0;
+}
+
+.ProfileHeader-statContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

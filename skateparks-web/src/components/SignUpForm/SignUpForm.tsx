@@ -6,20 +6,31 @@ import Text from "../../styleComponents/Text";
 import "./SignUpForm.scss";
 
 interface IProps {
-  signUpInfo: ISignUpProps;
-  setSignUpInfo: (newValue: ISignUpProps) => void;
-}
-
-interface ISignUpProps {
   email: string;
   confirmEmail: string;
   name: string;
   username: string;
   password: string;
+  setEmail: (newValue: string) => void;
+  setConfirmEmail: (newValue: string) => void;
+  setName: (newValue: string) => void;
+  setUsername: (newValue: string) => void;
+  setPassword: (newValue: string) => void;
 }
 
 export const SignUpForm: React.FC<IProps> = (props) => {
-  const { signUpInfo, setSignUpInfo } = props;
+  const {
+    email,
+    confirmEmail,
+    name,
+    username,
+    password,
+    setEmail,
+    setConfirmEmail,
+    setName,
+    setUsername,
+    setPassword,
+  } = props;
 
   return (
     <div className="SignUpForm">
@@ -29,9 +40,9 @@ export const SignUpForm: React.FC<IProps> = (props) => {
             placeholder=" "
             inputWrapperClass="SignUpForm-TextInput"
             labelContent="Email"
-            value={signUpInfo.email}
+            value={email}
             onChange={(value) => {
-              setSignUpInfo({ ...signUpInfo, email: value });
+              setEmail(value);
             }}
           />
         </div>
@@ -40,9 +51,9 @@ export const SignUpForm: React.FC<IProps> = (props) => {
             placeholder=" "
             inputWrapperClass="SignUpForm-TextInput"
             labelContent="Confirm email"
-            value={signUpInfo.confirmEmail}
+            value={confirmEmail}
             onChange={(value) => {
-              setSignUpInfo({ ...signUpInfo, confirmEmail: value });
+              setConfirmEmail(value);
             }}
           />
         </div>
@@ -51,9 +62,9 @@ export const SignUpForm: React.FC<IProps> = (props) => {
             placeholder=" "
             inputWrapperClass="SignUpForm-TextInput"
             labelContent="Full Name"
-            value={signUpInfo.name}
+            value={name}
             onChange={(value) => {
-              setSignUpInfo({ ...signUpInfo, name: value });
+              setName(value);
             }}
           />
         </div>
@@ -62,9 +73,9 @@ export const SignUpForm: React.FC<IProps> = (props) => {
             placeholder=" "
             inputWrapperClass="SignUpForm-TextInput"
             labelContent="Username"
-            value={signUpInfo.username}
+            value={username}
             onChange={(value) => {
-              setSignUpInfo({ ...signUpInfo, username: value });
+              setUsername(value);
             }}
           />
         </div>
@@ -75,9 +86,9 @@ export const SignUpForm: React.FC<IProps> = (props) => {
             inputWrapperClass="SignUpForm-TextInput"
             labelContent="Password"
             type="password"
-            value={signUpInfo.password}
+            value={password}
             onChange={(value) => {
-              setSignUpInfo({ ...signUpInfo, password: value });
+              setPassword(value);
             }}
           />
         </div>

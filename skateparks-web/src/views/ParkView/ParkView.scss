@@ -1,2 +1,53 @@
 .ParkView {
+  display: flex;
+  flex-direction: column;
+}
+
+.ParkView-back {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+.ParkView-follow {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.ParkView-infoContainer {
+  padding: 0 1.3rem;
+}
+
+.ParkView-infoSection {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid lightgray;
+  padding: 1.5rem 0;
+}
+
+.ParkView-titleFollowers {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+}
+
+.ParkView-ratingContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.ParkView-rating {
+  margin-left: 5px;
+}
+
+.ParkView-link {
+  color: black;
+}
+
+.ParkView-location {
+  color: rgb(122, 122, 122);
+  text-decoration: underline blackxs;
 }

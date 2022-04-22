@@ -6,14 +6,18 @@ import TextInput from "../TextInput";
 import "./AddComment.scss";
 
 interface IProps {
-  comments?: any;
-  user: string;
+  comments: any;
 }
 
 export const AddComment: React.FC<IProps> = (props) => {
-  const { comments, user } = props;
+  const { comments } = props;
   const [isDisabled, setIsDisabled] = useState(true);
   const [commentText, setCommentText] = useState("");
+
+  const handlePost = () => {
+    comments?.push({ user: "yourmom", comment: commentText });
+    setCommentText("");
+  };
 
   return (
     <div className="AddComment">
@@ -30,7 +34,7 @@ export const AddComment: React.FC<IProps> = (props) => {
         className="AddComment-post"
         buttonSize="xSmall"
         color="transparent"
-        onClick={comments?.push({ user: user, comment: commentText })}
+        onClick={handlePost}
       >
         Post
       </Button>

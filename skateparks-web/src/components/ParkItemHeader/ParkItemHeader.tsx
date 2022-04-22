@@ -1,6 +1,5 @@
 import React from "react";
 import Text from "src/styleComponents/Text";
-import { Star } from "react-ionicons";
 
 import "./ParkItemHeader.scss";
 
@@ -21,7 +20,7 @@ export const ParkItemHeader: React.FC<IProps> = (props) => {
       >
         {parkName}
       </Text>
-      <Star color={"gold"} height="30px" width="30px" />
+
       {/* <Text fontSize="small" className="ParkItemHeader-rating">
         {rating.toString()}
       </Text> */}

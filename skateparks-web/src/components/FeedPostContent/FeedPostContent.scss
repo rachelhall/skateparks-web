@@ -1,32 +1,23 @@
 .FeedPostContent {
   position: relative;
   margin-bottom: 1rem;
-}
-
-.FeedPostContent-container {
-}
-
-.FeedPostContent-container-swipe {
-  display: flex;
-  overflow: hidden;
-}
-
-.FeedPostContent-swipeDotContainer {
-  display: flex;
   width: 100%;
-  justify-content: center;
-  position: absolute;
-  bottom: -15px;
 }
 
-.FeedPostContent-swipeDot {
-  margin: 0 3px;
-  background-color: gray;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
+.swiper {
+  width: 100%;
 }
 
-.FeedPostContent-swipeDot-active {
-  background-color: rgb(98, 140, 255);
+.swiper-button-prev {
+}
+.swiper-button-next {
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+}
+
+.swiper-button-next.swiper-button-disabled,
+.swiper-button-prev.swiper-button-disabled {
+  display: none;
 }

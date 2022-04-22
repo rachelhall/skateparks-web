@@ -5,11 +5,10 @@ import "./FeedPostLikedBy.scss";
 
 interface IProps {
   totalLikeCount: number;
-  setTotalLikeCount: (value: number) => void;
 }
 
 export const FeedPostLikedBy: React.FC<IProps> = (props) => {
-  const { totalLikeCount, setTotalLikeCount } = props;
+  const { totalLikeCount } = props;
 
   return (
     <div className="FeedPostLikedBy">

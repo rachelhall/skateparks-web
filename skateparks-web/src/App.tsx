@@ -8,11 +8,12 @@ import NewPostView from "./views/NewPostView";
 
 export const App = () => {
   const currentView = useRouteRenderer();
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const { pathname } = useLocation();
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [navigationOpen, setNavigationOpen] = useState(true);
 
   const [postIsOpen, setPostIsOpen] = useState<boolean>(false);
-  const navigation = isLoggedIn && (
+  const navigation = navigationOpen && (
     <Navigation setPostIsOpen={setPostIsOpen} pathname={pathname} />
   );
   return (

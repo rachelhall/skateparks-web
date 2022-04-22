@@ -9,7 +9,7 @@ interface IProps extends React.HTMLProps<HTMLButtonElement> {
   ariaLabel?: string;
   buttonRef?: React.RefObject<HTMLButtonElement | HTMLAnchorElement>;
   className?: string;
-  color?: "primary" | "secondary" | "black" | "transparent";
+  color?: "primary" | "secondary" | "black" | "white" | "transparent";
   currentTabLinkTo?: string;
   inline?: boolean;
   isLoading?: boolean;
@@ -97,6 +97,8 @@ export const Button: React.FC<IProps> = (props) => {
       ? "Button-secondary"
       : color === "black"
       ? "Button-black"
+      : color === "white"
+      ? "Button-white"
       : "Button-transparent",
     textButton ? "Button-textButton" : undefined,
     disabled && "Button-disabled"

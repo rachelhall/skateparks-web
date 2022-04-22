@@ -1,23 +1,23 @@
 import React from "react";
 import { BookmarkOutline, Bookmark } from "react-ionicons";
+import cx from "classnames";
 
 import "./Save.scss";
 
 interface IProps {
   prevIsSaved?: boolean;
-  setPrevIsSaved: (value: boolean) => void;
+  onClick: () => void;
+  className?: string;
 }
 
 export const Save: React.FC<IProps> = (props) => {
-  const { prevIsSaved, setPrevIsSaved } = props;
-  const toggleSave = () => {
-    setPrevIsSaved(!prevIsSaved);
-  };
-
+  const { prevIsSaved, onClick, className } = props;
+  const mainClass = cx("Save", className);
   if (prevIsSaved) {
     return (
       <Bookmark
-        onClick={toggleSave}
+        cssClasses={mainClass}
+        onClick={onClick}
         color={"black"}
         height="29px"
         width="29px"
@@ -26,7 +26,8 @@ export const Save: React.FC<IProps> = (props) => {
   } else {
     return (
       <BookmarkOutline
-        onClick={toggleSave}
+        cssClasses={mainClass}
+        onClick={onClick}
         color={"#00000"}
         height="29px"
         width="29px"

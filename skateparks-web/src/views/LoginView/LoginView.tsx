@@ -8,10 +8,11 @@ interface IProps {}
 
 export const LoginView: React.FC<IProps> = (props) => {
   const {} = props;
-  const [loginInfo, setLoginInfo] = useState({
-    username: "",
-    password: "",
-  });
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const [error, setError] = useState("");
+  const isInvalid = password === "" || username === "";
 
   return (
     <div className="LoginView">
@@ -20,7 +21,12 @@ export const LoginView: React.FC<IProps> = (props) => {
           Skateparks
         </Text>
       </div>
-      <LoginForm loginInfo={loginInfo} setLoginInfo={setLoginInfo} />
+      <LoginForm
+        username={username}
+        setUsername={setUsername}
+        password={password}
+        setPassword={setPassword}
+      />
     </div>
   );
 };

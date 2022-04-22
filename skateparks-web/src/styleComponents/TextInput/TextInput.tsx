@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import cx from "classnames";
 
 import "./TextInput.scss";
@@ -86,6 +86,14 @@ export const TextInput: React.FC<IProps> = (props) => {
     }
   };
 
+  const labelRef = useRef();
+
+  const handleLabelClick = () => {
+    console.log("working");
+    //@ts-ignore
+    labelRef?.current?.click();
+  };
+
   const mainClass = cx("TextInput", inputWrapperClass);
   const inputClass = cx("textInputField", className);
   if (label || labelContent) {
@@ -97,6 +105,8 @@ export const TextInput: React.FC<IProps> = (props) => {
         // fontWeight={labelWeight}
         label={label}
         // subLabel={subLabel}
+        //@ts-ignore
+        labelRef={labelRef}
       >
         {children}
         <input
@@ -113,7 +123,9 @@ export const TextInput: React.FC<IProps> = (props) => {
           {...inputProps}
         />
         {labelContent && (
-          <label className="TextInput-labelContent">{labelContent}</label>
+          <label onClick={handleLabelClick} className="TextInput-labelContent">
+            {labelContent}
+          </label>
         )}
       </TextInputLabel>
     );

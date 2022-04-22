@@ -2,11 +2,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 1.5rem;
+  // margin-top: 1.5rem;
   // background-color: rgb(245, 245, 245);
   overflow: hidden;
 }
 
+.FeedView-postContainer {
+  width: 100%;
+}
+
 .FeedView > * {
-  margin-bottom: 1.5rem;
+  // margin-bottom: 1.5rem;
 }

@@ -7,6 +7,7 @@
   align-items: center;
   font-size: 1.2rem;
   cursor: pointer;
+  text-decoration: none;
 }
 
 // Width
@@ -69,6 +70,11 @@
 .Button-black {
   background-color: black;
   color: white;
+}
+
+.Button-white {
+  background-color: white;
+  color: black;
 }
 
 .Button-transparent {

@@ -1,40 +1,35 @@
 import React from "react";
 import ContentPiece from "src/components/ContentPiece";
+import { IPark } from "src/generated/graphql";
 import { FALLBACK } from "../../static/assets/images";
-import Text from "../Text";
-
+import Text from "../../styleComponents/Text";
 import "./ParkSearchResult.scss";
 
 interface IProps {
-  city: string;
-  description: string;
-  image?: string | null;
-  onClick?: () => void;
-  state: string;
-  title: string;
+  park: IPark;
 }
 
 export const ParkSearchResult: React.FC<IProps> = (props) => {
-  const { city, description, image, onClick, state, title } = props;
+  const { park } = props;
 
   return (
-    <div onClick={onClick} className="ParkSearchResult">
+    <div className="ParkSearchResult">
       <ContentPiece
         className="ParkSearchResult-image"
-        src={image ?? FALLBACK}
+        src={park.imageUrl ?? FALLBACK}
       />
       <Text
         className="ParkSearchResult-text"
         fontSize="small"
         fontWeight="bold"
       >
-        {title}
+        {park.title}
       </Text>
       <Text className="ParkSearchResult-text" fontSize="small">
-        {city}, {state}
+        {park.city}, {park.state}
       </Text>
       <Text className="ParkSearchResult-text" fontSize="xSmall">
-        {description}
+        {park.description}
       </Text>
     </div>
   );

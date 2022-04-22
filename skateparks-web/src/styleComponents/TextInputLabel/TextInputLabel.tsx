@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import cx from "classnames";
 
 import "./TextInputLabel.scss";
@@ -10,17 +10,26 @@ interface IProps {
   fontSize?: string;
   fontWeight?: string;
   color?: string;
+  labelRef?: React.RefObject<HTMLLabelElement>;
 }
 
 export const TextInputLabel: React.FC<IProps> = (props) => {
-  const { children, className, label, subLabel, fontSize, fontWeight, color } =
-    props;
+  const {
+    children,
+    className,
+    label,
+    subLabel,
+    fontSize,
+    fontWeight,
+    color,
+    labelRef,
+  } = props;
 
   const mainClass = cx("TextInputLabel", className);
 
   return (
     <div className="TextInputLabel">
-      <label className={mainClass}>
+      <label ref={labelRef} className={mainClass}>
         {!!label && <p>{label}</p>}
         {children}
         {!!subLabel && <p>{subLabel}</p>}

@@ -8,8 +8,14 @@ export const users = [
     followers: ["rachelhall", "nyjah", "ryansheckler"],
     posts: [
       {
+        created: 1650295825764,
         location: "Nashville",
-        src: ["https://picsum.photos/500", "https://picsum.photos/600"],
+        src: [
+          "https://picsum.photos/700",
+          "https://picsum.photos/500",
+          "https://picsum.photos/600",
+        ],
+        caption: "We chillin n shit this skatepark dope af",
         likedBy: ["rachelhall", "ryansheckler", "nyjah", "grindylocks"],
         comments: [
           {
@@ -27,12 +33,48 @@ export const users = [
     ],
   },
   {
+    handle: "cbaby33",
+    name: "Christian Wearsch",
+    profilePicture: "https://picsum.photos/500",
+    bio: "Just a cool Colorado guy with a little bit of attitude",
+    following: ["willtrotman", "nyjah", "grindylocks", "skater301"],
+    followers: ["willtrotman", "nyjah", "ryansheckler"],
+    posts: [
+      {
+        created: 1650299825764,
+        location: "Denver",
+        src: [
+          "https://picsum.photos/700",
+          "https://picsum.photos/500",
+          "https://picsum.photos/600",
+          "https://picsum.photos/600",
+          "https://picsum.photos/600",
+        ],
+        caption: "yoyoyo we chillin",
+        likedBy: ["willtrotman", "ryansheckler", "nyjah", "grindylocks"],
+        comments: [
+          {
+            user: "willtrotman",
+            comment: "dude unreal kickflip",
+          },
+          {
+            user: "skater301",
+            comment: "this sucks",
+          },
+          { user: "grindylocks", comment: "yo yo yo" },
+        ],
+        savedBy: ["nyjah", "willtrotman", "grindylocks"],
+      },
+    ],
+  },
+  {
     handle: "rachelhall",
     name: "Rachel Hall",
     following: ["willtrotman", "nyjah", "grindylocks", "ryansheckler"],
     followers: ["willtrotman", "grindylocks", "ryansheckler", "nyjah"],
     posts: [
       {
+        created: 1630195825764,
         location: "San Diego",
         src: ["https://picsum.photos/500", "https://picsum.photos/600"],
         likedBy: ["rachelhall", "ryansheckler", "nyjah", "grindylocks"],
@@ -51,10 +93,10 @@ export const users = [
       },
     ],
   },
-  { handle: "ryansheckler", name: "Ryan Sheckler" },
-  { handle: "nyjah", name: "Nyjah Houston" },
-  { handle: "skater301", name: "Kevin Smith" },
-  { handle: "grindylocks", name: "Bob Jones" },
+  // { handle: "ryansheckler", name: "Ryan Sheckler" },
+  // { handle: "nyjah", name: "Nyjah Houston" },
+  // { handle: "skater301", name: "Kevin Smith" },
+  // { handle: "grindylocks", name: "Bob Jones" },
 ];
 
 export const posts = [

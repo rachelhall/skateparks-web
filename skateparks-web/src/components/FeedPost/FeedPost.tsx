@@ -10,58 +10,79 @@ import FileInput from "../../styleComponents/FileInput";
 import { IPark } from "src/generated/graphql";
 import FeedPostComments from "../FeedPostComments";
 
-interface IProps {
-  user: string;
-  className?: string;
-  comments?: any;
-  src: IPark;
-  filesArray: any;
-  location: string | undefined;
-}
-
 interface IComments {
   user: string;
   comment: string;
 }
 
+interface IPost {
+  location: string;
+  src: string[];
+  comments: IComments[];
+  likedBy: string[];
+  savedBy: string[];
+  caption?: string;
+}
+
+interface IProps {
+  user: string;
+  post: IPost;
+  commentsOpen: number | null;
+  setCommentsOpen: (newValue: number | null) => void;
+  postIndex: number;
+}
+
 export const FeedPost: React.FC<IProps> = (props) => {
-  const {
-    comments,
-    // src,
-    user,
-    filesArray,
-    location,
-  } = props;
-  const [prevIsLiked, setPrevIsLiked] = useState(false);
+  const { user, post, postIndex, commentsOpen, setCommentsOpen } = props;
+
+  // Initial data
+  const currentUser = "currentUser";
+  const initialLikeState = post.likedBy.includes(currentUser) ? true : false;
+
+  // State for interactions
+  const [prevIsLiked, setPrevIsLiked] = useState(initialLikeState);
   const [prevIsSaved, setPrevIsSaved] = useState(false);
-  const [totalLikeCount, setTotalLikeCount] = useState(10);
-  const addLike = () => {
-    setTotalLikeCount(totalLikeCount + 1);
+  const [postLikedBy, setPostLikedBy] = useState(post.likedBy);
+  const totalLikeCount = post.likedBy.length;
+
+  // Toggle likes and saves
+
+  const toggleIsLiked = () => {
+    setPrevIsLiked(!prevIsLiked);
+    if (prevIsLiked) {
+      const filteredLikes = post.likedBy.filter((user) => {
+        return user !== currentUser;
+      });
+      setPostLikedBy(filteredLikes);
+    } else {
+      postLikedBy.push(currentUser);
+    }
   };
-  const removeLike = () => {
-    setTotalLikeCount(totalLikeCount - 1);
+  const toggleIsSaved = () => {
+    setPrevIsSaved(!prevIsSaved);
   };
+
   return (
     <div className="FeedPost">
-      <FeedPostHeader user={user} location={location} />
-      <FeedPostContent src={filesArray} />
+      <FeedPostHeader user={user} location={post.location} />
+      <FeedPostContent src={post.src} />
       <div className="FeedPost-bottom">
         <FeedPostInteractions
+          onClickLike={toggleIsLiked}
+          onClickSave={toggleIsSaved}
           prevIsLiked={prevIsLiked}
-          setPrevIsLiked={setPrevIsLiked}
           prevIsSaved={prevIsSaved}
-          setPrevIsSaved={setPrevIsSaved}
+          onClickComment={() => setCommentsOpen(postIndex)}
         />
-        <FeedPostLikedBy
-          totalLikeCount={totalLikeCount}
-          setTotalLikeCount={setTotalLikeCount}
-        />
+        <FeedPostLikedBy totalLikeCount={totalLikeCount} />
 
-        <FeedPostCaption
-          caption="We chillin n shit this skatepark dope af"
-          user={user}
+        <FeedPostCaption caption={post.caption} user={user} />
+        <FeedPostComments
+          postIndex={postIndex}
+          comments={post.comments}
+          commentsOpen={commentsOpen}
+          setCommentsOpen={setCommentsOpen}
         />
-        <FeedPostComments user={user} comments={comments} />
       </div>
     </div>
   );

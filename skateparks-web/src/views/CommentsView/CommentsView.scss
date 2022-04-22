@@ -1,0 +1,38 @@
+.CommentsView {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: white;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.CommentsView-header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  width: 100%;
+  border-bottom: 1px solid lightgray;
+}
+
+.CommentsView-back {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+}
+
+.CommentsView-comments {
+  width: 100%;
+  padding: 1rem;
+}
+
+.CommentsView-comment {
+  width: 100%;
+  padding: 0.4rem 0;
+}

@@ -8,23 +8,25 @@ import "./FeedPostInteractions.scss";
 
 interface IProps {
   prevIsLiked?: boolean;
-  setPrevIsLiked: (value: boolean) => void;
   prevIsSaved?: boolean;
-  setPrevIsSaved: (value: boolean) => void;
+  onClickLike: () => void;
+  onClickSave: () => void;
+  onClickComment: () => void;
 }
 
 export const FeedPostInteractions: React.FC<IProps> = (props) => {
-  const { prevIsLiked, setPrevIsLiked, prevIsSaved, setPrevIsSaved } = props;
+  const { prevIsLiked, prevIsSaved, onClickLike, onClickSave, onClickComment } =
+    props;
 
   return (
     <div className="FeedPostInteractions">
       <div className="FeedPostInteractions-left">
-        <Like prevIsLiked={prevIsLiked} setPrevIsLiked={setPrevIsLiked} />
-        <CommentIcon />
+        <Like prevIsLiked={prevIsLiked} onClick={onClickLike} />
+        <CommentIcon onClick={onClickComment} />
         <Share />
       </div>
       <div className="FeedPostInteractions-right">
-        <Save prevIsSaved={prevIsSaved} setPrevIsSaved={setPrevIsSaved} />
+        <Save onClick={onClickSave} prevIsSaved={prevIsSaved} />
       </div>
     </div>
   );

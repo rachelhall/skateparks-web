@@ -8,13 +8,11 @@ interface IProps {}
 
 export const SignUpView: React.FC<IProps> = (props) => {
   const {} = props;
-  const [signUpInfo, setSignUpInfo] = useState({
-    email: "",
-    confirmEmail: "",
-    name: "",
-    username: "",
-    password: "",
-  });
+  const [email, setEmail] = useState("");
+  const [confirmEmail, setConfirmEmail] = useState("");
+  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   return (
     <div className="SignUpView">
@@ -23,7 +21,18 @@ export const SignUpView: React.FC<IProps> = (props) => {
           Skateparks
         </Text>
       </div>
-      <SignUpForm signUpInfo={signUpInfo} setSignUpInfo={setSignUpInfo} />
+      <SignUpForm
+        email={email}
+        setEmail={setEmail}
+        confirmEmail={confirmEmail}
+        setConfirmEmail={setConfirmEmail}
+        name={name}
+        setName={setName}
+        username={username}
+        setUsername={setUsername}
+        password={password}
+        setPassword={setPassword}
+      />
     </div>
   );
 };

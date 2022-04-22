@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import AddComment from "src/styleComponents/AddComment";
 import Button from "src/styleComponents/Button";
 import FeedPostCommentPreview from "../FeedPostCommentPreview";
@@ -7,7 +8,9 @@ import "./FeedPostComments.scss";
 
 interface IProps {
   comments?: IComments[];
-  user: string;
+  commentsOpen: number | null;
+  setCommentsOpen: (newValue: number | null) => void;
+  postIndex: number;
 }
 
 interface IComments {
@@ -16,15 +19,34 @@ interface IComments {
 }
 
 export const FeedPostComments: React.FC<IProps> = (props) => {
-  const { comments, user } = props;
-  const commentCount = comments && comments.length;
+  const { comments, commentsOpen, setCommentsOpen, postIndex } = props;
+  const handleCommentsClick = (postIndex: number) => {
+    setCommentsOpen(postIndex);
+    if (typeof window != "undefined" && window.document) {
+      document.body.style.overflow = "hidden";
+    }
+  };
   return (
     <div className="FeedPostComments">
-      <Button className="FeedPostComments-viewAll" textButton={true}>
-        View all {commentCount} comments
-      </Button>
-      <FeedPostCommentPreview comments={comments} />
-      <AddComment user={user} />
+      {comments && comments.length >= 3 && (
+        <Button
+          onClick={() => handleCommentsClick(postIndex)}
+          className="FeedPostComments-viewAll"
+          textButton={true}
+        >
+          View all {comments.length} comments
+        </Button>
+      )}
+      {comments?.slice(0, 3).map((item) => {
+        return (
+          <FeedPostCommentPreview
+            key={`${item.user}-${item.comment}`}
+            user={item.user}
+            comment={item.comment}
+          />
+        );
+      })}
+      {/* <AddComment comments={comments} /> */}
     </div>
   );
 };
