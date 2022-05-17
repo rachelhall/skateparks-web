@@ -37,7 +37,7 @@ export const FeedPostComments: React.FC<IProps> = (props) => {
           View all {comments.length} comments
         </Button>
       )}
-      {comments?.slice(0, 3).map((item) => {
+      {comments?.slice(0, 2).map((item) => {
         return (
           <FeedPostCommentPreview
             key={`${item.user}-${item.comment}`}

@@ -2,13 +2,22 @@
   background-color: white;
   padding: 1rem 0.5rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  max-width: 100%;
   width: 100%;
   overflow: hidden;
   border-bottom: 1px solid lightgray;
 }
+
+.Navigation-container {
+  max-width: 975px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+}
+
 .Navigation-logo {
   font-size: 1.25rem;
 }

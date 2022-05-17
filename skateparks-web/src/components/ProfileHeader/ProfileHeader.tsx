@@ -20,7 +20,11 @@ export const ProfileHeader: React.FC<IProps> = (props) => {
   return (
     <div className="ProfileHeader">
       <div className="ProfileHeader-top">
-        <ProfilePic size="large" image="https://picsum.photos/500" />
+        <ProfilePic
+          className="ProfileHeader-pic"
+          size="large"
+          image="https://picsum.photos/500"
+        />
         <div className="ProfileHeader-right">
           <Text>{user}</Text>
           <Button

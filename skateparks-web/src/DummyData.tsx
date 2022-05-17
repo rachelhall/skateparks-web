@@ -15,7 +15,8 @@ export const users = [
           "https://picsum.photos/500",
           "https://picsum.photos/600",
         ],
-        caption: "We chillin n shit this skatepark dope af",
+        caption:
+          "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos optio distinctio architecto cum, corporis accusamus. Laborum dolorem provident soluta esse at. Dicta assumenda aliquam commodi facilis voluptate odio accusantium quibusdam.",
         likedBy: ["rachelhall", "ryansheckler", "nyjah", "grindylocks"],
         comments: [
           {
@@ -135,25 +136,14 @@ export const comments = [
   },
   {
     user: "Rob Dyrdek",
-    comment: "This isn't shit compared to my fantasy factory fuck you poser",
+    comment: "Message",
   },
 ];
 
 export const messages = [
   { user: "olliemckickflip", lastMessage: "sounds good peace" },
   { user: "nyjah", lastMessage: "Yo what's up" },
-  { user: "Rob Dyrdek", lastMessage: "My fantasy factory is better" },
-  { user: "Donald Trump", lastMessage: "Have you seen my new tre flip video?" },
-  {
-    user: "Hillary Clinton",
-    lastMessage: "Donald Trump can't tre flip for shit",
-  },
-  { user: "Bernie Sanders", lastMessage: "I am the only true skater" },
-  { user: "Bernie Sanders", lastMessage: "I am the only true skater" },
-  { user: "Bernie Sanders", lastMessage: "I am the only true skater" },
-  { user: "Bernie Sanders", lastMessage: "I am the only true skater" },
-  { user: "Bernie Sanders", lastMessage: "I am the only true skater" },
-  { user: "Bernie Sanders", lastMessage: "I am the only true skater" },
+  { user: "user87", lastMessage: "GrindyLocks is sick" },
 ];
 
 export const ParkItemContent = [

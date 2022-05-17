@@ -57,41 +57,43 @@ export const Navigation: React.FC<IProps> = (props) => {
 
   return (
     <div className="Navigation">
-      <div className="Navigation-left">
-        <Text className="Navigation-logo">GrindyLocks</Text>
-      </div>
-      <div className="Navigation-right">
-        <NavButton
-          className="Navigation-button"
-          type={ENavType.FEED}
-          activeView={activeView}
-        />
-        <NavButton
-          className="Navigation-button"
-          type={ENavType.MESSAGES}
-          activeView={activeView}
-        />
-        <NavButton
-          className="Navigation-button"
-          onClick={handlePostClick}
-          type={ENavType.POST}
-          activeView={activeView}
-        />
-        <NavButton
-          className="Navigation-button"
-          type={ENavType.SEARCH}
-          activeView={activeView}
-        />
-        <NavButton
-          className="Navigation-button"
-          type={ENavType.ACTIVITY}
-          activeView={activeView}
-        />
-        <NavButton
-          className="Navigation-button"
-          type={ENavType.PROFILE}
-          activeView={activeView}
-        />
+      <div className="Navigation-container">
+        <div className="Navigation-left">
+          <Text className="Navigation-logo">GrindyLocks</Text>
+        </div>
+        <div className="Navigation-right">
+          <NavButton
+            className="Navigation-button"
+            type={ENavType.FEED}
+            activeView={activeView}
+          />
+          <NavButton
+            className="Navigation-button"
+            type={ENavType.MESSAGES}
+            activeView={activeView}
+          />
+          <NavButton
+            className="Navigation-button"
+            onClick={handlePostClick}
+            type={ENavType.POST}
+            activeView={activeView}
+          />
+          <NavButton
+            className="Navigation-button"
+            type={ENavType.SEARCH}
+            activeView={activeView}
+          />
+          <NavButton
+            className="Navigation-button"
+            type={ENavType.ACTIVITY}
+            activeView={activeView}
+          />
+          <NavButton
+            className="Navigation-button"
+            type={ENavType.PROFILE}
+            activeView={activeView}
+          />
+        </div>
       </div>
     </div>
   );

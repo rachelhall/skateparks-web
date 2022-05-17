@@ -1,3 +1,5 @@
+@import "../../styles/index.scss";
+
 .FeedView {
   display: flex;
   flex-direction: column;
@@ -5,10 +7,17 @@
   // margin-top: 1.5rem;
   // background-color: rgb(245, 245, 245);
   overflow: hidden;
+  max-width: 100%;
+  @include largerThanPhoneBreak {
+    padding-top: 2rem;
+  }
 }
 
 .FeedView-postContainer {
   width: 100%;
+  @include largerThanPhoneBreak {
+    width: 38rem;
+  }
 }
 
 .FeedView > * {
