@@ -13,8 +13,8 @@ export const NewPostView: React.FC<IProps> = (props) => {
   const { setPostIsOpen } = props;
 
   const closePost = () => {
-    setPostIsOpen(false);
-    document.body.style.overflow = "unset";
+    // setPostIsOpen(false);
+    // document.body.style.overflow = "unset";
   };
   return (
     <div className="NewPostView">

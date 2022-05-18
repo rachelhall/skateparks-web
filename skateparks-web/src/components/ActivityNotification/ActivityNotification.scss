@@ -1,0 +1,23 @@
+.ActivityNotification {
+  background: white;
+  display: flex;
+  padding: 0.7rem 1rem;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ActivityNotification-left {
+  display: flex;
+  align-items: center;
+}
+
+.ActivityNotification-user {
+  font-weight: bold;
+  padding-right: 0.25rem;
+  padding-left: 1rem;
+}
+
+.ActivityNotification-close:hover {
+  cursor: pointer;
+}

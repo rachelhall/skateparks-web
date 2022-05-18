@@ -110,6 +110,7 @@ export const NewParkGeneralInfoForm: React.FC<IProps> = (props) => {
             value={generalInfo.country}
           />
           <input
+            className="NewParkGeneralInfoForm-fileInput"
             type="file"
             id="FileInput"
             ref={fileUploadRef}

@@ -31,11 +31,9 @@ export const Navigation: React.FC<IProps> = (props) => {
       return ENavType.FEED;
     } else if (pathname.includes("messages")) {
       return ENavType.MESSAGES;
-    }
-    // else if (pathname.includes("newpost")) {
-    //   return ENavType.POST;
-    // }
-    else if (pathname.includes("search")) {
+    } else if (pathname.includes("createpark")) {
+      return ENavType.POST;
+    } else if (pathname.includes("search")) {
       return ENavType.SEARCH;
     } else if (pathname.includes("activity")) {
       return ENavType.ACTIVITY;
@@ -50,9 +48,9 @@ export const Navigation: React.FC<IProps> = (props) => {
 
   const handlePostClick = () => {
     setPostIsOpen(true);
-    if (typeof window != "undefined" && window.document) {
-      document.body.style.overflow = "hidden";
-    }
+    // if (typeof window != "undefined" && window.document) {
+    //   document.body.style.overflow = "hidden";
+    // }
   };
 
   return (
