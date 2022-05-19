@@ -21,7 +21,7 @@ export const CreateNewParkView: React.FC<IProps> = (props) => {
   const [generalInfo, setGeneralInfo] = useState({
     name: "",
     description: "",
-    streetNumber: 0,
+    streetNumber: "",
     streetName: "",
     city: "",
     state: "",

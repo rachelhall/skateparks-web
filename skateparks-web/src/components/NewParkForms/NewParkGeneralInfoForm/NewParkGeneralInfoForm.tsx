@@ -60,8 +60,9 @@ export const NewParkGeneralInfoForm: React.FC<IProps> = (props) => {
           <TextInput
             className="NewParkGeneralInfoForm-TextInput"
             labelContent="Street Number"
+            placeholder=" "
             onChange={(value) => {
-              setGeneralInfo({ ...generalInfo, streetNumber: parseInt(value) });
+              setGeneralInfo({ ...generalInfo, streetNumber: value });
             }}
             value={generalInfo.streetNumber}
           />
