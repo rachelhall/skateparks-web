@@ -19,7 +19,7 @@ export const App = () => {
   return (
     <main role="main">
       {navigation}
-      {postIsOpen && <NewPostView setPostIsOpen={setPostIsOpen} />}
+      {/* {postIsOpen && <NewPostView setPostIsOpen={setPostIsOpen} />} */}
       {currentView}
     </main>
   );

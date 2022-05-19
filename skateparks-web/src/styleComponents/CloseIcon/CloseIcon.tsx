@@ -7,10 +7,12 @@ import "./CloseIcon.scss";
 interface IProps {
   className?: string;
   onClick?: () => void;
+  height?: string;
+  width?: string;
 }
 
 export const CloseIcon: React.FC<IProps> = (props) => {
-  const { className, onClick } = props;
+  const { className, onClick, height = "40px", width = "40px" } = props;
 
   const mainClass = cx("CloseIcon", className);
   return (
@@ -18,8 +20,8 @@ export const CloseIcon: React.FC<IProps> = (props) => {
       onClick={onClick}
       cssClasses={mainClass}
       color={"#00000"}
-      height="40px"
-      width="40px"
+      height={height}
+      width={width}
     />
   );
 };

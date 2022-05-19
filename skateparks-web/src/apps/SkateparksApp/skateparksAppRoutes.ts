@@ -9,6 +9,7 @@ import SearchView from "src/views/SearchView";
 import ActivityView from "src/views/ActivityView";
 import ProfileView from "src/views/ProfileView";
 import ParkView from "src/views/ParkView";
+import CreateNewParkView from "src/views/CreateNewParkView";
 const AR = `/app`;
 
 export const LOGIN_VIEW_ROUTE = `${AR}/login`;
@@ -21,6 +22,7 @@ export const SEARCH_VIEW_ROUTE = `${AR}/search`;
 export const ACTIVITY_VIEW_ROUTE = `${AR}/activity`;
 export const PROFILE_VIEW_ROUTE = `${AR}/p/:username`;
 export const PARK_VIEW_ROUTE = `${AR}/park/parkname`;
+export const CREATE_PARK_VIEW_ROUTE = `${AR}/createpark`;
 
 export const routes: IRoute[] = [
   { component: LoginView, path: LOGIN_VIEW_ROUTE },
@@ -33,6 +35,7 @@ export const routes: IRoute[] = [
   { component: ActivityView, path: ACTIVITY_VIEW_ROUTE },
   { component: ProfileView, path: PROFILE_VIEW_ROUTE },
   { component: ParkView, path: PARK_VIEW_ROUTE },
+  { component: CreateNewParkView, path: CREATE_PARK_VIEW_ROUTE },
 ];
 
 export const skateparkAppRoutes: IRoute[] = [...routes];
