@@ -1,18 +1,43 @@
 import LoginForm from "../../components/LoginForm/LoginForm";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Text from "../../styleComponents/Text";
 
 import "./LoginView.scss";
+
+import { login } from "src/api/login";
+import { useNavigate } from "react-router-dom";
+import { FEED_VIEW_ROUTE } from "src/apps/SkateparksApp/skateparksAppRoutes";
 
 interface IProps {}
 
 export const LoginView: React.FC<IProps> = (props) => {
   const {} = props;
-  const [username, setUsername] = useState("");
+
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const [error, setError] = useState("");
-  const isInvalid = password === "" || username === "";
+  const isInvalid = password === "" || email === "";
+
+  const localAPI = `http://127.0.0.1:8000/api/`;
+
+  const navigate = useNavigate();
+
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const isLoggedIn = await login({ email, password });
+    if (isLoggedIn) {
+      navigate(FEED_VIEW_ROUTE);
+    } else {
+      setError("invalid credentials");
+    }
+  };
+
+  const navigateToFeed = () => {};
+
+  useEffect(() => {
+    navigateToFeed();
+  });
 
   return (
     <div className="LoginView">
@@ -22,10 +47,11 @@ export const LoginView: React.FC<IProps> = (props) => {
         </Text>
       </div>
       <LoginForm
-        username={username}
-        setUsername={setUsername}
+        email={email}
+        setEmail={setEmail}
         password={password}
         setPassword={setPassword}
+        handleLogin={handleLogin}
       />
     </div>
   );

@@ -1,6 +1,6 @@
 import React from "react";
 import ContentPiece from "src/components/ContentPiece";
-import { IPark } from "src/generated/graphql";
+import { IPark } from "src/types/park";
 import { FALLBACK } from "../../static/assets/images";
 import Text from "../../styleComponents/Text";
 import "./ParkSearchResult.scss";
@@ -14,16 +14,13 @@ export const ParkSearchResult: React.FC<IProps> = (props) => {
 
   return (
     <div className="ParkSearchResult">
-      <ContentPiece
-        className="ParkSearchResult-image"
-        src={park.imageUrl ?? FALLBACK}
-      />
+      <ContentPiece className="ParkSearchResult-image" src={park.image} />
       <Text
         className="ParkSearchResult-text"
         fontSize="small"
         fontWeight="bold"
       >
-        {park.title}
+        {park.name}
       </Text>
       <Text className="ParkSearchResult-text" fontSize="small">
         {park.city}, {park.state}

@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import "./AnonHomeView.scss";
 import Text from "../../styleComponents/Text";
 import Button from "src/styleComponents/Button";
 import { LOGIN_VIEW_ROUTE } from "src/apps/SkateparksApp/skateparksAppRoutes";
+import axios from "axios";
 
 interface IProps {}
 

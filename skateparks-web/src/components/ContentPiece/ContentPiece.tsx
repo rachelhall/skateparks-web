@@ -18,7 +18,7 @@ export const ContentPiece: React.FC<IProps> = (props) => {
     video ? "ContentPiece-video" : "ContentPiece-photo"
   );
 
-  return <img src={src ?? FALLBACK} alt="skatepark" className={mainClass} />;
+  return <img src={src} alt="skatepark" className={mainClass} />;
 };
 
 export default ContentPiece;

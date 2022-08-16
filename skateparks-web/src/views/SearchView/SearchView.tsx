@@ -1,25 +1,27 @@
 import React, { useState } from "react";
-import { IPark, useParksQuery } from "src/generated/graphql";
+
 import "./SearchView.scss";
 import SearchInput from "src/styleComponents/SearchInput";
 import ParkSearchResult from "src/components/ParkSearchResult";
 import { Link } from "react-router-dom";
 import { PARK_VIEW_ROUTE } from "src/apps/SkateparksApp/skateparksAppRoutes";
 
+import { useGetParks } from "src/api/useGetParks";
+
 interface IProps {}
 
 export const SearchView: React.FC<IProps> = (props) => {
   const {} = props;
-  const { data } = useParksQuery();
-  const parks = data?.listParks.parks;
+
+  const parks = useGetParks();
 
   const [inputValue, setInputValue] = useState("");
 
-  const filteredParks = parks?.filter((park) => {
-    if (inputValue.length > 0) {
-      return park.title.toLowerCase().includes(inputValue.toLowerCase());
-    } else return parks;
-  });
+  // const filteredParks = parks?.filter((park) => {
+  //   if (inputValue.length > 0) {
+  //     return park.title.toLowerCase().includes(inputValue.toLowerCase());
+  //   } else return parks;
+  // });
 
   return (
     <div className="SearchView">
@@ -34,7 +36,7 @@ export const SearchView: React.FC<IProps> = (props) => {
         />
       </div>
 
-      {filteredParks?.map((park, index) => (
+      {parks?.map((park, index) => (
         <Link
           className="SearchView-Link"
           to={PARK_VIEW_ROUTE}

@@ -3,10 +3,10 @@ import React from "react";
 import "./NewParkRampsForm.scss";
 import SelectorInput from "../../../styleComponents/SelectorInput/SelectorInput";
 import Text from "../../../styleComponents/Text/Text";
-import { ramps } from "../../../DummyData";
-import { EElement } from "src/generated/graphql";
+
 import { elements } from "../../../localModels/elements";
 import ElementSelector from "src/components/ElementSelector";
+import { EElement } from "src/types/enums";
 
 interface IProps {
   rampInfo: EElement[];

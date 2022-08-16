@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import "./ParkView.scss";
 import { IPark } from "../../generated/graphql";
@@ -9,6 +9,8 @@ import BackIcon from "../../styleComponents/BackIcon";
 import Button from "src/styleComponents/Button";
 import Text from "../../styleComponents/Text";
 import StarIcon from "../../styleComponents/StarIcon";
+import axios from "axios";
+import { getToken } from "src/utils/localStorage";
 
 interface IProps {}
 

@@ -10,25 +10,27 @@ import {
 import { Link } from "react-router-dom";
 
 interface IProps {
-  username: string;
-  setUsername: (newValue: string) => void;
+  email: string;
+  setEmail: (newValue: string) => void;
   password: string;
   setPassword: (newValue: string) => void;
+  handleLogin: (e: React.FormEvent<HTMLFormElement>) => void;
 }
 
 export const LoginForm: React.FC<IProps> = (props) => {
-  const { username, setUsername, password, setPassword } = props;
+  const { email, setEmail, password, setPassword, handleLogin } = props;
+
   return (
     <div className="LoginForm">
-      <form className="LoginForm-form">
+      <form className="LoginForm-form" onSubmit={(e) => handleLogin(e)}>
         <div className="LoginForm-inputContainer">
           <TextInput
             placeholder=" "
             inputWrapperClass="LoginForm-TextInput"
-            labelContent="Username, email, or phone number"
-            value={username}
+            labelContent="email, email, or phone number"
+            value={email}
             onChange={(value) => {
-              setUsername(value);
+              setEmail(value);
             }}
           />
         </div>
@@ -45,7 +47,7 @@ export const LoginForm: React.FC<IProps> = (props) => {
           />
         </div>
         <Button
-          linkTo={FEED_VIEW_ROUTE}
+          // linkTo={FEED_VIEW_ROUTE}
           className="LoginForm-Button-login"
           buttonSize="full"
         >

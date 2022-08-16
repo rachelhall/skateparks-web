@@ -1,6 +1,7 @@
 import React from "react";
-import { EElement, ERails } from "src/generated/graphql";
+
 import SelectorInput from "src/styleComponents/SelectorInput";
+import { EElement, ERails } from "src/types/enums";
 
 import "./ElementSelector.scss";
 
