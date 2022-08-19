@@ -20,13 +20,13 @@ export const NewParkGeneralInfoForm: React.FC<IProps> = (props) => {
       setImagePreview(URL.createObjectURL(e.target.files[0]));
       setGeneralInfo({
         ...generalInfo,
-        imageUrl: e.target.files[0],
+        imageUrl: e.target.files,
       });
     }
   };
   //MAKE A DEDICATED FILE UPLOAD STYLE COMPONENT
 
-  useEffect(() => console.log(generalInfo.imageUrl), [generalInfo]);
+  useEffect(() => console.log(generalInfo.imageUrl[0]), [generalInfo]);
 
   return (
     <div className="NewParkGeneralInfoForm">

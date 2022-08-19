@@ -16,6 +16,7 @@ import SearchView from "src/views/SearchView";
 import ActivityView from "src/views/ActivityView";
 import ProfileView from "src/views/ProfileView";
 import ParkView from "src/views/ParkView";
+import CreatePostView from "src/views/CreatePostView";
 
 export const useRouteRenderer = () => {
   return useRoutes([
@@ -31,7 +32,7 @@ export const useRouteRenderer = () => {
         { path: "playground", element: <PlaygroundView /> },
         { path: "*", element: <NoMatchView /> },
         { path: ERoutes.MESSAGES, element: <MessagesView /> },
-        { path: ERoutes.NEWPOST, element: <NewPostView /> },
+        { path: ERoutes.CREATE_POST, element: <CreatePostView /> },
         { path: ERoutes.SEARCH, element: <SearchView /> },
         { path: ERoutes.ACTIVITY, element: <ActivityView /> },
         { path: ERoutes.PROFILE, element: <ProfileView /> },

@@ -5,7 +5,7 @@ export const ERoutes = {
   SIGN_UP: "signup",
   FEED: "feed",
   MESSAGES: "messages",
-  NEWPOST: "newpost",
+  CREATE_POST: "createPost",
   SEARCH: "search",
   ACTIVITY: "activity",
   PARK: "park/parkname",

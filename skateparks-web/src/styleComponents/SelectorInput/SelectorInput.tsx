@@ -3,7 +3,6 @@ import cx from "classnames";
 
 import "./SelectorInput.scss";
 import Text from "../Text/Text";
-import { EElement } from "src/generated/graphql";
 
 interface IProps {
   className?: string;

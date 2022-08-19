@@ -1,4 +1,4 @@
-import { EElement, ERails } from "../generated/graphql";
+import { EElement, ERails } from "src/types/enums";
 
 export const elements = [
   EElement.Bowl,

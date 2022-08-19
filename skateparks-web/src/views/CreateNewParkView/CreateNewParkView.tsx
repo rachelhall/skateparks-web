@@ -7,7 +7,8 @@ import Button from "../../styleComponents/Button/Button";
 import NewParkGeneralInfoForm from "../../components/NewParkForms/NewParkGeneralInfoForm";
 import NewParkRampsForm from "../../components/NewParkForms/NewParkRampsForm/NewParkRampsForm";
 import NewParkRailsForm from "../../components/NewParkForms/NewParkRailsForm/NewParkRailsForm";
-import { EElement, ERails, useCreateParkMutation } from "src/generated/graphql";
+import { EElement, ERails } from "src/types/enums";
+import { createPark } from "src/api/createPark";
 
 // import Text from "../../styleComponents/Text/Text";
 
@@ -21,10 +22,11 @@ export const CreateNewParkView: React.FC<IProps> = (props) => {
   const [generalInfo, setGeneralInfo] = useState({
     name: "",
     description: "",
-    streetNumber: "",
+    streetNumber: 0,
     streetName: "",
     city: "",
     state: "",
+    postalCode: 0,
     country: "",
     imageUrl: "",
   });
@@ -32,34 +34,29 @@ export const CreateNewParkView: React.FC<IProps> = (props) => {
   const [rampInfo, setRampInfo] = useState<EElement[]>([]);
   const [railInfo, setRailInfo] = useState<ERails[]>([]);
 
-  const [createPark] = useCreateParkMutation({
-    variables: {
-      title: generalInfo.name,
-      description: generalInfo.description,
-      streetNumber: generalInfo.streetNumber,
-      streetName: generalInfo.streetName,
+  const handleSubmitPark = useCallback(async () => {
+    createPark({
+      name: generalInfo.name,
+      street_number: generalInfo.streetNumber,
+      street_name: generalInfo.streetName,
       city: generalInfo.city,
       state: generalInfo.state,
+      postal_code: generalInfo.postalCode,
       country: generalInfo.country,
-      imageUrl: generalInfo.imageUrl,
-      elements: [...rampInfo, ...(railInfo as unknown as EElement[])],
-    },
-  });
-
-  const handleSubmitPark = useCallback(async () => {
-    const result = await createPark();
-    // variables: {
-    //   title: generalInfo.name,
-    //   description: generalInfo.description,
-    //   streetNumber: generalInfo.streetNumber,
-    //   streetName: generalInfo.streetName,
-    //   city: generalInfo.city,
-    //   state: generalInfo.state,
-    //   country: generalInfo.country,
-    //   elements: [...rampInfo, ...(railInfo as unknown as EElement[])],
-    // },
-    console.log({ result });
-  }, [createPark]);
+      description: generalInfo.description,
+      image: generalInfo.imageUrl,
+    });
+  }, [
+    generalInfo.city,
+    generalInfo.country,
+    generalInfo.description,
+    generalInfo.imageUrl,
+    generalInfo.name,
+    generalInfo.postalCode,
+    generalInfo.state,
+    generalInfo.streetName,
+    generalInfo.streetNumber,
+  ]);
 
   // Array for form JSX components
 

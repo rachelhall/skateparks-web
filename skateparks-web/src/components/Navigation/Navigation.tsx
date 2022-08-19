@@ -33,6 +33,8 @@ export const Navigation: React.FC<IProps> = (props) => {
       return ENavType.MESSAGES;
     } else if (pathname.includes("createpark")) {
       return ENavType.POST;
+    } else if (pathname.includes("createPost")) {
+      return ENavType.POST;
     } else if (pathname.includes("search")) {
       return ENavType.SEARCH;
     } else if (pathname.includes("activity")) {

@@ -4,18 +4,18 @@ import "./NewParkRailsForm.scss";
 import SelectorInput from "../../../styleComponents/SelectorInput/SelectorInput";
 import Text from "../../../styleComponents/Text/Text";
 import ElementSelector from "src/components/ElementSelector";
-import { ERails } from "src/generated/graphql";
+
 import { elements, rails } from "src/localModels/elements";
 import FileSelectModal from "src/components/FileSelectModal";
 interface IProps {
-  railInfo: ERails[];
-  setRailInfo: (newValue: ERails[]) => void;
+  railInfo: any[];
+  setRailInfo: (newValue: any[]) => void;
 }
 
 export const NewParkRailsForm: React.FC<IProps> = (props) => {
   const { railInfo = [], setRailInfo } = props;
 
-  const railSelectors = rails.map((rail: ERails, index) => {
+  const railSelectors = rails.map((rail: any, index) => {
     const handleClick = () => {
       if (railInfo.includes(rail)) {
         const filteredRailInfo = railInfo.filter((r) => {

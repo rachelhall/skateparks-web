@@ -12,8 +12,8 @@ import {
   ACTIVITY_VIEW_ROUTE,
   FEED_VIEW_ROUTE,
   MESSAGES_VIEW_ROUTE,
-  NEWPOST_VIEW_ROUTE,
   CREATE_PARK_VIEW_ROUTE,
+  CREATE_POST_VIEW_ROUTE,
   PROFILE_VIEW_ROUTE,
   SEARCH_VIEW_ROUTE,
 } from "src/apps/SkateparksApp/skateparksAppRoutes";
@@ -45,7 +45,7 @@ export const NavButton: React.FC<IProps> = (props) => {
       case ENavType.MESSAGES:
         return MESSAGES_VIEW_ROUTE;
       case ENavType.POST:
-        return CREATE_PARK_VIEW_ROUTE;
+        return CREATE_POST_VIEW_ROUTE;
       case ENavType.SEARCH:
         return SEARCH_VIEW_ROUTE;
       case ENavType.ACTIVITY:

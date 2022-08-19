@@ -1,5 +1,4 @@
 export interface IPark {
-  id: string;
   name: string;
   street_number: number;
   street_name: string;

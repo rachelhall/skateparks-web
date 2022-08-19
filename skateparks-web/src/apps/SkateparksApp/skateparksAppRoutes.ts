@@ -10,6 +10,7 @@ import ActivityView from "src/views/ActivityView";
 import ProfileView from "src/views/ProfileView";
 import ParkView from "src/views/ParkView";
 import CreateNewParkView from "src/views/CreateNewParkView";
+import CreatePostView from "src/views/CreatePostView";
 const AR = `/app`;
 
 export const LOGIN_VIEW_ROUTE = `${AR}/login`;
@@ -17,7 +18,7 @@ export const SIGNUP_VIEW_ROUTE = `${AR}/signup`;
 export const PLAYGROUND_VIEW_ROUTE = `${AR}/playground`;
 export const FEED_VIEW_ROUTE = `${AR}/feed`;
 export const MESSAGES_VIEW_ROUTE = `${AR}/messages`;
-export const NEWPOST_VIEW_ROUTE = `${AR}/newpost`;
+export const CREATE_POST_VIEW_ROUTE = `${AR}/createPost`;
 export const SEARCH_VIEW_ROUTE = `${AR}/search`;
 export const ACTIVITY_VIEW_ROUTE = `${AR}/activity`;
 export const PROFILE_VIEW_ROUTE = `${AR}/p/:username`;
@@ -30,7 +31,7 @@ export const routes: IRoute[] = [
   { component: PlaygroundView, path: PLAYGROUND_VIEW_ROUTE },
   { component: FeedView, path: FEED_VIEW_ROUTE },
   { component: MessagesView, path: MESSAGES_VIEW_ROUTE },
-  { component: NewPostView, path: NEWPOST_VIEW_ROUTE },
+  { component: CreatePostView, path: CREATE_POST_VIEW_ROUTE },
   { component: SearchView, path: SEARCH_VIEW_ROUTE },
   { component: ActivityView, path: ACTIVITY_VIEW_ROUTE },
   { component: ProfileView, path: PROFILE_VIEW_ROUTE },
